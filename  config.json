@@ -1,0 +1,17 @@
+{
+  "ESTUDIANTES": {
+    "Jorge": {"pass": "22€admkn92deto", "saldo": 54000, "admin": true},
+    "Mathias": {"pass": "WWEOmarhi2", "saldo": 0, "admin": false},
+    "Achury": {"pass": "11#2maek30", "saldo": 0, "admin": false},
+    "Sara": {"pass": "100(#woo", "saldo": 0, "admin": false},
+    "Hellen": {"pass": "sangusoo299", "saldo": 0, "admin": false}
+  },
+  "MONTOS_CANJE": [100, 200, 500, 1000, 2000, 5000, 10000, 15000, 20000, 30000, 40000, 50000, 60000, 80000, 100000],
+  "CODIGOS_ESTRELLAS": {
+    "100": "STAR-100-KF92MX", "200": "STAR-200-PL48QW", "500": "STAR-500-ZN73VB",
+    "1000": "STAR-1K-RT29HC", "2000": "STAR-2K-DS61JP", "5000": "STAR-5K-GX84LW",
+    "10000": "STAR-10K-BM37YR", "15000": "STAR-15K-VN92KD", "20000": "STAR-20K-FQ58TH",
+    "30000": "STAR-30K-PR71MX", "40000": "STAR-40K-ND49CZ", "50000": "STAR-50K-WB26JL",
+    "60000": "STAR-60K-HX83QP", "80000": "STAR-80K-MV51KN", "100000": "STAR-100K-ZT94DR"
+  }
+}
