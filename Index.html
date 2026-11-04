@@ -1,0 +1,574 @@
+ <html style="margin:0;padding:0;">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+(function(){
+  var s = document.createElement('style');
+  s.textContent = `
+    :root{
+      --bg:#0f172a;
+      --card:#1e293b;
+      --text:#f8fafc;
+      --muted:#94a3b8;
+      --accent:#f59e0b;
+      --accent-soft:rgba(245,158,11,.18);
+      --vip:#a855f7;
+      --vip-soft:rgba(168,85,247,.18);
+      --ok:#10b981;
+      --bad:#ef4444;
+      --gris:#475569;
+      --border:rgba(148,163,184,.2)
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:'Fredoka',sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}
+    .pantalla{display:none;animation:entrar .35s ease}
+    .pantalla.activa{display:block}
+    @keyframes entrar{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .btn{
+      width:100%;padding:16px;border-radius:14px;border:none;font-size:17px;font-weight:600;
+      cursor:pointer;transition:all .15s ease;background:var(--accent-soft);color:var(--accent);
+      border:1px solid var(--border);touch-action:manipulation;user-select:none
+    }
+    .btn:active{transform:scale(0.97)}
+    .btn:disabled{background:#1e293b;color:var(--gris);border-color:var(--border);cursor:not-allowed;opacity:.6}
+    .btn:disabled:active{transform:none}
+    .btn-vip{background:var(--vip-soft);color:var(--vip);border-color:rgba(168,85,247,.3)}
+    .btn-secundario{background:var(--card);color:var(--text)}
+    .btn-peligro{background:rgba(239,68,68,.15);color:#fca5a5}
+    .btn-exito{background:rgba(16,185,129,.15);color:#6ee7b7}
+    .btn-admin{background:linear-gradient(135deg,var(--vip-soft),var(--accent-soft));color:var(--vip);border-color:rgba(168,85,247,.4)}
+    .tarjeta{
+      background:var(--card);border:1px solid var(--border);border-radius:18px;
+      padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.25);margin-bottom:14px
+    }
+    input{
+      width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--border);
+      background:#0b1220;color:var(--text);font-size:16px;outline:none;font-family:inherit
+    }
+    input:focus{border-color:var(--accent)}
+    .estrella{color:var(--accent);font-weight:700}
+    .vip{color:var(--vip);font-weight:700}
+    .alerta{padding:12px;border-radius:10px;margin-bottom:14px;font-weight:500;text-align:center}
+    .alerta-error{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
+    .alerta-bien{background:rgba(16,185,129,.15);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}
+    .opcion-estrella{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:14px 16px;background:#0b1220;border:1px solid var(--border);
+      border-radius:12px;margin-bottom:10px;cursor:pointer;touch-action:manipulation;
+      transition:all .15s ease;user-select:none
+    }
+    .opcion-estrella:active{transform:scale(0.98);border-color:var(--accent)}
+    .monto{font-size:19px;font-weight:700;color:var(--accent)}
+    .no-disponible{
+      display:inline-block;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:600;
+      background:rgba(71,85,105,.3);color:var(--gris);margin-bottom:8px
+    }
+    .pregunta{margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--border)}
+    .pregunta:last-child{border:none;margin:0;padding:0}
+    .respuesta{color:var(--accent);font-weight:600;margin-top:4px}
+    .fila-admin{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:12px 14px;background:#0b1220;border-radius:10px;margin-bottom:8px;
+      border:1px solid var(--border)
+    }
+  `;
+  document.head.appendChild(s);
+})();
+</script>
+<div style="background-color:transparent;box-sizing:border-box;">
+  <div style="min-height:100vh;padding:24px 16px 60px">
+    <div class="max-w-md mx-auto">
+
+      <!-- TÍTULO PRINCIPAL -->
+      <div style="text-align:center;margin-bottom:28px">
+        <h1 style="font-size:30px;font-weight:800;margin:0;line-height:1.15">
+          <span style="color:var(--accent)">TIENDA</span> EDITOR DE <span style="color:var(--accent)">JORGE</span>
+        </h1>
+        <p style="color:var(--muted);margin-top:8px;font-size:14px">Sistema de tareas y estrellas ⭐</p>
+      </div>
+
+      <!-- P1: ELEGIR ESTUDIANTE -->
+      <div id="p-elegir" class="pantalla activa">
+        <div class="tarjeta">
+          <h2 style="font-size:20px;margin:0 0 6px 0">👋 Elige tu nombre de estudiante</h2>
+          <p style="color:var(--muted);margin:0 0 20px 0;font-size:14px">Selecciona tu perfil para continuar</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <button class="btn btn-vip" onclick="seleccionar('Jorge')">👑 JORGE (ADMIN VIP)</button>
+            <button class="btn" onclick="seleccionar('Mathias')">🧑‍💻 MATHIAS</button>
+            <button class="btn" onclick="seleccionar('Achury')">📘 ACHURY</button>
+            <button class="btn" onclick="seleccionar('Sara')">📚 SARA</button>
+            <button class="btn" onclick="seleccionar('Hellen')">✏️ HELLEN</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- P2: CONTRASEÑA -->
+      <div id="p-pass" class="pantalla">
+        <div class="tarjeta">
+          <h2 style="font-size:20px;margin:0 0 6px 0">🔐 Ingresa la contraseña</h2>
+          <p style="color:var(--muted);margin:0 0 16px 0;font-size:14px">
+            Perfil: <strong id="pass-nombre" style="color:var(--accent)"></strong>
+          </p>
+          <div id="pass-alerta"></div>
+          <label style="font-size:14px;color:var(--muted)">POR FAVOR INGRESA LA CONTRASEÑA:</label>
+          <input type="password" id="input-pass" style="margin-top:8px;margin-bottom:14px" placeholder="Escribe aquí..." autocomplete="off">
+          <div style="display:flex;gap:10px">
+            <button class="btn btn-secundario" onclick="ir('p-elegir');limpiarAlerta()">← Atrás</button>
+            <button class="btn" onclick="verificarPass()">Entrar →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- P3: MENÚ PRINCIPAL -->
+      <div id="p-menu" class="pantalla">
+        <div class="tarjeta">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <p style="color:var(--muted);margin:0;font-size:13px">Hola,</p>
+              <h2 id="menu-nombre" style="font-size:22px;margin:2px 0 0 0"></h2>
+              <span id="menu-vip" class="vip" style="font-size:12px;display:none">✨ ADMIN vip</span>
+            </div>
+            <div style="text-align:right">
+              <p style="color:var(--muted);margin:0;font-size:13px">Saldo</p>
+              <p id="menu-saldo" class="estrella" style="font-size:22px;margin:2px 0 0 0">0⭐</p>
+            </div>
+          </div>
+        </div>
+        <div class="tarjeta">
+          <h3 style="margin:0 0 16px 0;font-size:18px">📋 Menú principal</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <button class="btn" onclick="ir('p-perfil')">👤 PERFIL</button>
+            <button class="btn btn-vip" onclick="ir('p-tienda')">💎 TIENDA (CANJEAR ⭐)</button>
+            <button class="btn" onclick="ir('p-comprar')">🛒 COMPRAR TAREA</button>
+            <button id="btn-admin" class="btn btn-admin" style="display:none" onclick="ir('p-admin')">🔑 VER CÓDIGOS Y CONTRASEÑAS</button>
+            <button class="btn btn-peligro" onclick="cerrarSesion()">🚪 Cerrar sesión</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- P4: PERFIL -->
+      <div id="p-perfil" class="pantalla">
+        <div class="tarjeta">
+          <h2 style="font-size:20px;margin:0 0 18px 0">👤 Mi perfil</h2>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:16px">
+            <div style="padding:12px;background:#0b1220;border-radius:10px;border:1px solid var(--border)">
+              <span style="color:var(--muted)">ID:</span>
+              <strong style="float:right">11200</strong>
+            </div>
+            <div style="padding:12px;background:#0b1220;border-radius:10px;border:1px solid var(--border)">
+              <span style="color:var(--muted)">NOMBRE DE ESTUDIANTE:</span>
+              <strong id="perfil-nombre" style="float:right;color:var(--accent)"></strong>
+            </div>
+            <div id="perfil-vip-box" style="padding:12px;background:var(--vip-soft);border-radius:10px;border:1px solid rgba(168,85,247,.3);display:none;text-align:center">
+              <span class="vip" style="font-size:17px">✨ ADMIN vip ✨</span>
+            </div>
+            <div style="padding:12px;background:#0b1220;border-radius:10px;border:1px solid var(--border)">
+              <span style="color:var(--muted)">SALDO:</span>
+              <strong id="perfil-saldo" class="estrella" style="float:right;font-size:18px">0⭐</strong>
+            </div>
+          </div>
+          <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">← Volver al menú</button>
+        </div>
+      </div>
+
+      <!-- P5: TIENDA CANJEAR ⭐ -->
+      <div id="p-tienda" class="pantalla">
+        <div class="tarjeta">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h2 style="font-size:20px;margin:0">💎 TIENDA</h2>
+            <span id="tienda-saldo" class="estrella" style="font-size:17px">0⭐</span>
+          </div>
+          <p style="color:var(--muted);margin:8px 0 0 0;font-size:13px">Elige opciones de compra de ⭐</p>
+        </div>
+        <div id="tienda-alerta"></div>
+        <div id="lista-opciones"></div>
+        <button class="btn btn-secundario" style="margin-top:6px" onclick="ir('p-menu')">← Volver al menú</button>
+      </div>
+
+      <!-- P6: COMPRAR TAREA -->
+      <div id="p-comprar" class="pantalla">
+        <div class="tarjeta">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <h2 style="font-size:20px;margin:0">🛒 Comprar tarea</h2>
+            <span id="comprar-saldo" class="estrella" style="font-size:17px">0⭐</span>
+          </div>
+          <p style="color:var(--muted);margin:8px 0 0 0;font-size:13px">Selecciona la tarea que quieras comprar</p>
+        </div>
+        <div id="comprar-alerta"></div>
+
+        <!-- TAREA ESPAÑOL - DISPONIBLE -->
+        <div class="tarjeta" style="margin-bottom:14px">
+          <h3 style="margin:0 0 8px 0;color:var(--accent)">📝 TAREA ESPAÑOL</h3>
+          <p style="margin:0 0 10px 0;color:var(--muted);font-size:15px;line-height:1.5">
+            Tarea de comprensión lectora completa
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <span class="estrella" style="font-size:18px">COSTO: 500⭐</span>
+            <button class="btn btn-exito" style="width:auto;padding:10px 18px;font-size:15px" onclick="comprar('Español',500)">Comprar</button>
+          </div>
+        </div>
+
+        <!-- TAREA INGLÉS - NO DISPONIBLE -->
+        <div class="tarjeta" style="margin-bottom:14px;opacity:.75">
+          <span class="no-disponible">⏳ NO DISPONIBLE POR AHORA</span>
+          <h3 style="margin:0 0 8px 0;color:var(--gris)">🌍 TAREA INGLÉS</h3>
+          <p style="margin:0 0 10px 0;color:var(--gris);font-size:15px;line-height:1.5">
+            Tarea de inglés de palabras FOTOCOPIA
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <span style="font-size:18px;color:var(--gris);font-weight:700">COSTO: 1000⭐</span>
+            <button class="btn" style="width:auto;padding:10px 18px;font-size:15px" disabled>Bloqueado</button>
+          </div>
+        </div>
+
+        <!-- TAREA BIOLOGÍA - NO DISPONIBLE -->
+        <div class="tarjeta" style="margin-bottom:14px;opacity:.75">
+          <span class="no-disponible">⏳ NO DISPONIBLE POR AHORA</span>
+          <h3 style="margin:0 0 8px 0;color:var(--gris)">🧬 TAREA BIOLOGÍA</h3>
+          <p style="margin:0 0 10px 0;color:var(--gris);font-size:15px;line-height:1.5">
+            Tarea de biología completa
+          </p>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <span style="font-size:18px;color:var(--gris);font-weight:700">COSTO: 2400⭐</span>
+            <button class="btn" style="width:auto;padding:10px 18px;font-size:15px" disabled>Bloqueado</button>
+          </div>
+        </div>
+
+        <button class="btn btn-secundario" onclick="ir('p-menu')">← Volver al menú</button>
+      </div>
+
+      <!-- P7: TAREA COMPRADA - CONTENIDO COMPLETO DE ESPAÑOL -->
+      <div id="p-tarea" class="pantalla">
+        <div class="tarjeta">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+            <h2 id="tarea-titulo" style="font-size:20px;margin:0">📝 TAREA COMPRADA</h2>
+            <span id="tarea-costo" class="estrella" style="font-size:15px"></span>
+          </div>
+          <div id="tarea-contenido" style="font-size:15px;line-height:1.7">
+
+            <!-- ========== TAREA DE ESPAÑOL COMPLETA (TODO JUNTO, SIN PARTES) ========== -->
+            <h3 style="color:var(--accent);margin:0 0 12px 0;font-size:18px">COMPRENSIÓN LECTORA — MITO DE PEGASO</h3>
+
+            <div class="pregunta">
+              <p><strong>1. ¿De dónde nació Pegaso?</strong></p>
+              <p>A. Nació pegoso &nbsp;&nbsp; B. Helicon &nbsp;&nbsp; C. Perseo &nbsp;&nbsp; D. Belerofonte, príncipe de Corinto</p>
+              <p class="respuesta">✅ RESPUESTA CORRECTA: D — De la sangre de la Gorgona Medusa</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>2. ¿Se dieron cuenta de que Pegaso era un ser mágico?</strong></p>
+              <p>A. Surgió una fuente de oro &nbsp;&nbsp; B. Aceptó unos brindis de honor</p>
+              <p>C. Fue cuidado por las musas &nbsp;&nbsp; D. Era tranquilo pero muy fuerte</p>
+              <p class="respuesta">✅ RESPUESTA CORRECTA: A — Donde Pegaso puso su pata brotó una fuente de oro mágica</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>3. ¿Qué era Pegaso?</strong></p>
+              <p>A. Un caballo &nbsp;&nbsp; B. Un dios &nbsp;&nbsp; C. Un hijo de Zeus &nbsp;&nbsp; D. Un hijo de Atenea</p>
+              <p class="respuesta">✅ RESPUESTA CORRECTA: A — Era un caballo alado mágico</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>4. ¿Qué pasó con el picaro de la mora pegosa?</strong></p>
+              <p>A. Se lo quedó Belerofonte &nbsp;&nbsp; B. Se lo dieron a las musas</p>
+              <p>C. Se quedó con Zeus &nbsp;&nbsp; D. Se fue a vivir al monte Helicon</p>
+              <p class="respuesta">✅ RESPUESTA CORRECTA: C — Al final se quedó con Zeus en el Olimpo</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>5. ¿Por qué los hombres querían poseer a Pegaso?</strong></p>
+              <p>A. Porque era pegoso &nbsp;&nbsp; B. Porque tenía un cabello mágico</p>
+              <p class="respuesta">✅ RESPUESTA: Porque era un ser mágico, único y muy poderoso</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>6. ¿Por qué Zeus quería tener a Pegaso?</strong></p>
+              <p class="respuesta">✅ RESPUESTA CORRECTA: C — Para que llevara sus rayos y truenos por el cielo</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>7. ¿Qué hizo que Pegaso tirara a Belerofonte y cayera al suelo?</strong></p>
+              <p>A. Un rayo de Zeus &nbsp;&nbsp; B. Una mosca que envió Zeus &nbsp;&nbsp; C. Una serpiente &nbsp;&nbsp; D. El viento fuerte</p>
+              <p class="respuesta">✅ RESPUESTA CORRECTA: B — Zeus mandó una mosca que picó a Pegaso</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>8. El texto anterior es:</strong></p>
+              <p>A. Una noticia &nbsp;&nbsp; B. Un mito &nbsp;&nbsp; C. Un cuento de hadas &nbsp;&nbsp; D. Una leyenda</p>
+              <p class="respuesta">✅ RESPUESTA CORRECTA: B — Es un mito griego</p>
+            </div>
+
+            <hr style="border-color:var(--border);margin:22px 0">
+
+            <h3 style="color:var(--accent);margin:0 0 12px 0;font-size:18px">COMPRENSIÓN LECTORA — EL ORIGEN DEL MUNDO</h3>
+
+            <div class="pregunta">
+              <p><strong>¿Cómo era la tierra al principio?</strong></p>
+              <p class="respuesta">✅ La tierra estaba completamente de noche, todo era oscuridad.</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>¿Quiénes vivían en la tierra al principio?</strong></p>
+              <p class="respuesta">✅ Vivían solo 2 personas, no había nadie más.</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>¿Cómo nació la raza humana?</strong></p>
+              <p class="respuesta">✅ Nació cuando uno de ellos creó varios muñecos de barro y esos se convirtieron en los cuerpos de los hombres y mujeres.</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>¿Cómo nació el sol?</strong></p>
+              <p class="respuesta">✅ Nació cuando un coquito de romirigui subió muy alto a las alturas y allí se convirtió en el sol, que da luz de día.</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>¿Cómo nació la luna?</strong></p>
+              <p class="respuesta">✅ Nació cuando en la noche otro coquito siguió el camino de su sobrino y se convirtió en la luna, que da luz de noche.</p>
+            </div>
+
+            <div class="pregunta">
+              <p><strong>¿Qué nombre le dieron al sol y a la luna?</strong></p>
+              <p class="respuesta">✅ Al sol le pusieron de nombre <strong>Zuo</strong> y a la luna le pusieron <strong>Chio</strong>.</p>
+            </div>
+
+          </div>
+          <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-comprar')">← Volver a tareas</button>
+        </div>
+      </div>
+
+      <!-- P8: PANTALLA SECRETA SOLO PARA JORGE ADMIN VIP -->
+      <div id="p-admin" class="pantalla">
+        <div class="tarjeta" style="background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(245,158,11,.10));border-color:rgba(168,85,247,.35)">
+          <h2 style="font-size:20px;margin:0 0 4px 0;color:var(--vip)">🔑 CÓDIGOS Y CONTRASEÑAS</h2>
+          <p style="color:var(--muted);margin:0 0 18px 0;font-size:13px">ACCESO EXCLUSIVO — SOLO ADMIN VIP ✨</p>
+
+          <h4 style="margin:18px 0 10px 0;color:var(--accent)">🔐 CONTRASEÑAS DE TODOS LOS PERFILES</h4>
+          <div id="admin-pass"></div>
+
+          <h4 style="margin:22px 0 10px 0;color:var(--accent)">💎 CÓDIGOS DE CANJE DE ⭐ (15 OPCIONES)</h4>
+          <div id="admin-codigos"></div>
+
+          <button class="btn btn-vip" style="margin-top:20px" onclick="ir('p-menu')">← Volver al menú</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+ </html>
+let ESTUDIANTES, MONTOS_CANJE, CODIGOS_ESTRELLAS;
+
+async function cargarConfig() {
+  const res = await fetch('config.json');
+  const cfg = await res.json();
+  ESTUDIANTES = cfg.ESTUDIANTES;
+  MONTOS_CANJE = cfg.MONTOS_CANJE;
+  CODIGOS_ESTRELLAS = cfg.CODIGOS_ESTRELLAS;
+  
+  Object.keys(ESTUDIANTES).forEach(nombre => {
+    if (nombre === "Jorge") return;
+    const guardado = localStorage.getItem("saldo_" + nombre);
+    if (guardado !== null) ESTUDIANTES[nombre].saldo = parseInt(guardado);
+  });
+}
+
+cargarConfig();
+<script>
+// ==================================================
+// ⚙️ LÓGICA PRINCIPAL — TODO FUNCIONA DESDE AQUÍ
+// ==================================================
+
+// 🔄 IR A OTRA PANTALLA (NAVEGACIÓN)
+function ir(idPantalla){
+  // Seguridad: SOLO JORGE ADMIN puede entrar a la pantalla de códigos
+  if(idPantalla === "p-admin" && actual && !ESTUDIANTES[actual.nombre].admin){
+    mostrarAlerta("comprar-alerta","error","⛔ ACCESO DENEGADO — solo para ADMIN VIP");
+    return;
+  }
+
+  // Ocultar todas, mostrar solo la pedida
+  document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
+  document.getElementById(idPantalla).classList.add("activa");
+  limpiarAlerta();
+
+  // Actualizar datos según la pantalla
+  if(idPantalla === "p-menu")   actualizarMenu();
+  if(idPantalla === "p-perfil") actualizarPerfil();
+  if(idPantalla === "p-tienda") actualizarTienda();
+  if(idPantalla === "p-comprar"){
+    document.getElementById("comprar-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
+  }
+  if(idPantalla === "p-admin")  cargarAdmin();
+  if(idPantalla === "p-pass"){
+    document.getElementById("input-pass").value = "";
+    setTimeout(()=>document.getElementById("input-pass").focus(),80);
+  }
+}
+
+// 🧹 LIMPIAR MENSAJES DE ERROR / ÉXITO
+function limpiarAlerta(){
+  ["pass-alerta","tienda-alerta","comprar-alerta"].forEach(id => {
+    const caja = document.getElementById(id);
+    if(caja) caja.innerHTML = "";
+  });
+}
+function mostrarAlerta(id,tipo,texto){
+  document.getElementById(id).innerHTML =
+    `<div class="alerta alerta-${tipo}">${texto}</div>`;
+}
+
+// 👆 SELECCIONAR UN ESTUDIANTE DEL MENÚ INICIAL
+function seleccionar(nombre){
+  actual = { nombre: nombre };
+  document.getElementById("pass-nombre").textContent = nombre.toUpperCase();
+  ir("p-pass");
+}
+
+// 🔐 VERIFICAR SI LA CONTRASEÑA ES CORRECTA
+function verificarPass(){
+  const escrita = document.getElementById("input-pass").value;
+  const correcta = ESTUDIANTES[actual.nombre].pass;
+
+  if(escrita === correcta){
+    // ✅ BIEN — entrar al menú
+    ir("p-menu");
+  } else {
+    // ❌ MAL — no accede
+    mostrarAlerta("pass-alerta","error","❌ CONTRASEÑA INCORRECTA — NO PUEDES ACCEDER");
+    document.getElementById("input-pass").value = "";
+    document.getElementById("input-pass").focus();
+  }
+}
+
+// 🚪 CERRAR SESIÓN
+function cerrarSesion(){
+  actual = null;
+  ir("p-elegir");
+}
+
+// 📝 ACTUALIZAR MENÚ PRINCIPAL
+function actualizarMenu(){
+  const datos = ESTUDIANTES[actual.nombre];
+  document.getElementById("menu-nombre").textContent = actual.nombre.toUpperCase();
+  document.getElementById("menu-saldo").textContent = datos.saldo + "⭐";
+
+  // Mostrar cosas SOLO SI ES JORGE ADMIN
+  const etiquetaVip = document.getElementById("menu-vip");
+  const botonAdmin = document.getElementById("btn-admin");
+  if(datos.admin){
+    etiquetaVip.style.display = "inline";
+    botonAdmin.style.display = "block";
+  } else {
+    etiquetaVip.style.display = "none";
+    botonAdmin.style.display = "none";
+  }
+}
+
+// 👤 ACTUALIZAR PERFIL
+function actualizarPerfil(){
+  const datos = ESTUDIANTES[actual.nombre];
+  document.getElementById("perfil-nombre").textContent = actual.nombre.toUpperCase();
+  document.getElementById("perfil-saldo").textContent = datos.saldo + "⭐";
+  document.getElementById("perfil-vip-box").style.display = datos.admin ? "block" : "none";
+}
+
+// 💎 CARGAR LAS 15 OPCIONES DE CANJE DE ⭐ EN LA TIENDA
+function actualizarTienda(){
+  const datos = ESTUDIANTES[actual.nombre];
+  document.getElementById("tienda-saldo").textContent = datos.saldo + "⭐";
+  const lista = document.getElementById("lista-opciones");
+  lista.innerHTML = "";
+
+  MONTOS_CANJE.forEach(monto => {
+    const fila = document.createElement("div");
+    fila.className = "opcion-estrella";
+    fila.innerHTML = `
+      <span class="monto">+${monto}⭐</span>
+      <span style="color:var(--accent);font-weight:600">Canjear código →</span>
+    `;
+    fila.onclick = () => abrirCanje(monto);
+    lista.appendChild(fila);
+  });
+}
+
+// 🎟️ ABRIR VENTANA PARA PONER EL CÓDIGO DE CANJE
+function abrirCanje(monto){
+  const codigoIngresado = prompt(
+    `⭐ CANJEAR ${monto} ESTRELLAS\n\nINGRESA CONTRASEÑA DE ⭐ AQUI:`
+  );
+  if(!codigoIngresado) return; // si le da cancelar no hace nada
+
+  const codigoCorrecto = CODIGOS_ESTRELLAS[monto];
+
+  if(codigoIngresado.trim() === codigoCorrecto){
+    // ✅ CÓDIGO BUENO — SUMAR ⭐
+    ESTUDIANTES[actual.nombre].saldo += monto;
+    localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
+    actualizarTienda();
+    mostrarAlerta("tienda-alerta","bien",`✅ RECIBISTE ${monto}⭐ — YA SE SUMARON A TU SALDO`);
+  } else {
+    // ❌ CÓDIGO MALO
+    mostrarAlerta("tienda-alerta","error","❌ CÓDIGO INCORRECTO — no se agregaron estrellas");
+  }
+}
+
+// 🛒 COMPRAR UNA TAREA (COBRA ⭐ SOLO SI TIENE SUFICIENTES)
+function comprar(materia, costo){
+  const saldo = ESTUDIANTES[actual.nombre].saldo;
+
+  // 1 — VERIFICAR SI TIENE SUFICIENTES ⭐
+  if(saldo < costo){
+    const faltan = costo - saldo;
+    mostrarAlerta("comprar-alerta","error",
+      `❌ NO TIENES ESTRELLAS SUFICIENTES\nTe faltan ${faltan}⭐ para comprar esta tarea`);
+    return;
+  }
+
+  // 2 — SÍ TIENE: COBRAR Y RESTAR DEL SALDO
+  ESTUDIANTES[actual.nombre].saldo -= costo;
+  localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
+  document.getElementById("comprar-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
+
+  // 3 — MOSTRAR LA TAREA COMPRADA CON TODAS LAS RESPUESTAS
+  document.getElementById("tarea-titulo").textContent =
+    `📝 TAREA DE ${materia.toUpperCase()} ✅ COMPRADA`;
+  document.getElementById("tarea-costo").textContent = `Pagaste: ${costo}⭐`;
+  ir("p-tarea");
+}
+
+// 🔑 PANTALLA ADMIN: CARGAR TODAS LAS CONTRASEÑAS Y CÓDIGOS (SOLO JORGE VE ESTO)
+function cargarAdmin(){
+  // CONTRASEÑAS DE PERFILES
+  const cajaPass = document.getElementById("admin-pass");
+  cajaPass.innerHTML = "";
+  Object.keys(ESTUDIANTES).forEach(n => {
+    const fila = document.createElement("div");
+    fila.className = "fila-admin";
+    fila.innerHTML = `
+      <strong style="color:var(--accent)">${n.toUpperCase()}</strong>
+      <code style="background:#0b1220;padding:4px 8px;border-radius:6px">${ESTUDIANTES[n].pass}</code>
+    `;
+    cajaPass.appendChild(fila);
+  });
+
+  // CÓDIGOS DE CANJE DE ⭐
+  const cajaCod = document.getElementById("admin-codigos");
+  cajaCod.innerHTML = "";
+  MONTOS_CANJE.forEach(m => {
+    const fila = document.createElement("div");
+    fila.className = "fila-admin";
+    fila.innerHTML = `
+      <strong class="monto">+${m}⭐</strong>
+      <code style="background:#0b1220;padding:4px 8px;border-radius:6px;color:var(--vip)">${CODIGOS_ESTRELLAS[m]}</code>
+    `;
+    cajaCod.appendChild(fila);
+  });
+}
+
+// ⌨️ DARLE A ENTER EN LA CONTRASEÑA = ENTRAR (NO HACE FALTA TOCAR BOTÓN)
+document.getElementById("input-pass").addEventListener("keydown", e => {
+  if(e.key === "Enter") verificarPass();
+});
+                                             </script>
+
