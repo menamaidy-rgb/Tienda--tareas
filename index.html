@@ -18,7 +18,6 @@
     --rojo:#ef4444;
     --dorado:#f59e0b;
     --vip:#a855f7;
-    --ok:#22c55e;
   }
   *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif}
   body{
@@ -56,7 +55,6 @@
   }
   .subtitulo{text-align:center;color:var(--gris);font-size:13px;margin-bottom:22px}
 
-  /* ===== BOTONES ===== */
   .btn{
     width:100%;
     padding:14px;
@@ -115,7 +113,6 @@
     box-shadow:0 7px 24px rgba(124,58,237,.55);
   }
 
-  /* ===== BOTONES GRANDES DE USUARIO ===== */
   .boton-usuario{
     width:100%;
     padding:16px;
@@ -147,7 +144,6 @@
     font-weight:900;
   }
 
-  /* ===== INPUT ===== */
   .input{
     width:100%;
     padding:14px;
@@ -162,7 +158,6 @@
   }
   .input:focus{border-color:#8b5cf6}
 
-  /* ===== ALERTAS ===== */
   .alerta{
     padding:12px 14px;
     border-radius:10px;
@@ -230,7 +225,7 @@
     margin-bottom:6px;
     font-size:14px;
   }
-  code{font-family:monospace;font-size:13px;color:#fbbf24}
+  code{font-family:Consolas,monospace;font-size:13px;color:#fbbf24}
 
   .pregunta{
     background:#0f1730;
@@ -269,12 +264,31 @@
     margin-left:6px;
     vertical-align:middle;
   }
+  .tabla-ingles{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+    background:#0b1226;
+    border-radius:10px;
+    overflow:hidden;
+  }
+  .tabla-ingles th{
+    background:var(--acento);
+    padding:10px;
+    text-align:left;
+    font-size:14px;
+  }
+  .tabla-ingles td{
+    padding:10px;
+    border-bottom:1px solid var(--borde);
+    font-size:14px;
+  }
+  .tabla-ingles tr:last-child td{border-bottom:none}
 </style>
 </head>
 <body>
 <div class="contenedor">
-
-  <!-- ================================================== -->
+    <!-- ================================================== -->
   <!-- P1: ELEGIR USUARIO -->
   <!-- ================================================== -->
   <div id="p-elegir" class="pantalla activa">
@@ -297,6 +311,9 @@
       <button class="boton-usuario" onclick="seleccionar('Hellen')">
         👧 Hellen <span style="color:#94a3b8;font-size:12px">usuario</span>
       </button>
+      <button class="boton-usuario" onclick="seleccionar('Ana')">
+        👧 Ana <span style="color:#94a3b8;font-size:12px">usuario</span>
+      </button>
     </div>
   </div>
 
@@ -316,10 +333,8 @@
       <button class="btn btn-secundario" onclick="ir('p-elegir')">← Cambiar usuario</button>
     </div>
   </div>
-
-<!-- 🔥 FIN PARTE 1 DE 9 — SIGUIENTE SIGUE EL MENÚ PRINCIPAL + TIENDA TROLL 🔥 -->
     <!-- ================================================== -->
-  <!-- P3: MENÚ PRINCIPAL (MÁS COLORIDO) -->
+  <!-- P3: MENÚ PRINCIPAL -->
   <!-- ================================================== -->
   <div id="p-menu" class="pantalla">
     <div class="tarjeta">
@@ -337,10 +352,10 @@
       <button class="btn btn-primario" onclick="ir('p-perfil')">👤 MI PERFIL</button>
       <button class="btn btn-dorado" onclick="ir('p-tienda')">💎 TIENDA DE ⭐ ESTRELLAS</button>
       <button class="btn btn-verde" onclick="ir('p-comprar')">📚 COMPRAR TAREAS</button>
-      <button class="btn btn-troll" onclick="ir('p-troll')">🧌 TIENDA TROLL 🔥 NUEVA</button>
+      <button class="btn btn-troll" onclick="ir('p-troll')">🧌 TIENDA TROLL 🔥</button>
 
       <button id="btn-admin" class="btn btn-vip" onclick="ir('p-admin')" style="display:none">
-        🔑 PANEL ADMIN VIP (SOLO TÚ)
+        🔑 PANEL ADMIN VIP
       </button>
 
       <button class="btn btn-rojo" onclick="cerrarSesion()" style="margin-top:18px">
@@ -379,7 +394,7 @@
   </div>
 
   <!-- ================================================== -->
-  <!-- P5: TIENDA DE ESTRELLAS (CÓDIGOS DE 1 SOLO USO) -->
+  <!-- P5: TIENDA DE ESTRELLAS -->
   <!-- ================================================== -->
   <div id="p-tienda" class="pantalla">
     <div class="tarjeta">
@@ -392,7 +407,6 @@
       </p>
 
       <div id="tienda-alerta"></div>
-
       <div id="lista-opciones"></div>
 
       <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">
@@ -402,7 +416,7 @@
   </div>
 
   <!-- ================================================== -->
-  <!-- P6: TIENDA TROLL NUEVA (PARA TODOS) -->
+  <!-- P6: TIENDA TROLL -->
   <!-- ================================================== -->
   <div id="p-troll" class="pantalla">
     <div class="tarjeta" style="background:linear-gradient(180deg,#1a0f2e,#241142);border-color:#7c3aed">
@@ -415,7 +429,6 @@
 
       <div id="troll-alerta"></div>
 
-      <!-- PASO 1: ELIGE QUIÉN QUIERES HACKEAR -->
       <div id="troll-paso1">
         <h3 style="color:#fbbf24;margin:14px 0 10px 0;font-size:16px">
           🎯 PASO 1: ¿De quién quieres las cosas?
@@ -424,23 +437,22 @@
         <button class="boton-usuario" onclick="trollElegir('Achury')">🧑 Achury</button>
         <button class="boton-usuario" onclick="trollElegir('Sara')">👧 Sara</button>
         <button class="boton-usuario" onclick="trollElegir('Hellen')">👧 Hellen</button>
+        <button class="boton-usuario" onclick="trollElegir('Ana')">👧 Ana</button>
         <button class="boton-usuario Jorge" onclick="trollElegir('Jorge')">👑 JORGE ADMIN (IMPOSIBLE)</button>
       </div>
 
-      <!-- PASO 2: PIDE CONTRASEÑA REAL DE ESA PERSONA -->
       <div id="troll-paso2" style="display:none">
         <h3 style="color:#fbbf24;margin:14px 0 10px 0;font-size:16px">
           🔐 PASO 2: Confirma que eres <span id="troll-quien" style="color:#ec4899"></span>
         </h3>
         <p style="color:var(--gris);font-size:13px;margin-bottom:8px">
-          Escribe LA CONTRASEÑA REAL de esa cuenta para entrar a la tienda troll:
+          Escribe LA CONTRASEÑA REAL de esa cuenta para entrar:
         </p>
-        <input id="troll-pass" class="input" type="password" placeholder="Contraseña real del usuario...">
+        <input id="troll-pass" class="input" type="password" placeholder="Contraseña real...">
         <button class="btn btn-troll" onclick="trollVerificar()">✅ ENTRAR A LA TIENDA TROLL</button>
         <button class="btn btn-secundario" onclick="trollVolver()">← Atrás</button>
       </div>
 
-      <!-- PASO 3: DENTRO — COSAS A COMPRAR -->
       <div id="troll-paso3" style="display:none">
         <h3 style="color:#fbbf24;margin:14px 0 10px 0;font-size:16px">
           🛒 COMPRAS PROHIBIDAS DE <span id="troll-quien2" style="color:#ec4899"></span>
@@ -457,6 +469,7 @@
               • Hellen → 100.000⭐<br>
               • Sara → 75.000⭐<br>
               • Achury → 80.000⭐<br>
+              • Ana → 60.000⭐<br>
               • JORGE ADMIN → 10.000.000⭐
             </p>
           </div>
@@ -466,12 +479,10 @@
         <div class="opcion-tarea">
           <div>
             <h4 style="margin:0 0 4px 0;color:#fbbf24">👑 RANGO VIP COMPLETO</h4>
-            <p style="margin:0;color:var(--gris);font-size:12px">
-              Te conviertes en Admin del sistema
-            </p>
+            <p style="margin:0;color:var(--gris);font-size:12px">Te conviertes en Admin del sistema</p>
             <p class="precio-tarea" style="margin-top:6px">500.000⭐</p>
           </div>
-          <button class="btn btn-dorado" onclick="trollComprar('vip')">COMPRAR VIP</button>
+          <button class="btn btn-dorado" onclick="trollComprar('vip')">COMPRAR</button>
         </div>
 
         <button class="btn btn-secundario" style="margin-top:18px" onclick="trollVolver()">← Salir de la tienda</button>
@@ -482,10 +493,8 @@
       </button>
     </div>
   </div>
-
-<!-- 🔥 FIN PARTE 2 DE 9 — SIGUIENTE: MENÚ DE COMPRAR TAREAS (LAS 5) + TODAS LAS TAREAS COMPLETAS 🔥 -->
     <!-- ================================================== -->
-  <!-- P7: MENÚ COMPRAR TAREAS (5 TAREAS — 4 DISPONIBLES + 1 BLOQUEADA) -->
+  <!-- P7: COMPRAR TAREAS -->
   <!-- ================================================== -->
   <div id="p-comprar" class="pantalla">
     <div class="tarjeta">
@@ -519,7 +528,7 @@
           <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
             Ejercicio completo de mecanografía / dactilografía<br>
             • Teclado guía (a s d f g h j k l ñ)<br>
-            • Objetivo + 22 filas de ejercicios + palabras reales
+            • Objetivo + 22 filas de ejercicios
           </p>
           <p class="precio-tarea" style="margin-top:6px">800⭐</p>
         </div>
@@ -531,10 +540,9 @@
         <div>
           <h3 style="margin:0 0 4px 0;color:#f472b6">📐 TAREA DE GEOMETRÍA</h3>
           <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
-            Conversiones de longitud + masa + actividad resuelta<br>
-            • Longitud: dam, cm, hm, km<br>
-            • Escala completa: tg ↔ hg ↔ dag ↔ g ↔ dg ↔ cg ↔ mg<br>
-            • Ejercicios A, B y C con soluciones
+            Conversiones de unidades de medida<br>
+            • Longitud: km, hm, dam, m, dm, cm, mm<br>
+            • Masa: t, kg, hg, dag, g, dg, cg, mg
           </p>
           <p class="precio-tarea" style="margin-top:6px">2500⭐</p>
         </div>
@@ -546,25 +554,42 @@
         <div>
           <h3 style="margin:0 0 4px 0;color:#a78bfa">🧬 TAREA DE BIOLOGÍA</h3>
           <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
-            Respiración en animales — mapa conceptual completo<br>
-            • Ser humano · Peces · Insectos<br>
-            • Definición + cada grupo con su forma de respirar
+            Respiración en los seres vivos<br>
+            • Ser humano → Pulmonar<br>
+            • Peces → Branquial<br>
+            • Insectos → Traqueal
           </p>
           <p class="precio-tarea" style="margin-top:6px">3000⭐</p>
         </div>
         <button class="btn btn-vip" onclick="comprar('Biología',3000)">COMPRAR</button>
       </div>
 
-      <!-- TAREA 5: INGLÉS — NO DISPONIBLE (GRIS, BLOQUEADA) -->
-      <div class="opcion-tarea bloqueada">
+      <!-- TAREA 5: INGLÉS 2000⭐ ✅ -->
+      <div class="opcion-tarea">
         <div>
-          <h3 style="margin:0 0 4px 0">🔤 INGLÉS : NO DISPONIBLE</h3>
-          <p style="margin:0;font-size:12px;line-height:1.4">
-            Próximamente... todavía no hay respuestas listas
+          <h3 style="margin:0 0 4px 0;color:#6ee7b7">🔤 TAREA DE INGLÉS</h3>
+          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
+            Vocabulario del clima<br>
+            • Rainy / Sunny / Hot / Cold / Cloudy<br>
+            • Windy / Stormy / Snowy
           </p>
-          <p class="precio-tarea" style="margin-top:6px">5000⭐</p>
+          <p class="precio-tarea" style="margin-top:6px">2000⭐</p>
         </div>
-        <button class="btn" disabled onclick="return false">BLOQUEADO</button>
+        <button class="btn btn-primario" onclick="comprar('Inglés',2000)">COMPRAR</button>
+      </div>
+
+      <!-- TAREA 6: FILOSOFÍA 1500⭐ ✅ -->
+      <div class="opcion-tarea">
+        <div>
+          <h3 style="margin:0 0 4px 0;color:#fcd34d">📖 TAREA DE FILOSOFÍA</h3>
+          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
+            Pensamiento crítico en la vida cotidiana<br>
+            • Decisión financiera importante<br>
+            • Resolver un conflicto con alguien
+          </p>
+          <p class="precio-tarea" style="margin-top:6px">1500⭐</p>
+        </div>
+        <button class="btn btn-dorado" onclick="comprar('Filosofía',1500)">COMPRAR</button>
       </div>
 
       <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">
@@ -572,9 +597,8 @@
       </button>
     </div>
   </div>
-
-  <!-- ================================================== -->
-  <!-- P7B: PANTALLA DE TAREA COMPRADA (TODAS LAS TAREAS AQUÍ DENTRO) -->
+    <!-- ================================================== -->
+  <!-- P7B: PANTALLA DE TAREA COMPRADA -->
   <!-- ================================================== -->
   <div id="p-tarea" class="pantalla">
     <div class="tarjeta">
@@ -673,14 +697,14 @@
             <p><strong>🎯 Objetivo:</strong></p>
             <ul style="margin:6px 0 10px 20px;line-height:1.7">
               <li>Digitar con todos los dedos de ambas manos.</li>
-              <li>Conocer con qué dedo y de qué mano, se debe presionar cada tecla.</li>
+              <li>Conocer con qué dedo y de qué mano se debe presionar cada tecla.</li>
               <li>Ejercicios para memorizar la "guía" del teclado (a, s, d, f, g, h, j, k, l, ñ).</li>
             </ul>
 
             <p style="margin-top:10px"><strong>✍️ EJERCICIOS — Copia cada línea 3 veces:</strong></p>
             <div style="background:#0b1226;padding:12px 14px;border-radius:10px;font-family:monospace;font-size:13.5px;line-height:2;color:#e5e7eb;overflow-x:auto;margin-top:8px">
 fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj<br>
-fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj<br>
+fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj<br>
 dfg hjk dfg dfg hjk hjk dfg hjk dfg hjk dfg hjk dfg hjk dfg hjk dfg hjk<br>
 asdfg asdfg asdfg asdfg asdfg asdfg asdfg asdfg asdfg asdfg<br>
 gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa<br>
@@ -694,7 +718,7 @@ sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjjs<br>
 dklfh dklfh dklfh dklfh dklfh dklfh dklfh dklfh dklfh dklfh<br>
 añsld añsld añsld añsld añsld añsld añsld añsld añsld añsld añsld<br>
 dñjah dñjah dñjah dñjah dñjah dñjah dñjah dñjah dñjah dñjah<br>
-gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda<br>
+gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ<br>
 kad gñs kad gñs kad gñs kad gñs kad gñs kad gñs kad gñs kad<br>
 asa ala asa ala asa ala asa ala asa ala asa ala asa ala asa ala<br>
 <strong>daña daña daña daña daña daña daña daña daña daña daña</strong><br>
@@ -707,178 +731,184 @@ asa ala asa ala asa ala asa ala asa ala asa ala asa ala asa ala<br>
             </div>
           </div>
         </div>
-
-<!-- 🔥 FIN PARTE 3 DE 9 — SIGUIENTE: SIGUE DENTRO DE TAREAS (GEOMETRÍA + BIOLOGÍA) + PANEL ADMIN 🔥 -->
-          <!-- ========== TAREA 3: GEOMETRÍA 2500⭐ ========== -->
+                <!-- ========== TAREA 3: GEOMETRÍA 2500⭐ ========== -->
         <div id="tarea-geometria" style="display:none">
           <h3 style="color:#f472b6;margin:0 0 12px 0;font-size:17px">
-            📐 CONVERSIONES — SISTEMA MÉTRICO (LONGITUD + MASA)
+            📐 CONVERSIONES DE UNIDADES DE MEDIDA
           </h3>
 
           <div class="pregunta">
-            <p><strong>📏 1. CONVERSIONES DE LONGITUD</strong></p>
-            <p>• 836 dam → dm = <strong class="respuesta" style="display:inline;padding:2px 8px">83.600 dm</strong></p>
-            <p>• 5.000 cm → dam = <strong class="respuesta" style="display:inline;padding:2px 8px">5 dam</strong></p>
-            <p>• 432 hm → km = <strong class="respuesta" style="display:inline;padding:2px 8px">43,2 km</strong></p>
+            <p><strong>📏 LONGITUD — km, hm, dam, m, dm, cm, mm</strong></p>
+            <p class="respuesta">✅ Para convertir a unidades menores: multiplicar por 10<br>
+            1 km = 10 hm = 100 dam = 1000 m<br>
+            1 m = 10 dm = 100 cm = 1000 mm</p>
           </div>
-
           <div class="pregunta">
-            <p><strong>⚖️ 2. ESCALA COMPLETA DE MASA (PARA CONVERTIR)</strong></p>
-            <div style="background:#0b1226;padding:12px;border-radius:10px;font-family:monospace;font-size:13px;text-align:center;line-height:2">
-              <span style="color:#fbbf24">×10 ←×10 ←×10 ←×10 ←×10 ←×10 ←×10</span><br>
-              <strong>tg — hg — dag — g — dg — cg — mg</strong><br>
-              <span style="color:#f87171">→÷10 →÷10 →÷10 →÷10 →÷10 →÷10 →÷10</span>
-            </div>
-            <p style="margin-top:8px;color:var(--gris);font-size:12px">
-              ➡️ De unidad más grande a más pequeña: <strong>MULTIPLICAS ×10</strong> por cada paso<br>
-              ⬅️ De unidad más pequeña a más grande: <strong>DIVIDES ÷10</strong> por cada paso
-            </p>
+            <p><strong>⚖️ MASA — kg, hg, dag, g, dg, cg, mg</strong></p>
+            <p class="respuesta">✅ Para convertir a unidades menores: multiplicar por 10<br>
+            1 kg = 10 hg = 100 dag = 1000 g<br>
+            1 g = 10 dg = 100 cg = 1000 mg</p>
           </div>
-
           <div class="pregunta">
-            <p><strong>📝 EJEMPLO 1 RESUELTO</strong></p>
-            <p>Pasa: <strong>375 dg → mg</strong></p>
+            <p><strong>📝 EJERCICIOS RESUELTOS</strong></p>
             <p class="respuesta">
-              ✅ Solución: de dg a mg hay 2 pasos a la derecha → ×10 dos veces = ×100<br>
-              375 × 100 = <strong>375.000 mg</strong>
+              A) 3 km = <strong>3000 m</strong><br>
+              B) 5000 g = <strong>5 kg</strong><br>
+              C) 2.5 m = <strong>250 cm</strong><br>
+              D) 1500 mg = <strong>1.5 g</strong>
             </p>
-          </div>
-
-          <div class="pregunta">
-            <p><strong>🔢 EJERCICIO 4 RESUELTO</strong></p>
-            <p>60.000 Hg → Hg = ?</p>
-            <p class="respuesta">✅ 60.000 ÷ 10.000 = <strong>6 Hg</strong></p>
-          </div>
-
-          <hr>
-
-          <h4 style="color:#fbbf24;margin:14px 0 8px 0">📋 ACTIVIDAD DE PESO — 3 PUNTOS + SOLUCIONES</h4>
-
-          <div class="pregunta">
-            <p><strong>A. 53 kg → dag</strong></p>
-            <p class="respuesta">✅ 53 × 100 = <strong>5.300 dag</strong></p>
-          </div>
-          <div class="pregunta">
-            <p><strong>B. 876 g → hg</strong></p>
-            <p class="respuesta">✅ 876 ÷ 100 = <strong>8,76 hg</strong></p>
-          </div>
-          <div class="pregunta">
-            <p><strong>C. 90.000 mg → g</strong></p>
-            <p class="respuesta">✅ 90.000 ÷ 1.000 = <strong>90 g</strong></p>
           </div>
         </div>
 
         <!-- ========== TAREA 4: BIOLOGÍA 3000⭐ ========== -->
         <div id="tarea-biologia" style="display:none">
           <h3 style="color:#a78bfa;margin:0 0 12px 0;font-size:17px">
-            🧬 RESPIRACIÓN EN ANIMALES — MAPA CONCEPTUAL COMPLETO
+            🧬 RESPIRACIÓN EN LOS SERES VIVOS
           </h3>
 
           <div class="pregunta">
-            <p><strong>📌 DEFINICIÓN PRINCIPAL</strong></p>
-            <p class="respuesta">
-              ✅ La respiración es el proceso <strong>por donde los animales reciben oxígeno</strong>
-              y <strong>expulsan el dióxido de carbono</strong>.
-            </p>
+            <p><strong>👤 SER HUMANO</strong></p>
+            <p class="respuesta">✅ Respiración <strong>PULMONAR</strong> — El aire entra por la nariz → pulmones → intercambio de gases con la sangre. Se inhala oxígeno y se exhala dióxido de carbono.</p>
           </div>
+          <div class="pregunta">
+            <p><strong>🐟 PECES</strong></p>
+            <p class="respuesta">✅ Respiración <strong>BRANQUIAL</strong> — Toman el oxígeno disuelto en el agua usando sus branquias.</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>🦋 INSECTOS</strong></p>
+            <p class="respuesta">✅ Respiración <strong>TRÁQUEAL</strong> — Tienen pequeños orificios en los lados de su cuerpo llamados espiráculos, por donde entra el aire hacia unos tubos llamados tráqueas.</p>
+          </div>
+        </div>
+
+        <!-- ========== TAREA 5: INGLÉS 2000⭐ ✅ ========== -->
+        <div id="tarea-ingles" style="display:none">
+          <h3 style="color:#6ee7b7;margin:0 0 12px 0;font-size:17px">
+            🔤 VOCABULARIO DEL CLIMA
+          </h3>
+
+          <table class="tabla-ingles">
+            <thead>
+              <tr>
+                <th style="width:40%">Palabra</th>
+                <th>Significado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☔ Raining</td>
+                <td>Wet weather full of precipitation</td>
+              </tr>
+              <tr>
+                <td>☀️ Sunny</td>
+                <td>Abounding in sunshine</td>
+              </tr>
+              <tr>
+                <td>🔥 Hot</td>
+                <td>Being at a high temperature</td>
+              </tr>
+              <tr>
+                <td>❄️ Cold</td>
+                <td>Having a low temperature, chilling and no warmth</td>
+              </tr>
+              <tr>
+                <td>☁️ Cloudy</td>
+                <td>Covered with clouds</td>
+              </tr>
+              <tr>
+                <td>💨 Windy</td>
+                <td>Characterized by or abounding in wind</td>
+              </tr>
+              <tr>
+                <td>⛈️ Stormy</td>
+                <td>Affected by storms, tempestuous</td>
+              </tr>
+              <tr>
+                <td>🏔️ Snowy</td>
+                <td>Covered with snow and small white ice</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ========== TAREA 6: FILOSOFÍA 1500⭐ ✅ ========== -->
+        <div id="tarea-filosofia" style="display:none">
+          <h3 style="color:#fcd34d;margin:0 0 12px 0;font-size:17px">
+            📖 PENSAMIENTO CRÍTICO EN LA VIDA COTIDIANA
+          </h3>
 
           <div class="pregunta">
-            <p><strong>💡 NOTA IMPORTANTE:</strong></p>
-            <p class="respuesta">
-              Hay algunos animales que <strong>NO respiran por medio de la nariz</strong>,
-              sino por medio de <strong>su piel</strong> y otros como los peces respiran por
-              medio de <strong>sus branquias</strong>.
-            </p>
+            <p><strong>1️⃣ Tomar una decisión financiera importante (Ejemplo: Comprar una casa o cambiar de empleo)</strong></p>
+            <p><strong>• Evidencia:</strong></p>
+            <p class="respuesta">Evitas dejarte llevar por la emoción del momento o el miedo al cambio. Solo aceptas datos reales y verificables: tus ingresos mensuales netos, tus ahorros actuales y tus gastos fijos obligatorios.</p>
+            <p><strong>• Análisis:</strong></p>
+            <p class="respuesta">Descompones la decisión en factores individuales: el costo de vida en la nueva zona, la estabilidad de la empresa, los gastos notariales, el transporte y el impacto en tu tiempo libre.</p>
+            <p><strong>• Síntesis:</strong></p>
+            <p class="respuesta">Comienzas resolviendo lo más sencillo y prioritario: ¿el presupuesto mensual básico se cubre con el nuevo ingreso? Luego evalúas factores a largo plazo, como el crecimiento profesional o la plusvalía del inmueble.</p>
+            <p><strong>• Enumeración:</strong></p>
+            <p class="respuesta">Haces un balance de ventajas y desventajas, revisas todos los números varias veces y verificas que no estés pasando por alto ningún gasto oculto, como impuestos o mantenimiento.</p>
           </div>
 
           <hr>
 
-          <h4 style="color:#fbbf24;margin:14px 0 10px 0">🫁 CADA TIPO DE ANIMAL Y SU FORMA DE RESPIRAR:</h4>
-
           <div class="pregunta">
-            <p><strong>👤 SER HUMANO</strong></p>
-            <p class="respuesta">
-              ✅ Su medio de respiración es <strong>por la nariz y los pulmones</strong>.<br>
-              → Por tener este medio de respiración, <strong>no podemos permanecer mucho tiempo bajo el agua</strong>.
-            </p>
-          </div>
-
-          <div class="pregunta">
-            <p><strong>🐟 PECES</strong></p>
-            <p class="respuesta">
-              ✅ Su medio de respiración es <strong>por medio de las branquias</strong>.<br>
-              → Porque ellas le ayudan a poder estar <strong>en el agua sin ahogarse</strong>.
-            </p>
-          </div>
-
-          <div class="pregunta">
-            <p><strong>🦟 INSECTOS</strong></p>
-            <p class="respuesta">
-              ✅ Su medio de respirar <strong>NO es como el ser humano</strong>.<br>
-              → Porque los insectos respiran <strong>por medio de su pecho</strong>.
-            </p>
+            <p><strong>2️⃣ Solucionar un malentendido o conflicto con un amigo o pareja</strong></p>
+            <p><strong>• Evidencia:</strong></p>
+            <p class="respuesta">No das por hecho que la otra persona actuó con mala intención ni te dejas llevar por suposiciones. Te basas únicamente en los hechos: lo que la persona dijo literalmente y cómo reaccionaste tú.</p>
+            <p><strong>• Análisis:</strong></p>
+            <p class="respuesta">Analizas el conflicto por partes: ¿qué parte fue por el tono de voz?, ¿qué fue por un mensaje mal interpretado?, ¿qué expectativas tenía cada persona antes del conflicto?</p>
+            <p><strong>• Síntesis:</strong></p>
+            <p class="respuesta">Reconstruyes lo sucedido paso a paso, de lo más simple a lo más complejo. Primero aclaras el significado de lo dicho, luego hablan de cómo se sintieron y finalmente acuerdan cómo resolverlo.</p>
+            <p><strong>• Enumeración:</strong></p>
+            <p class="respuesta">Repasan juntos lo acordado y comprueban que ambos se sienten bien con la solución, sin guardar resentimientos.</p>
           </div>
         </div>
-
-      </div> <!-- FIN #tarea-contenido -->
-
-      <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-comprar')">
-        ← Volver a tareas
-      </button>
+      </div>
+      <button class="btn btn-secundario" style="margin-top:16px" onclick="ir('p-comprar')">← Volver a Comprar Tareas</button>
     </div>
   </div>
-
-  <!-- ================================================== -->
-  <!-- P8: PANTALLA SECRETA SOLO PARA JORGE ADMIN VIP -->
+    <!-- ================================================== -->
+  <!-- P8: PANEL ADMIN VIP -->
   <!-- ================================================== -->
   <div id="p-admin" class="pantalla">
-    <div class="tarjeta" style="background:linear-gradient(180deg,#1a0f2e,#241142);border-color:#a855f7">
-      <h1 style="background:linear-gradient(90deg,#fbbf24,#a855f7,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent">
-        🔑 CÓDIGOS Y CONTRASEÑAS
-      </h1>
-      <p class="subtitulo" style="color:#d8b4fe">ACCESO EXCLUSIVO — SOLO ADMIN VIP ✨</p>
+    <div class="tarjeta">
+      <h1>🔑 PANEL DE CONTROL ADMIN</h1>
+      <p class="subtitulo">Solo para Jorge — información completa del sistema</p>
 
-      <h4 style="margin:18px 0 10px 0;color:#fbbf24">🔐 CONTRASEÑAS DE TODOS LOS PERFILES</h4>
-      <div id="admin-pass"></div>
+      <h3 style="color:#fbbf24;margin-bottom:8px">👤 TODAS LAS CONTRASEÑAS</h3>
+      <div id="admin-pass" style="margin-bottom:24px"></div>
 
-      <h4 style="margin:22px 0 10px 0;color:#fbbf24">💎 CÓDIGOS DE CANJE DE ⭐ (15 OPCIONES — 1 SOLO USO CADA UNO)</h4>
-      <p style="color:var(--gris);font-size:12px;margin-bottom:10px">
-        Cuando alguien usa uno, queda tachado y bloqueado para siempre
-      </p>
+      <h3 style="color:#fbbf24;margin-bottom:8px">💎 CÓDIGOS DE CANJE DE ESTRELLAS</h3>
       <div id="admin-codigos"></div>
 
-      <button class="btn btn-vip" style="margin-top:20px" onclick="ir('p-menu')">
-        ← Volver al menú
-      </button>
+      <button class="btn btn-secundario" style="margin-top:20px" onclick="ir('p-menu')">← Volver al menú</button>
     </div>
   </div>
 
-</div> <!-- FIN .contenedor -->
+</div><!-- Cierra contenedor principal -->
 
-<!-- 🔥 FIN PARTE 4 DE 9 — SIGUIENTE: EMPIEZA EL JAVASCRIPT (BASE DE DATOS NUEVA + CÓDIGOS DE 1 USO) 🔥 -->
-  <script>
+<script>
 // ==================================================
-// 📦 BASE DE DATOS PRINCIPAL — NUEVA Y ACTUALIZADA
+// 📦 BASE DE DATOS PRINCIPAL
 // ⚠️ NO MODIFICAR SI NO ERES JORGE ADMIN VIP
 // ==================================================
 
 // 👤 PERFILES DE ESTUDIANTES + CONTRASEÑAS + SALDO INICIAL
 const ESTUDIANTES = {
-  Jorge:   { pass: "22€admkn92deto", saldo: 54000, admin: true  }, // 👑 VIP SIEMPRE
+  Jorge:   { pass: "22€admkn92deto", saldo: 54000, admin: true  },
   Mathias: { pass: "WWEOmarhi2",    saldo: 0,     admin: false },
   Achury:  { pass: "11#2maek30",    saldo: 0,     admin: false },
   Sara:    { pass: "100(#woo",      saldo: 0,     admin: false },
-  Hellen:  { pass: "sangusoo299",   saldo: 0,     admin: false }
+  Hellen:  { pass: "sangusoo299",   saldo: 0,     admin: false },
+  Ana:     { pass: "ANFROS22",      saldo: 0,     admin: false }
 };
 
-// 💎 15 MONTOS DE CANJE DE ⭐ (DE 100 HASTA 100.000)
+// 💎 15 MONTOS DE CANJE DE ⭐
 const MONTOS_CANJE = [
   100, 200, 500, 1000, 2000, 5000, 10000, 15000,
   20000, 30000, 40000, 50000, 60000, 80000, 100000
 ];
 
-// 🔑 CÓDIGOS SECRETOS NUEVOS — TODOS DIFERENTES A LOS ANTERIORES
-// ⚠️ CADA UNO SIRVE **UNA SOLA VEZ EN TODA LA VIDA**
+// 🔑 CÓDIGOS SECRETOS — UNA SOLA VEZ
 const CODIGOS_ESTRELLAS = {
   100:     "VIP-100-7XQ29L",
   200:     "VIP-200-4BW86Z",
@@ -897,33 +927,26 @@ const CODIGOS_ESTRELLAS = {
   100000:  "VIP-100K-8WR63N"
 };
 
-// 🚫 AQUÍ SE GUARDAN LOS CÓDIGOS QUE YA SE GASTARON (NADIE LOS VUELVE A USAR)
+// 🚫 Códigos ya usados
 let CODIGOS_USADOS = [];
 
-// 💾 CARGAR DATOS GUARDADOS DE ANTES (NUNCA SE PIERDEN)
+// 💾 Cargar datos guardados
 Object.keys(ESTUDIANTES).forEach(nombre => {
-  // Jorge NUNCA cambia su saldo inicial
   if(nombre === "Jorge") return;
   const saldoGuardado = localStorage.getItem("saldo_" + nombre);
   if(saldoGuardado !== null) ESTUDIANTES[nombre].saldo = parseInt(saldoGuardado);
 });
 
-// Cargar códigos ya usados (si hay alguno de antes)
 const usadosGuardados = localStorage.getItem("codigos_usados_vip");
 if(usadosGuardados !== null) CODIGOS_USADOS = JSON.parse(usadosGuardados);
 
-// 🧑 USUARIO ACTUAL (null = nadie ha iniciado sesión todavía)
+// 🧑 Usuario actual y variables
 let actual = null;
-
-// 🎯 VARIABLES DE LA TIENDA TROLL
 let trollUsuario = null;
-
-<!-- 🔥 FIN PARTE 5 DE 9 — SIGUIENTE: LÓGICA DE NAVEGACIÓN + LOGIN + MENÚS + TIENDA DE ESTRELLAS (CÓDIGOS 1 USO) 🔥 -->
-    // ==================================================
+  // ==================================================
 // 🔄 NAVEGACIÓN — IR A OTRA PANTALLA
 // ==================================================
 function ir(idPantalla){
-  // 🚫 BLOQUEO TOTAL: NADIE EXCEPTO JORGE ENTRA A PANEL ADMIN
   if(idPantalla === "p-admin"){
     if(!actual || !ESTUDIANTES[actual.nombre].admin){
       mostrarAlerta("menu-alerta","error","⛔ ACCESO DENEGADO — SOLO PARA JORGE ADMIN VIP");
@@ -931,12 +954,10 @@ function ir(idPantalla){
     }
   }
 
-  // Ocultar todas → mostrar solo la pedida
   document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
   document.getElementById(idPantalla).classList.add("activa");
   limpiarTodasAlertas();
 
-  // Actualizar datos automáticamente según la pantalla
   if(idPantalla === "p-menu")    actualizarMenu();
   if(idPantalla === "p-perfil")  actualizarPerfil();
   if(idPantalla === "p-tienda")  actualizarTienda();
@@ -955,7 +976,7 @@ function ir(idPantalla){
 }
 
 // ==================================================
-// 🚨 ALERTAS (BIEN / ERROR / VIP)
+// 🚨 ALERTAS
 // ==================================================
 function limpiarTodasAlertas(){
   ["pass-alerta","tienda-alerta","comprar-alerta","menu-alerta","troll-alerta"].forEach(id => {
@@ -986,15 +1007,14 @@ function verificarPass(){
   const correcta = ESTUDIANTES[actual.nombre].pass;
 
   if(escrita === correcta){
-    ir("p-menu"); // ✅ TODO BIEN → ENTRA
+    ir("p-menu");
   } else {
-    mostrarAlerta("pass-alerta","error","❌ CONTRASEÑA INCORRECTA — NO PUEDES ACCEDER");
+    mostrarAlerta("pass-alerta","error","❌ CONTRASEÑA INCORRECTA");
     document.getElementById("input-pass").value = "";
     document.getElementById("input-pass").focus();
   }
 }
 
-// ⌨️ DARLE A ENTER = ENTRAR DIRECTO
 document.getElementById("input-pass").addEventListener("keydown", e => {
   if(e.key === "Enter") verificarPass();
 });
@@ -1008,37 +1028,25 @@ function cerrarSesion(){
 }
 
 // ==================================================
-// 📝 ACTUALIZAR MENÚ PRINCIPAL
+// 📝 ACTUALIZAR MENÚ Y PERFIL
 // ==================================================
 function actualizarMenu(){
   const datos = ESTUDIANTES[actual.nombre];
   document.getElementById("menu-nombre").textContent = actual.nombre.toUpperCase();
   document.getElementById("menu-saldo").textContent = datos.saldo + "⭐";
-
-  // 👑 SOLO JORGE VE EL BOTÓN ADMIN Y LA ETIQUETA VIP
-  const etiquetaVip = document.getElementById("menu-vip");
-  const botonAdmin   = document.getElementById("btn-admin");
-  if(datos.admin){
-    etiquetaVip.style.display = "inline";
-    botonAdmin.style.display   = "block";
-  } else {
-    etiquetaVip.style.display = "none";
-    botonAdmin.style.display   = "none";
-  }
+  document.getElementById("menu-vip").style.display = datos.admin ? "inline" : "none";
+  document.getElementById("btn-admin").style.display = datos.admin ? "block" : "none";
 }
 
-// ==================================================
-// 👤 ACTUALIZAR PERFIL
-// ==================================================
 function actualizarPerfil(){
   const datos = ESTUDIANTES[actual.nombre];
   document.getElementById("perfil-nombre").textContent = actual.nombre.toUpperCase();
-  document.getElementById("perfil-saldo").textContent  = datos.saldo + "⭐";
+  document.getElementById("perfil-saldo").textContent = datos.saldo + "⭐";
   document.getElementById("perfil-vip-box").style.display = datos.admin ? "block" : "none";
 }
 
 // ==================================================
-// 💎 CARGAR TIENDA DE ESTRELLAS (MUESTRA CÓDIGOS YA GASTADOS TACHADOS)
+// 💎 TIENDA DE ESTRELLAS — CANJE DE CÓDIGOS
 // ==================================================
 function actualizarTienda(){
   const datos = ESTUDIANTES[actual.nombre];
@@ -1049,13 +1057,12 @@ function actualizarTienda(){
   MONTOS_CANJE.forEach(monto => {
     const codigo = CODIGOS_ESTRELLAS[monto];
     const yaUsado = CODIGOS_USADOS.includes(codigo);
-
     const fila = document.createElement("div");
     fila.className = "opcion-estrella" + (yaUsado ? " usado" : "");
     fila.innerHTML = `
       <span class="monto">+${monto}⭐</span>
       <span style="color:${yaUsado ? '#64748b' : '#a78bfa'};font-weight:700;font-size:13px">
-        ${yaUsado ? "❌ YA USADO — NO SIRVE MÁS" : "Canjear código →"}
+        ${yaUsado ? "❌ YA USADO" : "Canjear →"}
       </span>
     `;
     if(!yaUsado) fila.onclick = () => abrirCanje(monto);
@@ -1063,91 +1070,88 @@ function actualizarTienda(){
   });
 }
 
-// ==================================================
-// 🎟️ CANJEAR CÓDIGO DE ESTRELLAS (NUEVA REGLA: 1 SOLO USO)
-// ==================================================
 function abrirCanje(monto){
   const codigoCorrecto = CODIGOS_ESTRELLAS[monto];
-
-  // 1 — POR SI ACASO: revisar de nuevo si ya se gastó
   if(CODIGOS_USADOS.includes(codigoCorrecto)){
-    mostrarAlerta("tienda-alerta","error","❌ ESE CÓDIGO YA SE GASTÓ ANTES — SIRVE UNA SOLA VEZ");
+    mostrarAlerta("tienda-alerta","error","❌ Código ya usado");
     actualizarTienda();
     return;
   }
+  const ingresado = prompt(`⭐ Canjear ${monto} Estrellas\n\nIngresa el código:`);
+  if(!ingresado) return;
 
-  // 2 — Pedir código al usuario
-  const ingresado = prompt(`⭐ CANJEAR ${monto} ESTRELLAS\n\nINGRESA EL CÓDIGO AQUÍ:`);
-  if(!ingresado) return; // si le da cancelar no hace nada
-
-  // 3 — Comparar
   if(ingresado.trim().toUpperCase() === codigoCorrecto.toUpperCase()){
-    // ✅ CÓDIGO BUENO
-    // A — Bloquearlo PARA SIEMPRE
     CODIGOS_USADOS.push(codigoCorrecto);
     localStorage.setItem("codigos_usados_vip", JSON.stringify(CODIGOS_USADOS));
-
-    // B — Sumar estrellas y guardar
     ESTUDIANTES[actual.nombre].saldo += monto;
     if(actual.nombre !== "Jorge") localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
-
-    // C — Actualizar pantalla
     actualizarTienda();
-    mostrarAlerta("tienda-alerta","bien",`✅ RECIBISTE ${monto}⭐ — YA SE SUMARON. CÓDIGO BLOQUEADO PARA SIEMPRE`);
+    mostrarAlerta("tienda-alerta","bien",`✅ +${monto}⭐ agregadas`);
   } else {
-    // ❌ CÓDIGO MALO
-    mostrarAlerta("tienda-alerta","error","❌ CÓDIGO INCORRECTO — no se agregaron estrellas");
+    mostrarAlerta("tienda-alerta","error","❌ Código incorrecto");
   }
-}
-
-<!-- 🔥 FIN PARTE 6 DE 9 — SIGUIENTE: COMPRAR TAREAS + MOSTRAR CADA TAREA + PANEL ADMIN 🔥 -->
-    // ==================================================
-// 🛒 COMPRAR UNA TAREA (COBRA ⭐ SOLO SI TIENE SUFICIENTES)
+  }
+  // ==================================================
+// 🛒 COMPRAR TAREA — CORREGIDO PARA QUE APAREZCA TODO ✅
 // ==================================================
 function comprar(materia, costo){
   const saldo = ESTUDIANTES[actual.nombre].saldo;
 
-  // 1 — VERIFICAR SI TIENE SUFICIENTES ⭐
   if(saldo < costo){
     const faltan = costo - saldo;
     mostrarAlerta("comprar-alerta","error",
-      `❌ NO TIENES ESTRELLAS SUFICIENTES\nTe faltan ${faltan}⭐ para comprar esta tarea`);
+      `❌ NO TIENES ESTRELLAS SUFICIENTES\nTe faltan ${faltan}⭐`);
     return;
   }
 
-  // 2 — SÍ TIENE: COBRAR Y RESTAR DEL SALDO
+  // Cobrar y guardar saldo
   ESTUDIANTES[actual.nombre].saldo -= costo;
   if(actual.nombre !== "Jorge") localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
   document.getElementById("comprar-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
 
-  // 3 — OCULTAR TODAS LAS TAREAS PRIMERO
-  ["tarea-espanol","tarea-tecnologia","tarea-geometria","tarea-biologia"].forEach(id => {
-    document.getElementById(id).style.display = "none";
+  // 🔴 OCULTAR TODAS LAS TAREAS PRIMERO
+  const todasLasTareas = [
+    "tarea-espanol",
+    "tarea-tecnologia",
+    "tarea-geometria",
+    "tarea-biologia",
+    "tarea-ingles",
+    "tarea-filosofia"
+  ];
+  todasLasTareas.forEach(id => {
+    const el = document.getElementById(id);
+    if(el) el.style.display = "none";
   });
 
-  // 4 — MOSTRAR SOLO LA TAREA QUE COMPRÓ
+  // 🟢 MOSTRAR SOLO LA COMPRADA
   let idMostrar = "";
-  const materiaLimpia = materia.toLowerCase().replace(/ó/g,"o").replace(/í/g,"i");
-  if(materiaLimpia === "espanol" || materiaLimpia === "español") idMostrar = "tarea-espanol";
-  if(materiaLimpia === "tecnologia" || materiaLimpia === "tecnología") idMostrar = "tarea-tecnologia";
-  if(materiaLimpia === "geometria" || materiaLimpia === "geometría") idMostrar = "tarea-geometria";
-  if(materiaLimpia === "biologia" || materiaLimpia === "biología") idMostrar = "tarea-biologia";
+  const m = materia.toLowerCase().replace(/ó/g,"o").replace(/í/g,"i");
+  if(m === "espanol")    idMostrar = "tarea-espanol";
+  if(m === "tecnologia") idMostrar = "tarea-tecnologia";
+  if(m === "geometria") idMostrar = "tarea-geometria";
+  if(m === "biologia")  idMostrar = "tarea-biologia";
+  if(m === "ingles")    idMostrar = "tarea-ingles";
+  if(m === "filosofia") idMostrar = "tarea-filosofia";
 
-  if(idMostrar) document.getElementById(idMostrar).style.display = "block";
+  if(idMostrar){
+    const elMostrar = document.getElementById(idMostrar);
+    if(elMostrar){
+      elMostrar.style.display = "block";
+      console.log("✅ Mostrando tarea:", idMostrar);
+    } else {
+      console.error("❌ No se encontró el elemento:", idMostrar);
+    }
+  }
 
-  // 5 — TÍTULO Y PRECIO
   document.getElementById("tarea-titulo").textContent = `📝 TAREA DE ${materia.toUpperCase()} ✅ COMPRADA`;
   document.getElementById("tarea-costo").textContent = `Pagaste: ${costo}⭐`;
-
-  // 6 — ABRIR LA PANTALLA
   ir("p-tarea");
 }
 
 // ==================================================
-// 🔑 PANTALLA ADMIN VIP — CARGAR CONTRASEÑAS Y CÓDIGOS (SOLO JORGE VE ESTO)
+// 🔑 PANEL ADMIN VIP
 // ==================================================
 function cargarAdmin(){
-  // 🔐 TODAS LAS CONTRASEÑAS DE LOS 5 PERFILES
   const cajaPass = document.getElementById("admin-pass");
   cajaPass.innerHTML = "";
   Object.keys(ESTUDIANTES).forEach(n => {
@@ -1162,7 +1166,6 @@ function cargarAdmin(){
     cajaPass.appendChild(fila);
   });
 
-  // 💎 LOS 15 CÓDIGOS DE CANJE + MARCA LOS YA USADOS
   const cajaCod = document.getElementById("admin-codigos");
   cajaCod.innerHTML = "";
   MONTOS_CANJE.forEach(m => {
@@ -1182,21 +1185,17 @@ function cargarAdmin(){
     `;
     cajaCod.appendChild(fila);
   });
-}
-
-<!-- 🔥 FIN PARTE 7 DE 9 — SIGUIENTE: TODA LA LÓGICA COMPLETA DE LA TIENDA TROLL (3 PASOS + COMPRAS) 🔥 -->
-    // ==================================================
-// 🧌 TIENDA TROLL — LÓGICA COMPLETA DE LOS 3 PASOS
+  }
+  // ==================================================
+// 🧌 TIENDA TROLL
 // ==================================================
 
-// 🎯 PASO 1: Eligen a quién quieren "hackear"
 function trollElegir(nombre){
   trollUsuario = nombre;
-  document.getElementById("troll-quien").textContent  = nombre.toUpperCase();
+  document.getElementById("troll-quien").textContent = nombre.toUpperCase();
   document.getElementById("troll-quien2").textContent = nombre.toUpperCase();
   document.getElementById("troll-pass").value = "";
 
-  // Cambiar pantallas internas
   document.getElementById("troll-paso1").style.display = "none";
   document.getElementById("troll-paso2").style.display = "block";
   document.getElementById("troll-paso3").style.display = "none";
@@ -1204,7 +1203,6 @@ function trollElegir(nombre){
   setTimeout(()=>document.getElementById("troll-pass").focus(),80);
 }
 
-// 🔙 Volver al inicio de la tienda troll
 function trollVolver(){
   trollUsuario = null;
   document.getElementById("troll-alerta").innerHTML = "";
@@ -1213,60 +1211,52 @@ function trollVolver(){
   document.getElementById("troll-paso3").style.display = "none";
 }
 
-// 🔐 PASO 2: Verificar que ponen LA CONTRASEÑA REAL de esa persona
 function trollVerificar(){
   if(!trollUsuario) return;
   const escrita = document.getElementById("troll-pass").value.trim();
   const correcta = ESTUDIANTES[trollUsuario].pass;
 
   if(escrita === correcta){
-    // ✅ CONTRASEÑA REAL CORRECTA → DENTRO DE LA TIENDA TROLL
     document.getElementById("troll-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
     document.getElementById("troll-paso2").style.display = "none";
     document.getElementById("troll-paso3").style.display = "block";
     mostrarAlerta("troll-alerta","vip","✅ ACCESO CONCEDIDO — bienvenido a la TIENDA TROLL 🔥");
   } else {
-    // ❌ MAL
-    mostrarAlerta("troll-alerta","error","❌ ESA NO ES LA CONTRASEÑA REAL — NO PUEDES ENTRAR");
+    mostrarAlerta("troll-alerta","error","❌ ESA NO ES LA CONTRASEÑA REAL");
     document.getElementById("troll-pass").value = "";
     document.getElementById("troll-pass").focus();
   }
 }
 
-// ⌨️ Enter también sirve aquí
 document.addEventListener("DOMContentLoaded",()=>{
   const tp = document.getElementById("troll-pass");
   if(tp) tp.addEventListener("keydown", e => { if(e.key === "Enter") trollVerificar(); });
 });
 
-// 💰 PRECIOS OFICIALES DE LA TIENDA TROLL
 const PRECIOS_TROLL = {
   Mathias: 40000,
   Hellen:  100000,
   Sara:    75000,
   Achury:  80000,
+  Ana:     60000,
   Jorge:   10000000
 };
 const PRECIO_VIP_TROLL = 500000;
 
-// 🛒 PASO 3: COMPRAR ALGO EN LA TIENDA TROLL
 function trollComprar(que){
   const saldo = ESTUDIANTES[actual.nombre].saldo;
   let costo = 0;
   let texto = "";
 
   if(que === "pass"){
-    // 🗝️ COMPRAR TODAS LAS CONTRASEÑAS
     costo = PRECIOS_TROLL[trollUsuario] || 99999999;
     texto = `🗝️ CONTRASEÑA DE ${trollUsuario.toUpperCase()}`;
   }
   if(que === "vip"){
-    // 👑 COMPRAR RANGO VIP
     costo = PRECIO_VIP_TROLL;
     texto = "👑 RANGO VIP COMPLETO";
   }
 
-  // 1 — ¿TIENE SUFICIENTES ⭐?
   if(saldo < costo){
     const faltan = costo - saldo;
     mostrarAlerta("troll-alerta","error",
@@ -1274,12 +1264,10 @@ function trollComprar(que){
     return;
   }
 
-  // 2 — COBRAR
   ESTUDIANTES[actual.nombre].saldo -= costo;
   if(actual.nombre !== "Jorge") localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
   document.getElementById("troll-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
 
-  // 3 — ENTREGAR LO QUE COMPRÓ
   let entrega = "";
   if(que === "pass"){
     entrega = `
@@ -1299,14 +1287,11 @@ function trollComprar(que){
       • Tienes poderes especiales<br><br>
       <span style="color:#a78bfa">Pagaste: ${PRECIO_VIP_TROLL.toLocaleString()}⭐</span>
     `;
-    // 🧙 AQUÍ LE DAMOS PODERES DE ADMIN DE VERDAD
     ESTUDIANTES[actual.nombre].admin = true;
   }
 
   mostrarAlerta("troll-alerta","bien",entrega);
 }
-
-<!-- 🔥 FIN PARTE 8 DE 9 — SIGUIENTE: ÚLTIMA PARTE (CIERRE DE TODO + ETIQUETA </script></body></html>) 🔥 -->
 </script>
 </body>
 </html>
