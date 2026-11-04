@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMPRAS SHOP</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      min-height: 100vh;
+      color: white;
+      padding: 20px;
+    }
+    .contenedor {
+      max-width: 450px;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+      color: #ffd700;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+    .saludo {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      text-align: center;
+    }
+    .saludo h2 {
+      color: #ffd700;
+      margin-bottom: 8px;
+    }
+    .boton {
+      width: 100%;
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .boton:active {
+      transform: scale(0.97);
+    }
+    .boton-vip {
+      background: linear-gradient(135deg, #ffd700, #ffed4e);
+      color: #1a1a2e;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+    .boton-keys {
+      background: linear-gradient(135deg, #00d4ff, #0099cc);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+    }
+    .caja {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 20px;
+      display: none;
+    }
+    .caja.activa {
+      display: block;
+      animation: aparecer 0.3s ease;
+    }
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      color: #ffd700;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .beneficio {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 16px;
+    }
+    .precio {
+      font-size: 28px;
+      font-weight: bold;
+      color: #ffd700;
+      text-align: center;
+      margin: 20px 0;
+    }
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+    input:focus {
+      outline: none;
+      border-color: #ffd700;
+    }
+    .alerta {
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(0, 255, 100, 0.1);
+      border: 1px solid rgba(0, 255, 100, 0.3);
+      color: #98fb98;
+      margin-top: 15px;
+      display: none;
+    }
+    .pregunta {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 18px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .opcion {
+      padding: 10px;
+      margin: 6px 0;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .opcion:hover {
+      background: rgba(255, 215, 0, 0.2);
+    }
+    .opcion.seleccionada {
+      background: rgba(255, 215, 0, 0.3);
+      border: 1px solid #ffd700;
+    }
+    .progreso {
+      height: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 4px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .barra {
+      height: 100%;
+      background: linear-gradient(90deg, #ffd700, #ffed4e);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    .keys-lista {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .key-item {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      font-family: monospace;
+      font-size: 15px;
+    }
+    .volver {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="contenedor">
+    <h1>🛒 COMPRAS SHOP</h1>
+
+    <div id="p-inicio" class="caja activa">
+      <div class="saludo">
+        <h2>¡Hola! Mi nombre es Alex 👋</h2>
+        <p style="font-size: 16px; opacity: 0.8;">¿En qué puedo ayudarte hoy?</p>
+      </div>
+      
+      <button class="boton boton-vip" onclick="mostrar('p-vip')">👑 PLANES VIP</button>
+      <button class="boton boton-keys" onclick="mostrar('p-quiz')">🔑 KEYS PERFILES</button>
+    </div>
+        <div id="p-vip" class="caja">
+      <h2>👑 VIP PARA TI Y MÁS!!</h2>
+      
+      <div class="beneficio">✅ Acceso exclusivo a tareas</div>
+      <div class="beneficio">✅ Parte del equipo de comunidad del creador</div>
+      <div class="beneficio">✅ ⭐ Gratis todos los días</div>
+      <div class="beneficio">✅ Acceso a mucho más</div>
+      <div class="beneficio">💰 5000$ por semana</div>
+      
+      <div class="precio">¡Adquiere tu VIP!</div>
+      
+      <p style="margin-bottom: 8px; font-size: 14px; opacity: 0.7;">ID: 292929</p>
+      
+      <label>📱 Número de teléfono (10 dígitos):</label>
+      <input type="tel" id="telefono" maxlength="10" placeholder="Ej: 3123456789">
+      
+      <label>📧 CORREO:</label>
+      <input type="email" id="correo" placeholder="tu correo@ejemplo.com">
+      
+      <button class="boton boton-vip" onclick="comprarVIP()">🛒 COMPRAR!!</button>
+      
+      <div id="mensaje-vip" class="alerta"></div>
+      
+      <button class="boton volver" onclick="mostrar('p-inicio')">← Volver</button>
+    </div>
+
+    <div id="p-quiz" class="caja">
+      <h2>🔑 KEYS PERFILES</h2>
+      <p style="text-align: center; margin-bottom: 15px;">Resuelve el test de matemáticas y obtén las contraseñas de los perfiles</p>
+      
+      <div class="progreso">
+        <div class="barra" id="barra-progreso"></div>
+      </div>
+      
+      <div id="caja-pregunta"></div>
+      
+      <button class="boton boton-keys" id="btn-siguiente" onclick="siguientePregunta()" style="display:none;">Siguiente →</button>
+      
+      <div id="caja-keys" style="display: none;">
+        <h3 style="color: #ffd700; text-align: center; margin-bottom: 15px;">🎉 ¡FELICIDADES! ¡AQUÍ ESTÁN TUS KEYS!</h3>
+        <div class="keys-lista" id="lista-keys">
+          <div class="key-item">👤 Jorge → 22€admkn92deto</div>
+          <div class="key-item">👤 Mathias → WWEOmarhi2</div>
+          <div class="key-item">👤 Achury → 11#2maek30</div>
+          <div class="key-item">👤 Sara → 100(#INVALIwoo</div>
+          <div class="key-item">👤 Hellen → sangusoo299</div>
+        </div>
+        <button class="boton volver" onclick="mostrar('p-inicio')">← Volver</button>
+      </div>
+      
+      <button class="boton volver" onclick="reiniciarQuiz()">🔄 Reintentar</button>
+      <button class="boton volver" onclick="mostrar('p-inicio')">← Volver al inicio</button>
+    </div>
+  </div>
+    <script>
+    let preguntaActual = 0;
+    let respuestasCorrectas = 0;
+    
+    const preguntas = [
+      { p: "1. ¿Cuánto es 5 + 7?", opciones: ["10", "12", "13", "11"], correcta: 1 },
+      { p: "2. ¿Cuánto es 8 × 6?", opciones: ["42", "48", "54", "56"], correcta: 1 },
+      { p: "3. ¿Cuánto es 100 - 35?", opciones: ["75", "60", "65", "55"], correcta: 2 },
+      { p: "4. ¿Cuánto es 49 ÷ 7?", opciones: ["6", "8", "7", "9"], correcta: 2 },
+      { p: "5. ¿Cuánto es 3²?", opciones: ["6", "9", "12", "15"], correcta: 1 },
+      { p: "6. ¿Cuánto es 15 + 24?", opciones: ["38", "41", "39", "40"], correcta: 2 },
+      { p: "7. ¿Cuánto es 9 × 8?", opciones: ["64", "72", "81", "63"], correcta: 1 },
+      { p: "8. ¿Cuánto es 50 ÷ 2?", opciones: ["20", "25", "30", "22"], correcta: 1 },
+      { p: "9. ¿Cuánto es 12 × 5?", opciones: ["50", "55", "65", "60"], correcta: 3 },
+      { p: "10. ¿Cuánto es 81 - 9?", opciones: ["72", "70", "74", "68"], correcta: 0 },
+      { p: "11. ¿Cuánto es 6³?", opciones: ["18", "108", "216", "36"], correcta: 2 },
+      { p: "12. ¿Cuánto es 144 ÷ 12?", opciones: ["10", "11", "13", "12"], correcta: 3 },
+      { p: "13. ¿Cuánto es 7 + 7 × 2?", opciones: ["21", "14", "28", "16"], correcta: 0 },
+      { p: "14. ¿Cuánto es √81?", opciones: ["7", "8", "10", "9"], correcta: 3 },
+      { p: "15. ¿Cuánto es 25 × 4?", opciones: ["100", "90", "110", "80"], correcta: 0 },
+      { p: "16. ¿Cuánto es 1000 ÷ 10?", opciones: ["10", "100", "1000", "1"], correcta: 1 },
+      { p: "17. ¿Cuánto es 13 + 17?", opciones: ["28", "29", "31", "30"], correcta: 3 },
+      { p: "18. ¿Cuánto es 9²?", opciones: ["81", "72", "90", "99"], correcta: 0 },
+      { p: "19. ¿Cuánto es 5 × 5 × 5?", opciones: ["25", "75", "125", "150"], correcta: 2 },
+      { p: "20. ¿Cuánto es 180 ÷ 6?", opciones: ["25", "30", "35", "20"], correcta: 1 }
+    ];
+
+    function mostrar(id) {
+      document.querySelectorAll('.caja').forEach(c => c.classList.remove('activa'));
+      document.getElementById(id).classList.add('activa');
+      if (id === 'p-quiz') reiniciarQuiz();
+    }
+
+    function comprarVIP() {
+      const tel = document.getElementById('telefono').value;
+      const correo = document.getElementById('correo').value;
+      const alerta = document.getElementById('mensaje-vip');
+      
+      if (tel.length !== 10 || !/^\d+$/.test(tel)) {
+        alerta.style.display = 'block';
+        alerta.style.background = 'rgba(255, 50, 50, 0.15)';
+        alerta.style.borderColor = 'rgba(255, 50, 50, 0.3)';
+        alerta.style.color = '#ff9999';
+        alerta.innerHTML = '❌ El teléfono debe tener 10 dígitos numéricos';
+        return;
+      }
+      
+      if (!correo.includes('@')) {
+        alerta.style.display = 'block';
+        alerta.style.background = 'rgba(255, 50, 50, 0.15)';
+        alerta.style.borderColor = 'rgba(255, 50, 50, 0.3)';
+        alerta.style.color = '#ff9999';
+        alerta.innerHTML = '❌ Ingresa un correo válido';
+        return;
+      }
+      
+      alerta.style.display = 'block';
+      alerta.style.background = 'rgba(0, 255, 100, 0.15)';
+      alerta.style.borderColor = 'rgba(0, 255, 100, 0.3)';
+      alerta.style.color = '#98fb98';
+      alerta.innerHTML = '✅ CORREO: ADQUIRIDO<br>📩 Envía el código: <strong>22piprepim</strong> a Jorge y en breve se atiende';
+    }
+
+    function reiniciarQuiz() {
+      preguntaActual = 0;
+      respuestasCorrectas = 0;
+      document.getElementById('caja-keys').style.display = 'none';
+      document.getElementById('btn-siguiente').style.display = 'none';
+      document.getElementById('barra-progreso').style.width = '0%';
+      mostrarPregunta();
+    }
+
+    function mostrarPregunta() {
+      const p = preguntas[preguntaActual];
+      const caja = document.getElementById('caja-pregunta');
+      document.getElementById('barra-progreso').style.width = ((preguntaActual / preguntas.length) * 100) + '%';
+      
+      let html = `<div class="pregunta"><h3>${p.p}</h3>`;
+      p.opciones.forEach((op, i) => {
+        html += `<div class="opcion" onclick="seleccionar(${i}, ${p.correcta})" id="op-${i}">${op}</div>`;
+      });
+      html += `</div>`;
+      caja.innerHTML = html;
+    }
+
+    function seleccionar(elegida, correcta) {
+      document.querySelectorAll('.opcion').forEach(o => o.style.pointerEvents = 'none');
+      if (elegida === correcta) {
+        document.getElementById(`op-${elegida}`).style.background = 'rgba(0, 255, 100, 0.3)';
+        respuestasCorrectas++;
+      } else {
+        document.getElementById(`op-${elegida}`).style.background = 'rgba(255, 50, 50, 0.3)';
+        document.getElementById(`op-${correcta}`).style.background = 'rgba(0, 255, 100, 0.3)';
+      }
+      document.getElementById('btn-siguiente').style.display = 'block';
+    }
+
+    function siguientePregunta() {
+      preguntaActual++;
+      if (preguntaActual < preguntas.length) {
+        document.getElementById('btn-siguiente').style.display = 'none';
+        mostrarPregunta();
+      } else {
+        document.getElementById('caja-pregunta').innerHTML = `<h3 style="text-align:center; color:#ffd700">✅ ¡Completado! ${respuestasCorrectas}/${preguntas.length} correctas</h3>`;
+        document.getElementById('btn-siguiente').style.display = 'none';
+        document.getElementById('caja-keys').style.display = 'block';
+        document.getElementById('barra-progreso').style.width = '100%';
+      }
+    }
+  </script>
+</body>
+</html>
+
+  
