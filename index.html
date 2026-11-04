@@ -1,511 +1,1045 @@
- <html style="margin:0;padding:0;">
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-(function(){
-  var s = document.createElement('style');
-  s.textContent = `
-    :root{
-      --bg:#0f172a;
-      --card:#1e293b;
-      --text:#f8fafc;
-      --muted:#94a3b8;
-      --accent:#f59e0b;
-      --accent-soft:rgba(245,158,11,.18);
-      --vip:#a855f7;
-      --vip-soft:rgba(168,85,247,.18);
-      --ok:#10b981;
-      --bad:#ef4444;
-      --gris:#475569;
-      --border:rgba(148,163,184,.2)
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:'Fredoka',sans-serif;min-height:100vh;-webkit-tap-highlight-color:transparent}
-    .pantalla{display:none;animation:entrar .35s ease}
-    .pantalla.activa{display:block}
-    @keyframes entrar{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-    .btn{
-      width:100%;padding:16px;border-radius:14px;border:none;font-size:17px;font-weight:600;
-      cursor:pointer;transition:all .15s ease;background:var(--accent-soft);color:var(--accent);
-      border:1px solid var(--border);touch-action:manipulation;user-select:none
-    }
-    .btn:active{transform:scale(0.97)}
-    .btn:disabled{background:#1e293b;color:var(--gris);border-color:var(--border);cursor:not-allowed;opacity:.6}
-    .btn:disabled:active{transform:none}
-    .btn-vip{background:var(--vip-soft);color:var(--vip);border-color:rgba(168,85,247,.3)}
-    .btn-secundario{background:var(--card);color:var(--text)}
-    .btn-peligro{background:rgba(239,68,68,.15);color:#fca5a5}
-    .btn-exito{background:rgba(16,185,129,.15);color:#6ee7b7}
-    .btn-admin{background:linear-gradient(135deg,var(--vip-soft),var(--accent-soft));color:var(--vip);border-color:rgba(168,85,247,.4)}
-    .tarjeta{
-      background:var(--card);border:1px solid var(--border);border-radius:18px;
-      padding:22px;box-shadow:0 10px 30px rgba(0,0,0,.25);margin-bottom:14px
-    }
-    input{
-      width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--border);
-      background:#0b1220;color:var(--text);font-size:16px;outline:none;font-family:inherit
-    }
-    input:focus{border-color:var(--accent)}
-    .estrella{color:var(--accent);font-weight:700}
-    .vip{color:var(--vip);font-weight:700}
-    .alerta{padding:12px;border-radius:10px;margin-bottom:14px;font-weight:500;text-align:center}
-    .alerta-error{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.3)}
-    .alerta-bien{background:rgba(16,185,129,.15);color:#6ee7b7;border:1px solid rgba(16,185,129,.3)}
-    .opcion-estrella{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 16px;background:#0b1220;border:1px solid var(--border);
-      border-radius:12px;margin-bottom:10px;cursor:pointer;touch-action:manipulation;
-      transition:all .15s ease;user-select:none
-    }
-    .opcion-estrella:active{transform:scale(0.98);border-color:var(--accent)}
-    .monto{font-size:19px;font-weight:700;color:var(--accent)}
-    .no-disponible{
-      display:inline-block;padding:4px 10px;border-radius:8px;font-size:12px;font-weight:600;
-      background:rgba(71,85,105,.3);color:var(--gris);margin-bottom:8px
-    }
-    .pregunta{margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--border)}
-    .pregunta:last-child{border:none;margin:0;padding:0}
-    .respuesta{color:var(--accent);font-weight:600;margin-top:4px}
-    .fila-admin{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:12px 14px;background:#0b1220;border-radius:10px;margin-bottom:8px;
-      border:1px solid var(--border)
-    }
-  `;
-  document.head.appendChild(s);
-})();
-</script>
-<div style="background-color:transparent;box-sizing:border-box;">
-  <div style="min-height:100vh;padding:24px 16px 60px">
-    <div class="max-w-md mx-auto">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>⭐ SISTEMA DE TAREAS VIP ⭐</title>
+<style>
+  :root{
+    --fondo:#0b1020;
+    --fondo2:#111a33;
+    --tarjeta:#162042;
+    --borde:#2a3a6e;
+    --texto:#e8ecff;
+    --gris:#8a94c2;
+    --acento:#6366f1;
+    --acento2:#8b5cf6;
+    --verde:#10b981;
+    --rojo:#ef4444;
+    --dorado:#f59e0b;
+    --vip:#a855f7;
+    --ok:#22c55e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif}
+  body{
+    background:
+      radial-gradient(circle at 20% 0%, rgba(99,102,241,.25),transparent 40%),
+      radial-gradient(circle at 80% 100%, rgba(168,85,247,.25),transparent 45%),
+      linear-gradient(160deg,var(--fondo),var(--fondo2));
+    color:var(--texto);
+    min-height:100vh;
+    padding:20px 10px;
+  }
+  .contenedor{max-width:520px;margin:0 auto}
+  .pantalla{display:none}
+  .pantalla.activa{display:block;animation:entrar .35s ease}
+  @keyframes entrar{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-      <!-- TÍTULO PRINCIPAL -->
-      <div style="text-align:center;margin-bottom:28px">
-        <h1 style="font-size:30px;font-weight:800;margin:0;line-height:1.15">
-          <span style="color:var(--accent)">TIENDA</span> EDITOR DE <span style="color:var(--accent)">JORGE</span>
-        </h1>
-        <p style="color:var(--muted);margin-top:8px;font-size:14px">Sistema de tareas y estrellas ⭐</p>
-      </div>
+  .tarjeta{
+    background:linear-gradient(180deg,var(--tarjeta),#121a38);
+    border:1px solid var(--borde);
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+  }
 
-      <!-- P1: ELEGIR ESTUDIANTE -->
-      <div id="p-elegir" class="pantalla activa">
-        <div class="tarjeta">
-          <h2 style="font-size:20px;margin:0 0 6px 0">👋 Elige tu nombre de estudiante</h2>
-          <p style="color:var(--muted);margin:0 0 20px 0;font-size:14px">Selecciona tu perfil para continuar</p>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <button class="btn btn-vip" onclick="seleccionar('Jorge')">👑 JORGE (ADMIN VIP)</button>
-            <button class="btn" onclick="seleccionar('Mathias')">🧑‍💻 MATHIAS</button>
-            <button class="btn" onclick="seleccionar('Achury')">📘 ACHURY</button>
-            <button class="btn" onclick="seleccionar('Sara')">📚 SARA</button>
-            <button class="btn" onclick="seleccionar('Hellen')">✏️ HELLEN</button>
-          </div>
-        </div>
-      </div>
+  h1{
+    text-align:center;
+    font-size:26px;
+    margin-bottom:6px;
+    background:linear-gradient(90deg,#fbbf24,#f97316,#ef4444,#ec4899,#a855f7,#6366f1);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    font-weight:900;
+    letter-spacing:.5px;
+  }
+  .subtitulo{text-align:center;color:var(--gris);font-size:13px;margin-bottom:22px}
 
-      <!-- P2: CONTRASEÑA -->
-      <div id="p-pass" class="pantalla">
-        <div class="tarjeta">
-          <h2 style="font-size:20px;margin:0 0 6px 0">🔐 Ingresa la contraseña</h2>
-          <p style="color:var(--muted);margin:0 0 16px 0;font-size:14px">
-            Perfil: <strong id="pass-nombre" style="color:var(--accent)"></strong>
-          </p>
-          <div id="pass-alerta"></div>
-          <label style="font-size:14px;color:var(--muted)">POR FAVOR INGRESA LA CONTRASEÑA:</label>
-          <input type="password" id="input-pass" style="margin-top:8px;margin-bottom:14px" placeholder="Escribe aquí..." autocomplete="off">
-          <div style="display:flex;gap:10px">
-            <button class="btn btn-secundario" onclick="ir('p-elegir');limpiarAlerta()">← Atrás</button>
-            <button class="btn" onclick="verificarPass()">Entrar →</button>
-          </div>
-        </div>
-      </div>
+  /* ===== BOTONES ===== */
+  .btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+    transition:all .15s ease;
+    color:white;
+    letter-spacing:.3px;
+    margin-top:10px;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.6)}
 
-      <!-- P3: MENÚ PRINCIPAL -->
-      <div id="p-menu" class="pantalla">
-        <div class="tarjeta">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <p style="color:var(--muted);margin:0;font-size:13px">Hola,</p>
-              <h2 id="menu-nombre" style="font-size:22px;margin:2px 0 0 0"></h2>
-              <span id="menu-vip" class="vip" style="font-size:12px;display:none">✨ ADMIN vip</span>
-            </div>
-            <div style="text-align:right">
-              <p style="color:var(--muted);margin:0;font-size:13px">Saldo</p>
-              <p id="menu-saldo" class="estrella" style="font-size:22px;margin:2px 0 0 0">0⭐</p>
-            </div>
-          </div>
-        </div>
-        <div class="tarjeta">
-          <h3 style="margin:0 0 16px 0;font-size:18px">📋 Menú principal</h3>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <button class="btn" onclick="ir('p-perfil')">👤 PERFIL</button>
-            <button class="btn btn-vip" onclick="ir('p-tienda')">💎 TIENDA (CANJEAR ⭐)</button>
-            <button class="btn" onclick="ir('p-comprar')">🛒 COMPRAR TAREA</button>
-            <button id="btn-admin" class="btn btn-admin" style="display:none" onclick="ir('p-admin')">🔑 VER CÓDIGOS Y CONTRASEÑAS</button>
-            <button class="btn btn-peligro" onclick="cerrarSesion()">🚪 Cerrar sesión</button>
-          </div>
-        </div>
-      </div>
+  .btn-primario{
+    background:linear-gradient(135deg,#6366f1,#8b5cf6);
+    box-shadow:0 6px 20px rgba(99,102,241,.45);
+  }
+  .btn-primario:hover{box-shadow:0 8px 26px rgba(139,92,246,.55)}
 
-      <!-- P4: PERFIL -->
-      <div id="p-perfil" class="pantalla">
-        <div class="tarjeta">
-          <h2 style="font-size:20px;margin:0 0 18px 0">👤 Mi perfil</h2>
-          <div style="display:flex;flex-direction:column;gap:12px;font-size:16px">
-            <div style="padding:12px;background:#0b1220;border-radius:10px;border:1px solid var(--border)">
-              <span style="color:var(--muted)">ID:</span>
-              <strong style="float:right">11200</strong>
-            </div>
-            <div style="padding:12px;background:#0b1220;border-radius:10px;border:1px solid var(--border)">
-              <span style="color:var(--muted)">NOMBRE DE ESTUDIANTE:</span>
-              <strong id="perfil-nombre" style="float:right;color:var(--accent)"></strong>
-            </div>
-            <div id="perfil-vip-box" style="padding:12px;background:var(--vip-soft);border-radius:10px;border:1px solid rgba(168,85,247,.3);display:none;text-align:center">
-              <span class="vip" style="font-size:17px">✨ ADMIN vip ✨</span>
-            </div>
-            <div style="padding:12px;background:#0b1220;border-radius:10px;border:1px solid var(--border)">
-              <span style="color:var(--muted)">SALDO:</span>
-              <strong id="perfil-saldo" class="estrella" style="float:right;font-size:18px">0⭐</strong>
-            </div>
-          </div>
-          <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">← Volver al menú</button>
-        </div>
-      </div>
+  .btn-secundario{
+    background:linear-gradient(135deg,#334155,#475569);
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+  }
 
-      <!-- P5: TIENDA CANJEAR ⭐ -->
-      <div id="p-tienda" class="pantalla">
-        <div class="tarjeta">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h2 style="font-size:20px;margin:0">💎 TIENDA</h2>
-            <span id="tienda-saldo" class="estrella" style="font-size:17px">0⭐</span>
-          </div>
-          <p style="color:var(--muted);margin:8px 0 0 0;font-size:13px">Elige opciones de compra de ⭐</p>
-        </div>
-        <div id="tienda-alerta"></div>
-        <div id="lista-opciones"></div>
-        <button class="btn btn-secundario" style="margin-top:6px" onclick="ir('p-menu')">← Volver al menú</button>
-      </div>
+  .btn-verde{
+    background:linear-gradient(135deg,#059669,#10b981);
+    box-shadow:0 6px 20px rgba(16,185,129,.4);
+  }
 
-      <!-- P6: COMPRAR TAREA -->
-      <div id="p-comprar" class="pantalla">
-        <div class="tarjeta">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h2 style="font-size:20px;margin:0">🛒 Comprar tarea</h2>
-            <span id="comprar-saldo" class="estrella" style="font-size:17px">0⭐</span>
-          </div>
-          <p style="color:var(--muted);margin:8px 0 0 0;font-size:13px">Selecciona la tarea que quieras comprar</p>
-        </div>
-        <div id="comprar-alerta"></div>
+  .btn-rojo{
+    background:linear-gradient(135deg,#dc2626,#ef4444);
+    box-shadow:0 6px 20px rgba(239,68,68,.4);
+  }
 
-        <!-- TAREA ESPAÑOL - DISPONIBLE -->
-        <div class="tarjeta" style="margin-bottom:14px">
-          <h3 style="margin:0 0 8px 0;color:var(--accent)">📝 TAREA ESPAÑOL</h3>
-          <p style="margin:0 0 10px 0;color:var(--muted);font-size:15px;line-height:1.5">
-            Tarea de comprensión lectora completa
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-            <span class="estrella" style="font-size:18px">COSTO: 500⭐</span>
-            <button class="btn btn-exito" style="width:auto;padding:10px 18px;font-size:15px" onclick="comprar('Español',500)">Comprar</button>
-          </div>
-        </div>
+  .btn-dorado{
+    background:linear-gradient(135deg,#d97706,#f59e0b,#fbbf24);
+    color:#1a1200;
+    box-shadow:0 6px 22px rgba(245,158,11,.5);
+  }
 
-        <!-- TAREA INGLÉS - NO DISPONIBLE -->
-        <div class="tarjeta" style="margin-bottom:14px;opacity:.75">
-          <span class="no-disponible">⏳ NO DISPONIBLE POR AHORA</span>
-          <h3 style="margin:0 0 8px 0;color:var(--gris)">🌍 TAREA INGLÉS</h3>
-          <p style="margin:0 0 10px 0;color:var(--gris);font-size:15px;line-height:1.5">
-            Tarea de inglés de palabras FOTOCOPIA
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-            <span style="font-size:18px;color:var(--gris);font-weight:700">COSTO: 1000⭐</span>
-            <button class="btn" style="width:auto;padding:10px 18px;font-size:15px" disabled>Bloqueado</button>
-          </div>
-        </div>
+  .btn-vip{
+    background:linear-gradient(135deg,#7c3aed,#a855f7,#ec4899);
+    box-shadow:0 8px 28px rgba(168,85,247,.55);
+    animation:brillo 2.5s infinite;
+  }
+  @keyframes brillo{
+    0%,100%{box-shadow:0 8px 28px rgba(168,85,247,.55)}
+    50%{box-shadow:0 10px 34px rgba(236,72,153,.7)}
+  }
 
-        <!-- TAREA BIOLOGÍA - NO DISPONIBLE -->
-        <div class="tarjeta" style="margin-bottom:14px;opacity:.75">
-          <span class="no-disponible">⏳ NO DISPONIBLE POR AHORA</span>
-          <h3 style="margin:0 0 8px 0;color:var(--gris)">🧬 TAREA BIOLOGÍA</h3>
-          <p style="margin:0 0 10px 0;color:var(--gris);font-size:15px;line-height:1.5">
-            Tarea de biología completa
-          </p>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
-            <span style="font-size:18px;color:var(--gris);font-weight:700">COSTO: 2400⭐</span>
-            <button class="btn" style="width:auto;padding:10px 18px;font-size:15px" disabled>Bloqueado</button>
-          </div>
-        </div>
+  .btn-troll{
+    background:linear-gradient(135deg,#4c1d95,#7c3aed,#db2777);
+    box-shadow:0 7px 24px rgba(124,58,237,.55);
+  }
 
-        <button class="btn btn-secundario" onclick="ir('p-menu')">← Volver al menú</button>
-      </div>
+  /* ===== BOTONES GRANDES DE USUARIO ===== */
+  .boton-usuario{
+    width:100%;
+    padding:16px;
+    margin-bottom:10px;
+    border-radius:14px;
+    border:1px solid var(--borde);
+    background:linear-gradient(135deg,#1e293b,#334155);
+    color:white;
+    font-size:17px;
+    font-weight:800;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:all .15s ease;
+  }
+  .boton-usuario:hover{transform:translateX(4px);border-color:#6366f1}
+  .boton-usuario:active{transform:translateX(2px) scale(.99)}
+  .boton-usuario.Jorge{
+    background:linear-gradient(135deg,#7c3aed,#a855f7,#f59e0b);
+    border-color:#c084fc;
+  }
+  .etiqueta-vip{
+    font-size:11px;
+    background:black;
+    color:#fbbf24;
+    padding:4px 8px;
+    border-radius:20px;
+    font-weight:900;
+  }
 
-      <!-- P7: TAREA COMPRADA - CONTENIDO COMPLETO DE ESPAÑOL -->
-      <div id="p-tarea" class="pantalla">
-        <div class="tarjeta">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
-            <h2 id="tarea-titulo" style="font-size:20px;margin:0">📝 TAREA COMPRADA</h2>
-            <span id="tarea-costo" class="estrella" style="font-size:15px"></span>
-          </div>
-          <div id="tarea-contenido" style="font-size:15px;line-height:1.7">
+  /* ===== INPUT ===== */
+  .input{
+    width:100%;
+    padding:14px;
+    border-radius:12px;
+    border:2px solid var(--borde);
+    background:#0b1226;
+    color:white;
+    font-size:16px;
+    margin:10px 0;
+    outline:none;
+    transition:border .15s ease;
+  }
+  .input:focus{border-color:#8b5cf6}
 
-            <!-- ========== TAREA DE ESPAÑOL COMPLETA (TODO JUNTO, SIN PARTES) ========== -->
-            <h3 style="color:var(--accent);margin:0 0 12px 0;font-size:18px">COMPRENSIÓN LECTORA — MITO DE PEGASO</h3>
+  /* ===== ALERTAS ===== */
+  .alerta{
+    padding:12px 14px;
+    border-radius:10px;
+    margin:10px 0;
+    font-weight:700;
+    font-size:14px;
+    text-align:center;
+    line-height:1.4;
+  }
+  .alerta-bien{background:rgba(16,185,129,.15);color:#4ade80;border:1px solid rgba(16,185,129,.4)}
+  .alerta-error{background:rgba(239,68,68,.15);color:#fca5a5;border:1px solid rgba(239,68,68,.4)}
+  .alerta-vip{background:rgba(168,85,247,.15);color:#d8b4fe;border:1px solid rgba(168,85,247,.4)}
 
-            <div class="pregunta">
-              <p><strong>1. ¿De dónde nació Pegaso?</strong></p>
-              <p>A. Nació pegoso &nbsp;&nbsp; B. Helicon &nbsp;&nbsp; C. Perseo &nbsp;&nbsp; D. Belerofonte, príncipe de Corinto</p>
-              <p class="respuesta">✅ RESPUESTA CORRECTA: D — De la sangre de la Gorgona Medusa</p>
-            </div>
+  .estrella{color:#fbbf24;font-weight:900}
+  .precio-tarea{font-weight:900;color:#fbbf24;font-size:15px}
 
-            <div class="pregunta">
-              <p><strong>2. ¿Se dieron cuenta de que Pegaso era un ser mágico?</strong></p>
-              <p>A. Surgió una fuente de oro &nbsp;&nbsp; B. Aceptó unos brindis de honor</p>
-              <p>C. Fue cuidado por las musas &nbsp;&nbsp; D. Era tranquilo pero muy fuerte</p>
-              <p class="respuesta">✅ RESPUESTA CORRECTA: A — Donde Pegaso puso su pata brotó una fuente de oro mágica</p>
-            </div>
+  hr{border:none;border-top:1px dashed var(--borde);margin:18px 0}
 
-            <div class="pregunta">
-              <p><strong>3. ¿Qué era Pegaso?</strong></p>
-              <p>A. Un caballo &nbsp;&nbsp; B. Un dios &nbsp;&nbsp; C. Un hijo de Zeus &nbsp;&nbsp; D. Un hijo de Atenea</p>
-              <p class="respuesta">✅ RESPUESTA CORRECTA: A — Era un caballo alado mágico</p>
-            </div>
+  .opcion-tarea{
+    background:#0f1730;
+    border:1px solid var(--borde);
+    border-radius:14px;
+    padding:14px;
+    margin-bottom:12px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+  .opcion-tarea.bloqueada{
+    filter:grayscale(.85);
+    opacity:.6;
+  }
+  .opcion-tarea.bloqueada *{color:#64748b !important}
+  .opcion-tarea .btn{width:auto;margin:0;padding:10px 14px;font-size:13px}
 
-            <div class="pregunta">
-              <p><strong>4. ¿Qué pasó con el picaro de la mora pegosa?</strong></p>
-              <p>A. Se lo quedó Belerofonte &nbsp;&nbsp; B. Se lo dieron a las musas</p>
-              <p>C. Se quedó con Zeus &nbsp;&nbsp; D. Se fue a vivir al monte Helicon</p>
-              <p class="respuesta">✅ RESPUESTA CORRECTA: C — Al final se quedó con Zeus en el Olimpo</p>
-            </div>
+  .opcion-estrella{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 14px;
+    border-radius:10px;
+    background:#0f1730;
+    border:1px solid var(--borde);
+    margin-bottom:8px;
+    cursor:pointer;
+    transition:all .12s ease;
+  }
+  .opcion-estrella:hover{border-color:#fbbf24;transform:translateX(3px)}
+  .opcion-estrella.usado{
+    opacity:.4;
+    cursor:not-allowed;
+    text-decoration:line-through;
+    filter:grayscale(1);
+  }
+  .monto{font-weight:900;color:#fbbf24;font-size:16px}
 
-            <div class="pregunta">
-              <p><strong>5. ¿Por qué los hombres querían poseer a Pegaso?</strong></p>
-              <p>A. Porque era pegoso &nbsp;&nbsp; B. Porque tenía un cabello mágico</p>
-              <p class="respuesta">✅ RESPUESTA: Porque era un ser mágico, único y muy poderoso</p>
-            </div>
+  .fila-admin{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 12px;
+    background:#0b1226;
+    border-radius:8px;
+    margin-bottom:6px;
+    font-size:14px;
+  }
+  code{font-family:monospace;font-size:13px;color:#fbbf24}
 
-            <div class="pregunta">
-              <p><strong>6. ¿Por qué Zeus quería tener a Pegaso?</strong></p>
-              <p class="respuesta">✅ RESPUESTA CORRECTA: C — Para que llevara sus rayos y truenos por el cielo</p>
-            </div>
+  .pregunta{
+    background:#0f1730;
+    border-left:4px solid #6366f1;
+    padding:12px 14px;
+    border-radius:0 10px 10px 0;
+    margin-bottom:12px;
+    font-size:14.5px;
+    line-height:1.6;
+  }
+  .respuesta{
+    margin-top:8px;
+    padding:8px 10px;
+    background:rgba(16,185,129,.12);
+    color:#4ade80;
+    border-radius:8px;
+    font-weight:700;
+  }
 
-            <div class="pregunta">
-              <p><strong>7. ¿Qué hizo que Pegaso tirara a Belerofonte y cayera al suelo?</strong></p>
-              <p>A. Un rayo de Zeus &nbsp;&nbsp; B. Una mosca que envió Zeus &nbsp;&nbsp; C. Una serpiente &nbsp;&nbsp; D. El viento fuerte</p>
-              <p class="respuesta">✅ RESPUESTA CORRECTA: B — Zeus mandó una mosca que picó a Pegaso</p>
-            </div>
+  .arriba-saldo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--borde);
+  }
+  .chip-vip{
+    display:inline-block;
+    font-size:10px;
+    background:linear-gradient(90deg,#fbbf24,#f97316);
+    color:#1a0f00;
+    padding:3px 8px;
+    border-radius:20px;
+    font-weight:900;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+</style>
+</head>
+<body>
+<div class="contenedor">
 
-            <div class="pregunta">
-              <p><strong>8. El texto anterior es:</strong></p>
-              <p>A. Una noticia &nbsp;&nbsp; B. Un mito &nbsp;&nbsp; C. Un cuento de hadas &nbsp;&nbsp; D. Una leyenda</p>
-              <p class="respuesta">✅ RESPUESTA CORRECTA: B — Es un mito griego</p>
-            </div>
+  <!-- ================================================== -->
+  <!-- P1: ELEGIR USUARIO -->
+  <!-- ================================================== -->
+  <div id="p-elegir" class="pantalla activa">
+    <div class="tarjeta">
+      <h1>⭐ SISTEMA DE TAREAS ⭐</h1>
+      <p class="subtitulo">SELECCIONA TU NOMBRE PARA ENTRAR</p>
 
-            <hr style="border-color:var(--border);margin:22px 0">
-
-            <h3 style="color:var(--accent);margin:0 0 12px 0;font-size:18px">COMPRENSIÓN LECTORA — EL ORIGEN DEL MUNDO</h3>
-
-            <div class="pregunta">
-              <p><strong>¿Cómo era la tierra al principio?</strong></p>
-              <p class="respuesta">✅ La tierra estaba completamente de noche, todo era oscuridad.</p>
-            </div>
-
-            <div class="pregunta">
-              <p><strong>¿Quiénes vivían en la tierra al principio?</strong></p>
-              <p class="respuesta">✅ Vivían solo 2 personas, no había nadie más.</p>
-            </div>
-
-            <div class="pregunta">
-              <p><strong>¿Cómo nació la raza humana?</strong></p>
-              <p class="respuesta">✅ Nació cuando uno de ellos creó varios muñecos de barro y esos se convirtieron en los cuerpos de los hombres y mujeres.</p>
-            </div>
-
-            <div class="pregunta">
-              <p><strong>¿Cómo nació el sol?</strong></p>
-              <p class="respuesta">✅ Nació cuando un coquito de romirigui subió muy alto a las alturas y allí se convirtió en el sol, que da luz de día.</p>
-            </div>
-
-            <div class="pregunta">
-              <p><strong>¿Cómo nació la luna?</strong></p>
-              <p class="respuesta">✅ Nació cuando en la noche otro coquito siguió el camino de su sobrino y se convirtió en la luna, que da luz de noche.</p>
-            </div>
-
-            <div class="pregunta">
-              <p><strong>¿Qué nombre le dieron al sol y a la luna?</strong></p>
-              <p class="respuesta">✅ Al sol le pusieron de nombre <strong>Zuo</strong> y a la luna le pusieron <strong>Chio</strong>.</p>
-            </div>
-
-          </div>
-          <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-comprar')">← Volver a tareas</button>
-        </div>
-      </div>
-
-      <!-- P8: PANTALLA SECRETA SOLO PARA JORGE ADMIN VIP -->
-      <div id="p-admin" class="pantalla">
-        <div class="tarjeta" style="background:linear-gradient(135deg,rgba(168,85,247,.12),rgba(245,158,11,.10));border-color:rgba(168,85,247,.35)">
-          <h2 style="font-size:20px;margin:0 0 4px 0;color:var(--vip)">🔑 CÓDIGOS Y CONTRASEÑAS</h2>
-          <p style="color:var(--muted);margin:0 0 18px 0;font-size:13px">ACCESO EXCLUSIVO — SOLO ADMIN VIP ✨</p>
-
-          <h4 style="margin:18px 0 10px 0;color:var(--accent)">🔐 CONTRASEÑAS DE TODOS LOS PERFILES</h4>
-          <div id="admin-pass"></div>
-
-          <h4 style="margin:22px 0 10px 0;color:var(--accent)">💎 CÓDIGOS DE CANJE DE ⭐ (15 OPCIONES)</h4>
-          <div id="admin-codigos"></div>
-
-          <button class="btn btn-vip" style="margin-top:20px" onclick="ir('p-menu')">← Volver al menú</button>
-        </div>
-      </div>
-
+      <button class="boton-usuario Jorge" onclick="seleccionar('Jorge')">
+        👑 JORGE <span class="etiqueta-vip">ADMIN VIP ✨</span>
+      </button>
+      <button class="boton-usuario" onclick="seleccionar('Mathias')">
+        🧑 Mathias <span style="color:#94a3b8;font-size:12px">usuario</span>
+      </button>
+      <button class="boton-usuario" onclick="seleccionar('Achury')">
+        🧑 Achury <span style="color:#94a3b8;font-size:12px">usuario</span>
+      </button>
+      <button class="boton-usuario" onclick="seleccionar('Sara')">
+        👧 Sara <span style="color:#94a3b8;font-size:12px">usuario</span>
+      </button>
+      <button class="boton-usuario" onclick="seleccionar('Hellen')">
+        👧 Hellen <span style="color:#94a3b8;font-size:12px">usuario</span>
+      </button>
     </div>
   </div>
-</div>
- </html>
-<script>
+
+  <!-- ================================================== -->
+  <!-- P2: PEDIR CONTRASEÑA -->
+  <!-- ================================================== -->
+  <div id="p-pass" class="pantalla">
+    <div class="tarjeta">
+      <h1>🔐 INICIAR SESIÓN</h1>
+      <p class="subtitulo">Usuario: <strong id="pass-nombre" style="color:#fbbf24"></strong></p>
+
+      <div id="pass-alerta"></div>
+
+      <input id="input-pass" class="input" type="password" placeholder="Escribe tu contraseña aquí...">
+
+      <button class="btn btn-verde" onclick="verificarPass()">✅ ENTRAR</button>
+      <button class="btn btn-secundario" onclick="ir('p-elegir')">← Cambiar usuario</button>
+    </div>
+  </div>
+
+<!-- 🔥 FIN PARTE 1 DE 9 — SIGUIENTE SIGUE EL MENÚ PRINCIPAL + TIENDA TROLL 🔥 -->
+    <!-- ================================================== -->
+  <!-- P3: MENÚ PRINCIPAL (MÁS COLORIDO) -->
+  <!-- ================================================== -->
+  <div id="p-menu" class="pantalla">
+    <div class="tarjeta">
+      <div class="arriba-saldo">
+        <div>
+          <h2 style="font-size:20px;margin:0">
+            HOLA, <span id="menu-nombre" style="color:#fbbf24"></span>
+            <span id="menu-vip" class="chip-vip" style="display:none">👑 ADMIN VIP</span>
+          </h2>
+          <p style="color:var(--gris);font-size:13px;margin-top:4px">¿Qué vas a hacer hoy?</p>
+        </div>
+        <div class="estrella" style="font-size:20px" id="menu-saldo">0⭐</div>
+      </div>
+
+      <button class="btn btn-primario" onclick="ir('p-perfil')">👤 MI PERFIL</button>
+      <button class="btn btn-dorado" onclick="ir('p-tienda')">💎 TIENDA DE ⭐ ESTRELLAS</button>
+      <button class="btn btn-verde" onclick="ir('p-comprar')">📚 COMPRAR TAREAS</button>
+      <button class="btn btn-troll" onclick="ir('p-troll')">🧌 TIENDA TROLL 🔥 NUEVA</button>
+
+      <button id="btn-admin" class="btn btn-vip" onclick="ir('p-admin')" style="display:none">
+        🔑 PANEL ADMIN VIP (SOLO TÚ)
+      </button>
+
+      <button class="btn btn-rojo" onclick="cerrarSesion()" style="margin-top:18px">
+        🚪 CERRAR SESIÓN
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- P4: PERFIL -->
+  <!-- ================================================== -->
+  <div id="p-perfil" class="pantalla">
+    <div class="tarjeta">
+      <h1>👤 MI PERFIL</h1>
+      <p class="subtitulo">Tus datos actuales</p>
+
+      <div style="background:#0f1730;border-radius:14px;padding:18px;border:1px solid var(--borde)">
+        <p style="font-size:15px;margin-bottom:10px">
+          <strong>Nombre:</strong>
+          <span id="perfil-nombre" style="color:#fbbf24"></span>
+        </p>
+        <p style="font-size:15px;margin-bottom:10px">
+          <strong>Saldo de estrellas:</strong>
+          <span id="perfil-saldo" class="estrella" style="font-size:20px"></span>
+        </p>
+        <div id="perfil-vip-box" style="display:none;margin-top:12px;padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(168,85,247,.18),rgba(245,158,11,.15));border:1px solid rgba(168,85,247,.4)">
+          <p style="color:#fbbf24;font-weight:900">👑 ERES ADMIN VIP DEL SISTEMA</p>
+          <p style="color:var(--gris);font-size:12px;margin-top:4px">Acceso total a códigos, contraseñas y todo</p>
+        </div>
+      </div>
+
+      <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">
+        ← Volver al menú
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- P5: TIENDA DE ESTRELLAS (CÓDIGOS DE 1 SOLO USO) -->
+  <!-- ================================================== -->
+  <div id="p-tienda" class="pantalla">
+    <div class="tarjeta">
+      <div class="arriba-saldo">
+        <h2 style="font-size:20px;margin:0">💎 CANJEAR ⭐ ESTRELLAS</h2>
+        <span class="estrella" style="font-size:18px" id="tienda-saldo">0⭐</span>
+      </div>
+      <p style="color:var(--gris);font-size:13px;margin-bottom:14px">
+        ⚠️ Cada código sirve <strong style="color:#fbbf24">UNA SOLA VEZ</strong> en toda la vida
+      </p>
+
+      <div id="tienda-alerta"></div>
+
+      <div id="lista-opciones"></div>
+
+      <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">
+        ← Volver al menú
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- P6: TIENDA TROLL NUEVA (PARA TODOS) -->
+  <!-- ================================================== -->
+  <div id="p-troll" class="pantalla">
+    <div class="tarjeta" style="background:linear-gradient(180deg,#1a0f2e,#241142);border-color:#7c3aed">
+      <h1 style="background:linear-gradient(90deg,#a855f7,#ec4899,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent">
+        🧌 TIENDA TROLL 🧌
+      </h1>
+      <p class="subtitulo" style="color:#d8b4fe">
+        Cosas PROHIBIDAS que nadie debería comprar... 👀
+      </p>
+
+      <div id="troll-alerta"></div>
+
+      <!-- PASO 1: ELIGE QUIÉN QUIERES HACKEAR -->
+      <div id="troll-paso1">
+        <h3 style="color:#fbbf24;margin:14px 0 10px 0;font-size:16px">
+          🎯 PASO 1: ¿De quién quieres las cosas?
+        </h3>
+        <button class="boton-usuario" onclick="trollElegir('Mathias')">🧑 Mathias</button>
+        <button class="boton-usuario" onclick="trollElegir('Achury')">🧑 Achury</button>
+        <button class="boton-usuario" onclick="trollElegir('Sara')">👧 Sara</button>
+        <button class="boton-usuario" onclick="trollElegir('Hellen')">👧 Hellen</button>
+        <button class="boton-usuario Jorge" onclick="trollElegir('Jorge')">👑 JORGE ADMIN (IMPOSIBLE)</button>
+      </div>
+
+      <!-- PASO 2: PIDE CONTRASEÑA REAL DE ESA PERSONA -->
+      <div id="troll-paso2" style="display:none">
+        <h3 style="color:#fbbf24;margin:14px 0 10px 0;font-size:16px">
+          🔐 PASO 2: Confirma que eres <span id="troll-quien" style="color:#ec4899"></span>
+        </h3>
+        <p style="color:var(--gris);font-size:13px;margin-bottom:8px">
+          Escribe LA CONTRASEÑA REAL de esa cuenta para entrar a la tienda troll:
+        </p>
+        <input id="troll-pass" class="input" type="password" placeholder="Contraseña real del usuario...">
+        <button class="btn btn-troll" onclick="trollVerificar()">✅ ENTRAR A LA TIENDA TROLL</button>
+        <button class="btn btn-secundario" onclick="trollVolver()">← Atrás</button>
+      </div>
+
+      <!-- PASO 3: DENTRO — COSAS A COMPRAR -->
+      <div id="troll-paso3" style="display:none">
+        <h3 style="color:#fbbf24;margin:14px 0 10px 0;font-size:16px">
+          🛒 COMPRAS PROHIBIDAS DE <span id="troll-quien2" style="color:#ec4899"></span>
+        </h3>
+        <p style="color:var(--gris);font-size:13px;margin-bottom:12px">
+          Tu saldo actual: <span id="troll-saldo" class="estrella"></span>
+        </p>
+
+        <div class="opcion-tarea">
+          <div>
+            <h4 style="margin:0 0 4px 0;color:#ec4899">🗝️ TODAS LAS CONTRASEÑAS</h4>
+            <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.5">
+              • Mathias → 40.000⭐<br>
+              • Hellen → 100.000⭐<br>
+              • Sara → 75.000⭐<br>
+              • Achury → 80.000⭐<br>
+              • JORGE ADMIN → 10.000.000⭐
+            </p>
+          </div>
+          <button class="btn btn-troll" onclick="trollComprar('pass')">COMPRAR</button>
+        </div>
+
+        <div class="opcion-tarea">
+          <div>
+            <h4 style="margin:0 0 4px 0;color:#fbbf24">👑 RANGO VIP COMPLETO</h4>
+            <p style="margin:0;color:var(--gris);font-size:12px">
+              Te conviertes en Admin del sistema
+            </p>
+            <p class="precio-tarea" style="margin-top:6px">500.000⭐</p>
+          </div>
+          <button class="btn btn-dorado" onclick="trollComprar('vip')">COMPRAR VIP</button>
+        </div>
+
+        <button class="btn btn-secundario" style="margin-top:18px" onclick="trollVolver()">← Salir de la tienda</button>
+      </div>
+
+      <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">
+        ← Volver al menú principal
+      </button>
+    </div>
+  </div>
+
+<!-- 🔥 FIN PARTE 2 DE 9 — SIGUIENTE: MENÚ DE COMPRAR TAREAS (LAS 5) + TODAS LAS TAREAS COMPLETAS 🔥 -->
+    <!-- ================================================== -->
+  <!-- P7: MENÚ COMPRAR TAREAS (5 TAREAS — 4 DISPONIBLES + 1 BLOQUEADA) -->
+  <!-- ================================================== -->
+  <div id="p-comprar" class="pantalla">
+    <div class="tarjeta">
+      <div class="arriba-saldo">
+        <h2 style="font-size:20px;margin:0">📚 COMPRAR TAREAS</h2>
+        <span class="estrella" style="font-size:18px">
+          Tu saldo: <span id="comprar-saldo">0⭐</span>
+        </span>
+      </div>
+
+      <div id="comprar-alerta"></div>
+
+      <!-- TAREA 1: ESPAÑOL 1000⭐ -->
+      <div class="opcion-tarea">
+        <div>
+          <h3 style="margin:0 0 4px 0;color:#60a5fa">📘 TAREA DE ESPAÑOL</h3>
+          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
+            2 Comprensiones lectoras completas + TODAS las respuestas<br>
+            • Mito de Pegaso (8 preguntas)<br>
+            • El origen del mundo (6 preguntas)
+          </p>
+          <p class="precio-tarea" style="margin-top:6px">1000⭐</p>
+        </div>
+        <button class="btn btn-primario" onclick="comprar('Español',1000)">COMPRAR</button>
+      </div>
+
+      <!-- TAREA 2: TECNOLOGÍA 800⭐ -->
+      <div class="opcion-tarea">
+        <div>
+          <h3 style="margin:0 0 4px 0;color:#34d399">💻 TAREA DE TECNOLOGÍA</h3>
+          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
+            Ejercicio completo de mecanografía / dactilografía<br>
+            • Teclado guía (a s d f g h j k l ñ)<br>
+            • Objetivo + 22 filas de ejercicios + palabras reales
+          </p>
+          <p class="precio-tarea" style="margin-top:6px">800⭐</p>
+        </div>
+        <button class="btn btn-verde" onclick="comprar('Tecnología',800)">COMPRAR</button>
+      </div>
+
+      <!-- TAREA 3: GEOMETRÍA 2500⭐ -->
+      <div class="opcion-tarea">
+        <div>
+          <h3 style="margin:0 0 4px 0;color:#f472b6">📐 TAREA DE GEOMETRÍA</h3>
+          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
+            Conversiones de longitud + masa + actividad resuelta<br>
+            • Longitud: dam, cm, hm, km<br>
+            • Escala completa: tg ↔ hg ↔ dag ↔ g ↔ dg ↔ cg ↔ mg<br>
+            • Ejercicios A, B y C con soluciones
+          </p>
+          <p class="precio-tarea" style="margin-top:6px">2500⭐</p>
+        </div>
+        <button class="btn btn-dorado" onclick="comprar('Geometría',2500)">COMPRAR</button>
+      </div>
+
+      <!-- TAREA 4: BIOLOGÍA 3000⭐ -->
+      <div class="opcion-tarea">
+        <div>
+          <h3 style="margin:0 0 4px 0;color:#a78bfa">🧬 TAREA DE BIOLOGÍA</h3>
+          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
+            Respiración en animales — mapa conceptual completo<br>
+            • Ser humano · Peces · Insectos<br>
+            • Definición + cada grupo con su forma de respirar
+          </p>
+          <p class="precio-tarea" style="margin-top:6px">3000⭐</p>
+        </div>
+        <button class="btn btn-vip" onclick="comprar('Biología',3000)">COMPRAR</button>
+      </div>
+
+      <!-- TAREA 5: INGLÉS — NO DISPONIBLE (GRIS, BLOQUEADA) -->
+      <div class="opcion-tarea bloqueada">
+        <div>
+          <h3 style="margin:0 0 4px 0">🔤 INGLÉS : NO DISPONIBLE</h3>
+          <p style="margin:0;font-size:12px;line-height:1.4">
+            Próximamente... todavía no hay respuestas listas
+          </p>
+          <p class="precio-tarea" style="margin-top:6px">5000⭐</p>
+        </div>
+        <button class="btn" disabled onclick="return false">BLOQUEADO</button>
+      </div>
+
+      <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">
+        ← Volver al menú
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- P7B: PANTALLA DE TAREA COMPRADA (TODAS LAS TAREAS AQUÍ DENTRO) -->
+  <!-- ================================================== -->
+  <div id="p-tarea" class="pantalla">
+    <div class="tarjeta">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+        <h2 id="tarea-titulo" style="font-size:19px;margin:0">📝 TAREA COMPRADA</h2>
+        <span id="tarea-costo" class="estrella" style="font-size:14px"></span>
+      </div>
+      <div id="tarea-contenido" style="font-size:14.5px;line-height:1.7">
+
+        <!-- ========== TAREA 1: ESPAÑOL 1000⭐ ========== -->
+        <div id="tarea-espanol" style="display:none">
+          <h3 style="color:#60a5fa;margin:0 0 12px 0;font-size:17px">
+            📘 COMPRENSIÓN LECTORA — MITO DE PEGASO
+          </h3>
+
+          <div class="pregunta">
+            <p><strong>1. ¿De dónde nació Pegaso?</strong></p>
+            <p>A. Nació pegoso &nbsp;&nbsp; B. Helicon &nbsp;&nbsp; C. Perseo &nbsp;&nbsp; D. Belerofonte, príncipe de Corinto</p>
+            <p class="respuesta">✅ RESPUESTA CORRECTA: D — De la sangre de la Gorgona Medusa</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>2. ¿Se dieron cuenta de que Pegaso era un ser mágico?</strong></p>
+            <p>A. Surgió una fuente de oro &nbsp;&nbsp; B. Aceptó unos brindis de honor</p>
+            <p>C. Fue cuidado por las musas &nbsp;&nbsp; D. Era tranquilo pero muy fuerte</p>
+            <p class="respuesta">✅ RESPUESTA CORRECTA: A — Donde Pegaso puso su pata brotó una fuente de oro mágica</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>3. ¿Qué era Pegaso?</strong></p>
+            <p>A. Un caballo &nbsp;&nbsp; B. Un dios &nbsp;&nbsp; C. Un hijo de Zeus &nbsp;&nbsp; D. Un hijo de Atenea</p>
+            <p class="respuesta">✅ RESPUESTA CORRECTA: A — Era un caballo alado mágico</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>4. ¿Qué pasó con el pícaro de la mora pegosa?</strong></p>
+            <p>A. Se lo quedó Belerofonte &nbsp;&nbsp; B. Se lo dieron a las musas</p>
+            <p>C. Se quedó con Zeus &nbsp;&nbsp; D. Se fue a vivir al monte Helicon</p>
+            <p class="respuesta">✅ RESPUESTA CORRECTA: C — Al final se quedó con Zeus en el Olimpo</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>5. ¿Por qué los hombres querían poseer a Pegaso?</strong></p>
+            <p class="respuesta">✅ RESPUESTA: Porque era un ser mágico, único y muy poderoso</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>6. ¿Por qué Zeus quería tener a Pegaso?</strong></p>
+            <p class="respuesta">✅ RESPUESTA CORRECTA: Para que llevara sus rayos y truenos por el cielo</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>7. ¿Qué hizo que Pegaso tirara a Belerofonte y cayera al suelo?</strong></p>
+            <p>A. Un rayo de Zeus &nbsp;&nbsp; B. Una mosca que envió Zeus &nbsp;&nbsp; C. Una serpiente &nbsp;&nbsp; D. El viento fuerte</p>
+            <p class="respuesta">✅ RESPUESTA CORRECTA: B — Zeus mandó una mosca que picó a Pegaso</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>8. El texto anterior es:</strong></p>
+            <p>A. Una noticia &nbsp;&nbsp; B. Un mito &nbsp;&nbsp; C. Un cuento de hadas &nbsp;&nbsp; D. Una leyenda</p>
+            <p class="respuesta">✅ RESPUESTA CORRECTA: B — Es un mito griego</p>
+          </div>
+
+          <hr>
+
+          <h3 style="color:#60a5fa;margin:0 0 12px 0;font-size:17px">
+            📘 COMPRENSIÓN LECTORA — EL ORIGEN DEL MUNDO
+          </h3>
+
+          <div class="pregunta">
+            <p><strong>¿Cómo era la tierra al principio?</strong></p>
+            <p class="respuesta">✅ La tierra estaba completamente de noche, todo era oscuridad.</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>¿Quiénes vivían en la tierra al principio?</strong></p>
+            <p class="respuesta">✅ Vivían solo 2 personas, no había nadie más.</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>¿Cómo nació la raza humana?</strong></p>
+            <p class="respuesta">✅ Nació cuando uno de ellos creó varios muñecos de barro y esos se convirtieron en los cuerpos de los hombres y mujeres.</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>¿Cómo nació el sol?</strong></p>
+            <p class="respuesta">✅ Nació cuando un coquito de romirigui subió muy alto a las alturas y allí se convirtió en el sol, que da luz de día.</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>¿Cómo nació la luna?</strong></p>
+            <p class="respuesta">✅ Nació cuando en la noche otro coquito siguió el camino de su sobrino y se convirtió en la luna, que da luz de noche.</p>
+          </div>
+          <div class="pregunta">
+            <p><strong>¿Qué nombre le dieron al sol y a la luna?</strong></p>
+            <p class="respuesta">✅ Al sol le pusieron de nombre <strong>Zuo</strong> y a la luna le pusieron <strong>Chio</strong>.</p>
+          </div>
+        </div>
+
+        <!-- ========== TAREA 2: TECNOLOGÍA 800⭐ ========== -->
+        <div id="tarea-tecnologia" style="display:none">
+          <h3 style="color:#34d399;margin:0 0 12px 0;font-size:17px">
+            💻 MECANOGRAFÍA — TECLADO GUÍA (a, s, d, f, g, h, j, k, l, ñ)
+          </h3>
+
+          <div class="pregunta">
+            <p><strong>🎯 Objetivo:</strong></p>
+            <ul style="margin:6px 0 10px 20px;line-height:1.7">
+              <li>Digitar con todos los dedos de ambas manos.</li>
+              <li>Conocer con qué dedo y de qué mano, se debe presionar cada tecla.</li>
+              <li>Ejercicios para memorizar la "guía" del teclado (a, s, d, f, g, h, j, k, l, ñ).</li>
+            </ul>
+
+            <p style="margin-top:10px"><strong>✍️ EJERCICIOS — Copia cada línea 3 veces:</strong></p>
+            <div style="background:#0b1226;padding:12px 14px;border-radius:10px;font-family:monospace;font-size:13.5px;line-height:2;color:#e5e7eb;overflow-x:auto;margin-top:8px">
+fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj fj<br>
+fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj fg hj<br>
+dfg hjk dfg dfg hjk hjk dfg hjk dfg hjk dfg hjk dfg hjk dfg hjk dfg hjk<br>
+asdfg asdfg asdfg asdfg asdfg asdfg asdfg asdfg asdfg asdfg<br>
+gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa gfdsa<br>
+ñlkjh ñlkjh ñlkjh ñlkjh ñlkjh ñlkjh ñlkjh ñlkjh ñlkjh ñlkjh ñlkjh<br>
+adfg adfg adfg adfg adfg adfg adfg adfg adfg adfg adfg adfg<br>
+gfsa gfsa gfsa gfsa gfsa gfsa gfsa gfsa gfsa gfsa gfsa gfsa gfsa gfs<br>
+ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj ñlkj<br>
+jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñ jklñ<br>
+adg ñkh adg ñkh adg ñkh adg ñkh adg ñkh adg ñkh adg ñkh adg<br>
+sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjj sfjjs<br>
+dklfh dklfh dklfh dklfh dklfh dklfh dklfh dklfh dklfh dklfh<br>
+añsld añsld añsld añsld añsld añsld añsld añsld añsld añsld añsld<br>
+dñjah dñjah dñjah dñjah dñjah dñjah dñjah dñjah dñjah dñjah<br>
+gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda hkñ gda<br>
+kad gñs kad gñs kad gñs kad gñs kad gñs kad gñs kad gñs kad<br>
+asa ala asa ala asa ala asa ala asa ala asa ala asa ala asa ala<br>
+<strong>daña daña daña daña daña daña daña daña daña daña daña</strong><br>
+<strong>faja faja faja faja faja faja faja faja faja faja faja faja faja faja</strong><br>
+<strong>hada hada hada hada hada hada hada hada hada hada hada hada</strong><br>
+<strong>gasa gasa gasa gasa gasa gasa gasa gasa gasa gasa gasa gasa</strong><br>
+<strong>falda falda falda falda falda falda falda falda falda falda falda</strong><br>
+<strong>salga salga salga salga salga salga salga salga salga salga salga</strong><br>
+<strong>salada salada salada salada salada salada salada salada salada</strong>
+            </div>
+          </div>
+        </div>
+
+<!-- 🔥 FIN PARTE 3 DE 9 — SIGUIENTE: SIGUE DENTRO DE TAREAS (GEOMETRÍA + BIOLOGÍA) + PANEL ADMIN 🔥 -->
+          <!-- ========== TAREA 3: GEOMETRÍA 2500⭐ ========== -->
+        <div id="tarea-geometria" style="display:none">
+          <h3 style="color:#f472b6;margin:0 0 12px 0;font-size:17px">
+            📐 CONVERSIONES — SISTEMA MÉTRICO (LONGITUD + MASA)
+          </h3>
+
+          <div class="pregunta">
+            <p><strong>📏 1. CONVERSIONES DE LONGITUD</strong></p>
+            <p>• 836 dam → dm = <strong class="respuesta" style="display:inline;padding:2px 8px">83.600 dm</strong></p>
+            <p>• 5.000 cm → dam = <strong class="respuesta" style="display:inline;padding:2px 8px">5 dam</strong></p>
+            <p>• 432 hm → km = <strong class="respuesta" style="display:inline;padding:2px 8px">43,2 km</strong></p>
+          </div>
+
+          <div class="pregunta">
+            <p><strong>⚖️ 2. ESCALA COMPLETA DE MASA (PARA CONVERTIR)</strong></p>
+            <div style="background:#0b1226;padding:12px;border-radius:10px;font-family:monospace;font-size:13px;text-align:center;line-height:2">
+              <span style="color:#fbbf24">×10 ←×10 ←×10 ←×10 ←×10 ←×10 ←×10</span><br>
+              <strong>tg — hg — dag — g — dg — cg — mg</strong><br>
+              <span style="color:#f87171">→÷10 →÷10 →÷10 →÷10 →÷10 →÷10 →÷10</span>
+            </div>
+            <p style="margin-top:8px;color:var(--gris);font-size:12px">
+              ➡️ De unidad más grande a más pequeña: <strong>MULTIPLICAS ×10</strong> por cada paso<br>
+              ⬅️ De unidad más pequeña a más grande: <strong>DIVIDES ÷10</strong> por cada paso
+            </p>
+          </div>
+
+          <div class="pregunta">
+            <p><strong>📝 EJEMPLO 1 RESUELTO</strong></p>
+            <p>Pasa: <strong>375 dg → mg</strong></p>
+            <p class="respuesta">
+              ✅ Solución: de dg a mg hay 2 pasos a la derecha → ×10 dos veces = ×100<br>
+              375 × 100 = <strong>375.000 mg</strong>
+            </p>
+          </div>
+
+          <div class="pregunta">
+            <p><strong>🔢 EJERCICIO 4 RESUELTO</strong></p>
+            <p>60.000 Hg → Hg = ?</p>
+            <p class="respuesta">✅ 60.000 ÷ 10.000 = <strong>6 Hg</strong></p>
+          </div>
+
+          <hr>
+
+          <h4 style="color:#fbbf24;margin:14px 0 8px 0">📋 ACTIVIDAD DE PESO — 3 PUNTOS + SOLUCIONES</h4>
+
+          <div class="pregunta">
+            <p><strong>A. 53 kg → dag</strong></p>
+            <p class="respuesta">✅ 53 × 100 = <strong>5.300 dag</strong></p>
+          </div>
+          <div class="pregunta">
+            <p><strong>B. 876 g → hg</strong></p>
+            <p class="respuesta">✅ 876 ÷ 100 = <strong>8,76 hg</strong></p>
+          </div>
+          <div class="pregunta">
+            <p><strong>C. 90.000 mg → g</strong></p>
+            <p class="respuesta">✅ 90.000 ÷ 1.000 = <strong>90 g</strong></p>
+          </div>
+        </div>
+
+        <!-- ========== TAREA 4: BIOLOGÍA 3000⭐ ========== -->
+        <div id="tarea-biologia" style="display:none">
+          <h3 style="color:#a78bfa;margin:0 0 12px 0;font-size:17px">
+            🧬 RESPIRACIÓN EN ANIMALES — MAPA CONCEPTUAL COMPLETO
+          </h3>
+
+          <div class="pregunta">
+            <p><strong>📌 DEFINICIÓN PRINCIPAL</strong></p>
+            <p class="respuesta">
+              ✅ La respiración es el proceso <strong>por donde los animales reciben oxígeno</strong>
+              y <strong>expulsan el dióxido de carbono</strong>.
+            </p>
+          </div>
+
+          <div class="pregunta">
+            <p><strong>💡 NOTA IMPORTANTE:</strong></p>
+            <p class="respuesta">
+              Hay algunos animales que <strong>NO respiran por medio de la nariz</strong>,
+              sino por medio de <strong>su piel</strong> y otros como los peces respiran por
+              medio de <strong>sus branquias</strong>.
+            </p>
+          </div>
+
+          <hr>
+
+          <h4 style="color:#fbbf24;margin:14px 0 10px 0">🫁 CADA TIPO DE ANIMAL Y SU FORMA DE RESPIRAR:</h4>
+
+          <div class="pregunta">
+            <p><strong>👤 SER HUMANO</strong></p>
+            <p class="respuesta">
+              ✅ Su medio de respiración es <strong>por la nariz y los pulmones</strong>.<br>
+              → Por tener este medio de respiración, <strong>no podemos permanecer mucho tiempo bajo el agua</strong>.
+            </p>
+          </div>
+
+          <div class="pregunta">
+            <p><strong>🐟 PECES</strong></p>
+            <p class="respuesta">
+              ✅ Su medio de respiración es <strong>por medio de las branquias</strong>.<br>
+              → Porque ellas le ayudan a poder estar <strong>en el agua sin ahogarse</strong>.
+            </p>
+          </div>
+
+          <div class="pregunta">
+            <p><strong>🦟 INSECTOS</strong></p>
+            <p class="respuesta">
+              ✅ Su medio de respirar <strong>NO es como el ser humano</strong>.<br>
+              → Porque los insectos respiran <strong>por medio de su pecho</strong>.
+            </p>
+          </div>
+        </div>
+
+      </div> <!-- FIN #tarea-contenido -->
+
+      <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-comprar')">
+        ← Volver a tareas
+      </button>
+    </div>
+  </div>
+
+  <!-- ================================================== -->
+  <!-- P8: PANTALLA SECRETA SOLO PARA JORGE ADMIN VIP -->
+  <!-- ================================================== -->
+  <div id="p-admin" class="pantalla">
+    <div class="tarjeta" style="background:linear-gradient(180deg,#1a0f2e,#241142);border-color:#a855f7">
+      <h1 style="background:linear-gradient(90deg,#fbbf24,#a855f7,#ec4899);-webkit-background-clip:text;background-clip:text;color:transparent">
+        🔑 CÓDIGOS Y CONTRASEÑAS
+      </h1>
+      <p class="subtitulo" style="color:#d8b4fe">ACCESO EXCLUSIVO — SOLO ADMIN VIP ✨</p>
+
+      <h4 style="margin:18px 0 10px 0;color:#fbbf24">🔐 CONTRASEÑAS DE TODOS LOS PERFILES</h4>
+      <div id="admin-pass"></div>
+
+      <h4 style="margin:22px 0 10px 0;color:#fbbf24">💎 CÓDIGOS DE CANJE DE ⭐ (15 OPCIONES — 1 SOLO USO CADA UNO)</h4>
+      <p style="color:var(--gris);font-size:12px;margin-bottom:10px">
+        Cuando alguien usa uno, queda tachado y bloqueado para siempre
+      </p>
+      <div id="admin-codigos"></div>
+
+      <button class="btn btn-vip" style="margin-top:20px" onclick="ir('p-menu')">
+        ← Volver al menú
+      </button>
+    </div>
+  </div>
+
+</div> <!-- FIN .contenedor -->
+
+<!-- 🔥 FIN PARTE 4 DE 9 — SIGUIENTE: EMPIEZA EL JAVASCRIPT (BASE DE DATOS NUEVA + CÓDIGOS DE 1 USO) 🔥 -->
+  <script>
 // ==================================================
-// 📦 BASE DE DATOS PRINCIPAL (NO MODIFICAR SI NO ERES ADMIN)
+// 📦 BASE DE DATOS PRINCIPAL — NUEVA Y ACTUALIZADA
+// ⚠️ NO MODIFICAR SI NO ERES JORGE ADMIN VIP
 // ==================================================
 
 // 👤 PERFILES DE ESTUDIANTES + CONTRASEÑAS + SALDO INICIAL
 const ESTUDIANTES = {
-  Jorge:   { pass: "22€admkn92deto", saldo: 54000, admin: true  }, // 👑 VIP
+  Jorge:   { pass: "22€admkn92deto", saldo: 54000, admin: true  }, // 👑 VIP SIEMPRE
   Mathias: { pass: "WWEOmarhi2",    saldo: 0,     admin: false },
   Achury:  { pass: "11#2maek30",    saldo: 0,     admin: false },
-  Sara:    { pass: "100(#INVALIwoo",      saldo: 0,     admin: false },
+  Sara:    { pass: "100(#woo",      saldo: 0,     admin: false },
   Hellen:  { pass: "sangusoo299",   saldo: 0,     admin: false }
 };
 
-// 💎 15 OPCIONES DE CANJE DE ⭐ (DE 100 HASTA 100.000)
+// 💎 15 MONTOS DE CANJE DE ⭐ (DE 100 HASTA 100.000)
 const MONTOS_CANJE = [
   100, 200, 500, 1000, 2000, 5000, 10000, 15000,
   20000, 30000, 40000, 50000, 60000, 80000, 100000
 ];
 
-// 🔑 CÓDIGOS SECRETOS ÚNICOS PARA CADA MONTO (SOLO LOS TIENE ADMIN)
+// 🔑 CÓDIGOS SECRETOS NUEVOS — TODOS DIFERENTES A LOS ANTERIORES
+// ⚠️ CADA UNO SIRVE **UNA SOLA VEZ EN TODA LA VIDA**
 const CODIGOS_ESTRELLAS = {
-  100:     "STAR-100-KF92MX",
-  200:     "STAR-200-PLGOE48QW",
-  500:     "STAR-500-ZN7OP23VB",
-  1000:    "STAR-1K-RT29HC",
-  2000:    "STAR-2K-DS61JP",
-  5000:    "STAR-5K-GX84LW",
-  10000:   "STAR-10K-BM37YWWR",
-  15000:   "STAR-15K-VN92KD",
-  20000:   "STAR-20K-FQ58TH",
-  30000:   "STAR-30K-PR71MX",
-  40000:   "STAR-40K-ND49CZ",
-  50000:   "STAR-50K-WB26JL",
-  60000:   "STAR-60K-HX83QP",
-  80000:   "STAR-80K-MV51KN",
-  100000:  "STAR-100K-ZT94DR"
+  100:     "VIP-100-7XQ29L",
+  200:     "VIP-200-4BW86Z",
+  500:     "VIP-500-9KM35P",
+  1000:    "VIP-1K-N2T74R",
+  2000:    "VIP-2K-6HV89C",
+  5000:    "VIP-5K-3XP51M",
+  10000:   "VIP-10K-8LQ47D",
+  15000:   "VIP-15K-2ZF93W",
+  20000:   "VIP-20K-5NS68J",
+  30000:   "VIP-30K-7GR42V",
+  40000:   "VIP-40K-1BH95X",
+  50000:   "VIP-50K-6YT38Q",
+  60000:   "VIP-60K-9DK27F",
+  80000:   "VIP-80K-4CM51H",
+  100000:  "VIP-100K-8WR63N"
 };
 
-// 💾 CARGAR SALDOS GUARDADOS (Jorge siempre mantiene 54000 de inicio)
+// 🚫 AQUÍ SE GUARDAN LOS CÓDIGOS QUE YA SE GASTARON (NADIE LOS VUELVE A USAR)
+let CODIGOS_USADOS = [];
+
+// 💾 CARGAR DATOS GUARDADOS DE ANTES (NUNCA SE PIERDEN)
 Object.keys(ESTUDIANTES).forEach(nombre => {
-  if (nombre === "Jorge") return;
-  const guardado = localStorage.getItem("saldo_" + nombre);
-  if (guardado !== null) ESTUDIANTES[nombre].saldo = parseInt(guardado);
+  // Jorge NUNCA cambia su saldo inicial
+  if(nombre === "Jorge") return;
+  const saldoGuardado = localStorage.getItem("saldo_" + nombre);
+  if(saldoGuardado !== null) ESTUDIANTES[nombre].saldo = parseInt(saldoGuardado);
 });
 
-// 🧑 USUARIO ACTUAL (null = nadie ha iniciado sesión)
-let actual = null;
-</script>
-<script>
-// ==================================================
-// ⚙️ LÓGICA PRINCIPAL — TODO FUNCIONA DESDE AQUÍ
-// ==================================================
+// Cargar códigos ya usados (si hay alguno de antes)
+const usadosGuardados = localStorage.getItem("codigos_usados_vip");
+if(usadosGuardados !== null) CODIGOS_USADOS = JSON.parse(usadosGuardados);
 
-// 🔄 IR A OTRA PANTALLA (NAVEGACIÓN)
+// 🧑 USUARIO ACTUAL (null = nadie ha iniciado sesión todavía)
+let actual = null;
+
+// 🎯 VARIABLES DE LA TIENDA TROLL
+let trollUsuario = null;
+
+<!-- 🔥 FIN PARTE 5 DE 9 — SIGUIENTE: LÓGICA DE NAVEGACIÓN + LOGIN + MENÚS + TIENDA DE ESTRELLAS (CÓDIGOS 1 USO) 🔥 -->
+    // ==================================================
+// 🔄 NAVEGACIÓN — IR A OTRA PANTALLA
+// ==================================================
 function ir(idPantalla){
-  // Seguridad: SOLO JORGE ADMIN puede entrar a la pantalla de códigos
-  if(idPantalla === "p-admin" && actual && !ESTUDIANTES[actual.nombre].admin){
-    mostrarAlerta("comprar-alerta","error","⛔ ACCESO DENEGADO — solo para ADMIN VIP");
-    return;
+  // 🚫 BLOQUEO TOTAL: NADIE EXCEPTO JORGE ENTRA A PANEL ADMIN
+  if(idPantalla === "p-admin"){
+    if(!actual || !ESTUDIANTES[actual.nombre].admin){
+      mostrarAlerta("menu-alerta","error","⛔ ACCESO DENEGADO — SOLO PARA JORGE ADMIN VIP");
+      return;
+    }
   }
 
-  // Ocultar todas, mostrar solo la pedida
+  // Ocultar todas → mostrar solo la pedida
   document.querySelectorAll(".pantalla").forEach(p => p.classList.remove("activa"));
   document.getElementById(idPantalla).classList.add("activa");
-  limpiarAlerta();
+  limpiarTodasAlertas();
 
-  // Actualizar datos según la pantalla
-  if(idPantalla === "p-menu")   actualizarMenu();
-  if(idPantalla === "p-perfil") actualizarPerfil();
-  if(idPantalla === "p-tienda") actualizarTienda();
-  if(idPantalla === "p-comprar"){
-    document.getElementById("comprar-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
-  }
-  if(idPantalla === "p-admin")  cargarAdmin();
+  // Actualizar datos automáticamente según la pantalla
+  if(idPantalla === "p-menu")    actualizarMenu();
+  if(idPantalla === "p-perfil")  actualizarPerfil();
+  if(idPantalla === "p-tienda")  actualizarTienda();
+  if(idPantalla === "p-comprar") document.getElementById("comprar-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
+  if(idPantalla === "p-admin")   cargarAdmin();
   if(idPantalla === "p-pass"){
     document.getElementById("input-pass").value = "";
     setTimeout(()=>document.getElementById("input-pass").focus(),80);
   }
+  if(idPantalla === "p-troll"){
+    document.getElementById("troll-paso1").style.display = "block";
+    document.getElementById("troll-paso2").style.display = "none";
+    document.getElementById("troll-paso3").style.display = "none";
+    document.getElementById("troll-alerta").innerHTML = "";
+  }
 }
 
-// 🧹 LIMPIAR MENSAJES DE ERROR / ÉXITO
-function limpiarAlerta(){
-  ["pass-alerta","tienda-alerta","comprar-alerta"].forEach(id => {
+// ==================================================
+// 🚨 ALERTAS (BIEN / ERROR / VIP)
+// ==================================================
+function limpiarTodasAlertas(){
+  ["pass-alerta","tienda-alerta","comprar-alerta","menu-alerta","troll-alerta"].forEach(id => {
     const caja = document.getElementById(id);
     if(caja) caja.innerHTML = "";
   });
 }
 function mostrarAlerta(id,tipo,texto){
-  document.getElementById(id).innerHTML =
-    `<div class="alerta alerta-${tipo}">${texto}</div>`;
+  const caja = document.getElementById(id);
+  if(!caja) return;
+  caja.innerHTML = `<div class="alerta alerta-${tipo}">${texto}</div>`;
 }
 
-// 👆 SELECCIONAR UN ESTUDIANTE DEL MENÚ INICIAL
+// ==================================================
+// 👆 SELECCIONAR USUARIO → PIDE CONTRASEÑA
+// ==================================================
 function seleccionar(nombre){
   actual = { nombre: nombre };
   document.getElementById("pass-nombre").textContent = nombre.toUpperCase();
   ir("p-pass");
 }
 
-// 🔐 VERIFICAR SI LA CONTRASEÑA ES CORRECTA
+// ==================================================
+// 🔐 VERIFICAR CONTRASEÑA
+// ==================================================
 function verificarPass(){
-  const escrita = document.getElementById("input-pass").value;
+  const escrita = document.getElementById("input-pass").value.trim();
   const correcta = ESTUDIANTES[actual.nombre].pass;
 
   if(escrita === correcta){
-    // ✅ BIEN — entrar al menú
-    ir("p-menu");
+    ir("p-menu"); // ✅ TODO BIEN → ENTRA
   } else {
-    // ❌ MAL — no accede
     mostrarAlerta("pass-alerta","error","❌ CONTRASEÑA INCORRECTA — NO PUEDES ACCEDER");
     document.getElementById("input-pass").value = "";
     document.getElementById("input-pass").focus();
   }
 }
 
+// ⌨️ DARLE A ENTER = ENTRAR DIRECTO
+document.getElementById("input-pass").addEventListener("keydown", e => {
+  if(e.key === "Enter") verificarPass();
+});
+
+// ==================================================
 // 🚪 CERRAR SESIÓN
+// ==================================================
 function cerrarSesion(){
   actual = null;
   ir("p-elegir");
 }
 
+// ==================================================
 // 📝 ACTUALIZAR MENÚ PRINCIPAL
+// ==================================================
 function actualizarMenu(){
   const datos = ESTUDIANTES[actual.nombre];
   document.getElementById("menu-nombre").textContent = actual.nombre.toUpperCase();
   document.getElementById("menu-saldo").textContent = datos.saldo + "⭐";
 
-  // Mostrar cosas SOLO SI ES JORGE ADMIN
+  // 👑 SOLO JORGE VE EL BOTÓN ADMIN Y LA ETIQUETA VIP
   const etiquetaVip = document.getElementById("menu-vip");
-  const botonAdmin = document.getElementById("btn-admin");
+  const botonAdmin   = document.getElementById("btn-admin");
   if(datos.admin){
     etiquetaVip.style.display = "inline";
-    botonAdmin.style.display = "block";
+    botonAdmin.style.display   = "block";
   } else {
     etiquetaVip.style.display = "none";
-    botonAdmin.style.display = "none";
+    botonAdmin.style.display   = "none";
   }
 }
 
+// ==================================================
 // 👤 ACTUALIZAR PERFIL
+// ==================================================
 function actualizarPerfil(){
   const datos = ESTUDIANTES[actual.nombre];
   document.getElementById("perfil-nombre").textContent = actual.nombre.toUpperCase();
-  document.getElementById("perfil-saldo").textContent = datos.saldo + "⭐";
+  document.getElementById("perfil-saldo").textContent  = datos.saldo + "⭐";
   document.getElementById("perfil-vip-box").style.display = datos.admin ? "block" : "none";
 }
 
-// 💎 CARGAR LAS 15 OPCIONES DE CANJE DE ⭐ EN LA TIENDA
+// ==================================================
+// 💎 CARGAR TIENDA DE ESTRELLAS (MUESTRA CÓDIGOS YA GASTADOS TACHADOS)
+// ==================================================
 function actualizarTienda(){
   const datos = ESTUDIANTES[actual.nombre];
   document.getElementById("tienda-saldo").textContent = datos.saldo + "⭐";
@@ -513,39 +1047,63 @@ function actualizarTienda(){
   lista.innerHTML = "";
 
   MONTOS_CANJE.forEach(monto => {
+    const codigo = CODIGOS_ESTRELLAS[monto];
+    const yaUsado = CODIGOS_USADOS.includes(codigo);
+
     const fila = document.createElement("div");
-    fila.className = "opcion-estrella";
+    fila.className = "opcion-estrella" + (yaUsado ? " usado" : "");
     fila.innerHTML = `
       <span class="monto">+${monto}⭐</span>
-      <span style="color:var(--accent);font-weight:600">Canjear código →</span>
+      <span style="color:${yaUsado ? '#64748b' : '#a78bfa'};font-weight:700;font-size:13px">
+        ${yaUsado ? "❌ YA USADO — NO SIRVE MÁS" : "Canjear código →"}
+      </span>
     `;
-    fila.onclick = () => abrirCanje(monto);
+    if(!yaUsado) fila.onclick = () => abrirCanje(monto);
     lista.appendChild(fila);
   });
 }
 
-// 🎟️ ABRIR VENTANA PARA PONER EL CÓDIGO DE CANJE
+// ==================================================
+// 🎟️ CANJEAR CÓDIGO DE ESTRELLAS (NUEVA REGLA: 1 SOLO USO)
+// ==================================================
 function abrirCanje(monto){
-  const codigoIngresado = prompt(
-    `⭐ CANJEAR ${monto} ESTRELLAS\n\nINGRESA CONTRASEÑA DE ⭐ AQUI:`
-  );
-  if(!codigoIngresado) return; // si le da cancelar no hace nada
-
   const codigoCorrecto = CODIGOS_ESTRELLAS[monto];
 
-  if(codigoIngresado.trim() === codigoCorrecto){
-    // ✅ CÓDIGO BUENO — SUMAR ⭐
-    ESTUDIANTES[actual.nombre].saldo += monto;
-    localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
+  // 1 — POR SI ACASO: revisar de nuevo si ya se gastó
+  if(CODIGOS_USADOS.includes(codigoCorrecto)){
+    mostrarAlerta("tienda-alerta","error","❌ ESE CÓDIGO YA SE GASTÓ ANTES — SIRVE UNA SOLA VEZ");
     actualizarTienda();
-    mostrarAlerta("tienda-alerta","bien",`✅ RECIBISTE ${monto}⭐ — YA SE SUMARON A TU SALDO`);
+    return;
+  }
+
+  // 2 — Pedir código al usuario
+  const ingresado = prompt(`⭐ CANJEAR ${monto} ESTRELLAS\n\nINGRESA EL CÓDIGO AQUÍ:`);
+  if(!ingresado) return; // si le da cancelar no hace nada
+
+  // 3 — Comparar
+  if(ingresado.trim().toUpperCase() === codigoCorrecto.toUpperCase()){
+    // ✅ CÓDIGO BUENO
+    // A — Bloquearlo PARA SIEMPRE
+    CODIGOS_USADOS.push(codigoCorrecto);
+    localStorage.setItem("codigos_usados_vip", JSON.stringify(CODIGOS_USADOS));
+
+    // B — Sumar estrellas y guardar
+    ESTUDIANTES[actual.nombre].saldo += monto;
+    if(actual.nombre !== "Jorge") localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
+
+    // C — Actualizar pantalla
+    actualizarTienda();
+    mostrarAlerta("tienda-alerta","bien",`✅ RECIBISTE ${monto}⭐ — YA SE SUMARON. CÓDIGO BLOQUEADO PARA SIEMPRE`);
   } else {
     // ❌ CÓDIGO MALO
     mostrarAlerta("tienda-alerta","error","❌ CÓDIGO INCORRECTO — no se agregaron estrellas");
   }
 }
 
+<!-- 🔥 FIN PARTE 6 DE 9 — SIGUIENTE: COMPRAR TAREAS + MOSTRAR CADA TAREA + PANEL ADMIN 🔥 -->
+    // ==================================================
 // 🛒 COMPRAR UNA TAREA (COBRA ⭐ SOLO SI TIENE SUFICIENTES)
+// ==================================================
 function comprar(materia, costo){
   const saldo = ESTUDIANTES[actual.nombre].saldo;
 
@@ -559,48 +1117,196 @@ function comprar(materia, costo){
 
   // 2 — SÍ TIENE: COBRAR Y RESTAR DEL SALDO
   ESTUDIANTES[actual.nombre].saldo -= costo;
-  localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
+  if(actual.nombre !== "Jorge") localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
   document.getElementById("comprar-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
 
-  // 3 — MOSTRAR LA TAREA COMPRADA CON TODAS LAS RESPUESTAS
-  document.getElementById("tarea-titulo").textContent =
-    `📝 TAREA DE ${materia.toUpperCase()} ✅ COMPRADA`;
+  // 3 — OCULTAR TODAS LAS TAREAS PRIMERO
+  ["tarea-espanol","tarea-tecnologia","tarea-geometria","tarea-biologia"].forEach(id => {
+    document.getElementById(id).style.display = "none";
+  });
+
+  // 4 — MOSTRAR SOLO LA TAREA QUE COMPRÓ
+  let idMostrar = "";
+  const materiaLimpia = materia.toLowerCase().replace(/ó/g,"o").replace(/í/g,"i");
+  if(materiaLimpia === "espanol" || materiaLimpia === "español") idMostrar = "tarea-espanol";
+  if(materiaLimpia === "tecnologia" || materiaLimpia === "tecnología") idMostrar = "tarea-tecnologia";
+  if(materiaLimpia === "geometria" || materiaLimpia === "geometría") idMostrar = "tarea-geometria";
+  if(materiaLimpia === "biologia" || materiaLimpia === "biología") idMostrar = "tarea-biologia";
+
+  if(idMostrar) document.getElementById(idMostrar).style.display = "block";
+
+  // 5 — TÍTULO Y PRECIO
+  document.getElementById("tarea-titulo").textContent = `📝 TAREA DE ${materia.toUpperCase()} ✅ COMPRADA`;
   document.getElementById("tarea-costo").textContent = `Pagaste: ${costo}⭐`;
+
+  // 6 — ABRIR LA PANTALLA
   ir("p-tarea");
 }
 
-// 🔑 PANTALLA ADMIN: CARGAR TODAS LAS CONTRASEÑAS Y CÓDIGOS (SOLO JORGE VE ESTO)
+// ==================================================
+// 🔑 PANTALLA ADMIN VIP — CARGAR CONTRASEÑAS Y CÓDIGOS (SOLO JORGE VE ESTO)
+// ==================================================
 function cargarAdmin(){
-  // CONTRASEÑAS DE PERFILES
+  // 🔐 TODAS LAS CONTRASEÑAS DE LOS 5 PERFILES
   const cajaPass = document.getElementById("admin-pass");
   cajaPass.innerHTML = "";
   Object.keys(ESTUDIANTES).forEach(n => {
     const fila = document.createElement("div");
     fila.className = "fila-admin";
+    let extra = "";
+    if(n === "Jorge") extra = `<span style="color:#fbbf24;font-size:11px;margin-left:6px">👑 ADMIN</span>`;
     fila.innerHTML = `
-      <strong style="color:var(--accent)">${n.toUpperCase()}</strong>
-      <code style="background:#0b1220;padding:4px 8px;border-radius:6px">${ESTUDIANTES[n].pass}</code>
+      <strong style="color:#a78bfa">${n.toUpperCase()}${extra}</strong>
+      <code>${ESTUDIANTES[n].pass}</code>
     `;
     cajaPass.appendChild(fila);
   });
 
-  // CÓDIGOS DE CANJE DE ⭐
+  // 💎 LOS 15 CÓDIGOS DE CANJE + MARCA LOS YA USADOS
   const cajaCod = document.getElementById("admin-codigos");
   cajaCod.innerHTML = "";
   MONTOS_CANJE.forEach(m => {
+    const codigo = CODIGOS_ESTRELLAS[m];
+    const usado = CODIGOS_USADOS.includes(codigo);
     const fila = document.createElement("div");
     fila.className = "fila-admin";
+    fila.style.opacity = usado ? "0.5" : "1";
     fila.innerHTML = `
       <strong class="monto">+${m}⭐</strong>
-      <code style="background:#0b1220;padding:4px 8px;border-radius:6px;color:var(--vip)">${CODIGOS_ESTRELLAS[m]}</code>
+      <div style="text-align:right">
+        <code style="color:${usado ? '#64748b' : '#fbbf24'}">${codigo}</code>
+        <div style="font-size:11px;margin-top:3px;color:${usado ? '#ef4444' : '#4ade80'}">
+          ${usado ? "❌ YA GASTADO" : "✅ DISPONIBLE"}
+        </div>
+      </div>
     `;
     cajaCod.appendChild(fila);
   });
 }
 
-// ⌨️ DARLE A ENTER EN LA CONTRASEÑA = ENTRAR (NO HACE FALTA TOCAR BOTÓN)
-document.getElementById("input-pass").addEventListener("keydown", e => {
-  if(e.key === "Enter") verificarPass();
+<!-- 🔥 FIN PARTE 7 DE 9 — SIGUIENTE: TODA LA LÓGICA COMPLETA DE LA TIENDA TROLL (3 PASOS + COMPRAS) 🔥 -->
+    // ==================================================
+// 🧌 TIENDA TROLL — LÓGICA COMPLETA DE LOS 3 PASOS
+// ==================================================
+
+// 🎯 PASO 1: Eligen a quién quieren "hackear"
+function trollElegir(nombre){
+  trollUsuario = nombre;
+  document.getElementById("troll-quien").textContent  = nombre.toUpperCase();
+  document.getElementById("troll-quien2").textContent = nombre.toUpperCase();
+  document.getElementById("troll-pass").value = "";
+
+  // Cambiar pantallas internas
+  document.getElementById("troll-paso1").style.display = "none";
+  document.getElementById("troll-paso2").style.display = "block";
+  document.getElementById("troll-paso3").style.display = "none";
+
+  setTimeout(()=>document.getElementById("troll-pass").focus(),80);
+}
+
+// 🔙 Volver al inicio de la tienda troll
+function trollVolver(){
+  trollUsuario = null;
+  document.getElementById("troll-alerta").innerHTML = "";
+  document.getElementById("troll-paso1").style.display = "block";
+  document.getElementById("troll-paso2").style.display = "none";
+  document.getElementById("troll-paso3").style.display = "none";
+}
+
+// 🔐 PASO 2: Verificar que ponen LA CONTRASEÑA REAL de esa persona
+function trollVerificar(){
+  if(!trollUsuario) return;
+  const escrita = document.getElementById("troll-pass").value.trim();
+  const correcta = ESTUDIANTES[trollUsuario].pass;
+
+  if(escrita === correcta){
+    // ✅ CONTRASEÑA REAL CORRECTA → DENTRO DE LA TIENDA TROLL
+    document.getElementById("troll-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
+    document.getElementById("troll-paso2").style.display = "none";
+    document.getElementById("troll-paso3").style.display = "block";
+    mostrarAlerta("troll-alerta","vip","✅ ACCESO CONCEDIDO — bienvenido a la TIENDA TROLL 🔥");
+  } else {
+    // ❌ MAL
+    mostrarAlerta("troll-alerta","error","❌ ESA NO ES LA CONTRASEÑA REAL — NO PUEDES ENTRAR");
+    document.getElementById("troll-pass").value = "";
+    document.getElementById("troll-pass").focus();
+  }
+}
+
+// ⌨️ Enter también sirve aquí
+document.addEventListener("DOMContentLoaded",()=>{
+  const tp = document.getElementById("troll-pass");
+  if(tp) tp.addEventListener("keydown", e => { if(e.key === "Enter") trollVerificar(); });
 });
+
+// 💰 PRECIOS OFICIALES DE LA TIENDA TROLL
+const PRECIOS_TROLL = {
+  Mathias: 40000,
+  Hellen:  100000,
+  Sara:    75000,
+  Achury:  80000,
+  Jorge:   10000000
+};
+const PRECIO_VIP_TROLL = 500000;
+
+// 🛒 PASO 3: COMPRAR ALGO EN LA TIENDA TROLL
+function trollComprar(que){
+  const saldo = ESTUDIANTES[actual.nombre].saldo;
+  let costo = 0;
+  let texto = "";
+
+  if(que === "pass"){
+    // 🗝️ COMPRAR TODAS LAS CONTRASEÑAS
+    costo = PRECIOS_TROLL[trollUsuario] || 99999999;
+    texto = `🗝️ CONTRASEÑA DE ${trollUsuario.toUpperCase()}`;
+  }
+  if(que === "vip"){
+    // 👑 COMPRAR RANGO VIP
+    costo = PRECIO_VIP_TROLL;
+    texto = "👑 RANGO VIP COMPLETO";
+  }
+
+  // 1 — ¿TIENE SUFICIENTES ⭐?
+  if(saldo < costo){
+    const faltan = costo - saldo;
+    mostrarAlerta("troll-alerta","error",
+      `❌ NO TE ALCANZA\nPara "${texto}"\nTe faltan ${faltan.toLocaleString()}⭐`);
+    return;
+  }
+
+  // 2 — COBRAR
+  ESTUDIANTES[actual.nombre].saldo -= costo;
+  if(actual.nombre !== "Jorge") localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
+  document.getElementById("troll-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
+
+  // 3 — ENTREGAR LO QUE COMPRÓ
+  let entrega = "";
+  if(que === "pass"){
+    entrega = `
+      ✅ COMPRA EXITOSA<br><br>
+      <strong style="color:#fbbf24">${texto}</strong><br>
+      Usuario: <strong>${trollUsuario.toUpperCase()}</strong><br>
+      Contraseña REAL: <code style="background:#0b1226;padding:4px 8px;border-radius:6px">${ESTUDIANTES[trollUsuario].pass}</code><br><br>
+      <span style="color:#a78bfa">Pagaste: ${costo.toLocaleString()}⭐</span>
+    `;
+  }
+  if(que === "vip"){
+    entrega = `
+      ✅ RANGO VIP COMPRADO<br><br>
+      <strong style="color:#fbbf24">AHORA ERES ADMIN DEL SISTEMA 👑</strong><br><br>
+      • Ya puedes entrar al panel de códigos<br>
+      • Ya puedes ver TODAS las contraseñas<br>
+      • Tienes poderes especiales<br><br>
+      <span style="color:#a78bfa">Pagaste: ${PRECIO_VIP_TROLL.toLocaleString()}⭐</span>
+    `;
+    // 🧙 AQUÍ LE DAMOS PODERES DE ADMIN DE VERDAD
+    ESTUDIANTES[actual.nombre].admin = true;
+  }
+
+  mostrarAlerta("troll-alerta","bien",entrega);
+}
+
+<!-- 🔥 FIN PARTE 8 DE 9 — SIGUIENTE: ÚLTIMA PARTE (CIERRE DE TODO + ETIQUETA </script></body></html>) 🔥 -->
 </script>
-        
+</body>
+</html>
