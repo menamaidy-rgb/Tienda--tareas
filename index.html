@@ -321,7 +321,7 @@
   <!-- ================================================== -->
   <!-- P3: MENÚ PRINCIPAL (MÁS COLORIDO) -->
   <!-- ================================================== -->
-  <div id="p-menu" class="pantalla">
+    <div id="p-menu" class="pantalla">
     <div class="tarjeta">
       <div class="arriba-saldo">
         <div>
@@ -338,6 +338,18 @@
       <button class="btn btn-dorado" onclick="ir('p-tienda')">💎 TIENDA DE ⭐ ESTRELLAS</button>
       <button class="btn btn-verde" onclick="ir('p-comprar')">📚 COMPRAR TAREAS</button>
       <button class="btn btn-troll" onclick="ir('p-troll')">🧌 TIENDA TROLL 🔥 NUEVA</button>
+
+      <!-- 📢 ANUNCIO VIP EN EL MENÚ PRINCIPAL -->
+      <div style="margin-top:18px;padding:18px;border-radius:16px;border:1px solid rgba(168,85,247,.65);background:linear-gradient(135deg,rgba(88,28,135,.42),rgba(30,41,59,.96));box-shadow:0 0 18px rgba(168,85,247,.16)">
+        <h3 style="margin:0 0 12px;color:#e9d5ff;font-size:18px;text-align:center">👑 ¡OBTÉN VIP Y DISFRUTA DE ESTOS BENEFICIOS!</h3>
+        <ul style="margin:0;padding-left:22px;line-height:1.9;color:#f8fafc;font-size:14px">
+          <li>💸 20% de descuento en compras de tareas</li>
+          <li>⏳ Recompensas por tiempo en la web</li>
+          <li>⭐ 1000 estrellas todos los días</li>
+          <li>✨ Nombre exclusivo</li>
+          <li>🌈 Temas RPG arcoíris</li>
+        </ul>
+      </div>
 
       <button id="btn-admin" class="btn btn-vip" onclick="ir('p-admin')" style="display:none">
         🔑 PANEL ADMIN VIP (SOLO TÚ)
@@ -377,7 +389,7 @@
       </button>
     </div>
   </div>
-  
+
   <!-- ================================================== -->
   <!-- P5: TIENDA DE ESTRELLAS (CÓDIGOS DE 1 SOLO USO) -->
   <!-- ================================================== -->
@@ -485,7 +497,7 @@
 
 <!-- 🔥 FIN PARTE 2 DE 9 — SIGUIENTE: MENÚ DE COMPRAR TAREAS (LAS 5) + TODAS LAS TAREAS COMPLETAS 🔥 -->
   <!-- ================================================== -->
-  <!-- P7: MENÚ COMPRAR TAREAS (5 TAREAS — 4 DISPONIBLES + 1 BLOQUEADA) -->
+  <!-- P7: MENÚ COMPRAR TAREAS -->
   <!-- ================================================== -->
   <div id="p-comprar" class="pantalla">
     <div class="tarjeta">
@@ -498,19 +510,7 @@
 
       <div id="comprar-alerta"></div>
 
-      <!-- TAREA 1: ESPAÑOL 1000⭐ -->
-      <div class="opcion-tarea">
-        <div>
-          <h3 style="margin:0 0 4px 0;color:#60a5fa">📘 TAREA DE ESPAÑOL</h3>
-          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
-            2 Comprensiones lectoras completas + TODAS las respuestas<br>
-            • Mito de Pegaso (8 preguntas)<br>
-            • El origen del mundo (6 preguntas)
-          </p>
-          <p class="precio-tarea" style="margin-top:6px">1000⭐</p>
-        </div>
-        <button class="btn btn-primario" onclick="comprar('Español',1000)">COMPRAR</button>
-      </div>
+      
 
       <!-- TAREA 2: TECNOLOGÍA 800⭐ -->
       <div class="opcion-tarea">
@@ -520,7 +520,7 @@
             Ejercicio completo de mecanografía / dactilografía<br>
             • Teclado guía (a s d f g h j k l ñ)<br>
             • Objetivo + 22 filas de ejercicios + palabras reales
-          </p>
+                      </p>
           <p class="precio-tarea" style="margin-top:6px">800⭐</p>
         </div>
         <button class="btn btn-verde" onclick="comprar('Tecnología',800)">COMPRAR</button>
@@ -541,33 +541,20 @@
         <button class="btn btn-dorado" onclick="comprar('Geometría',2500)">COMPRAR</button>
       </div>
 
-      <!-- TAREA 4: BIOLOGÍA 3000⭐ -->
+      <!-- TAREA: EDUCACIÓN FÍSICA 3000⭐ -->
       <div class="opcion-tarea">
         <div>
-          <h3 style="margin:0 0 4px 0;color:#a78bfa">🧬 TAREA DE BIOLOGÍA</h3>
+          <h3 style="margin:0 0 4px 0;color:#34d399">🤸 TAREA DE EDUCACIÓN FÍSICA</h3>
           <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
-            Respiración en animales — mapa conceptual completo<br>
-            • Ser humano · Peces · Insectos<br>
-            • Definición + cada grupo con su forma de respirar
+            Investigación acerca de la gimnasia<br>
+            • Qué es la gimnasia<br>
+            • Clases de gimnasia y descripción de cada una
           </p>
           <p class="precio-tarea" style="margin-top:6px">3000⭐</p>
         </div>
-        <button class="btn btn-vip" onclick="comprar('Biología',3000)">COMPRAR</button>
+        <button class="btn btn-vip" onclick="comprar('Educación Física',3000)">COMPRAR</button>
       </div>
 
-      <!-- TAREA 5: INGLÉS 3000⭐ -->
-      <div class="opcion-tarea">
-        <div>
-          <h3 style="margin:0 0 4px 0;color:#38bdf8">🔤 TAREA DE INGLÉS</h3>
-          <p style="margin:0;color:var(--gris);font-size:12px;line-height:1.4">
-            El tiempo y el clima<br>
-            • Pareo de 8 palabras con sus descripciones<br>
-            • Significados y respuestas completas
-          </p>
-          <p class="precio-tarea" style="margin-top:6px">3000⭐</p>
-        </div>
-        <button class="btn btn-primario" onclick="comprar('Inglés',3000)">COMPRAR</button>
-      </div>
 
       <button class="btn btn-secundario" style="margin-top:18px" onclick="ir('p-menu')">
         ← Volver al menú
@@ -587,83 +574,7 @@
       <div id="tarea-contenido" style="font-size:14.5px;line-height:1.7">
 
         <!-- ========== TAREA 1: ESPAÑOL 1000⭐ ========== -->
-        <div id="tarea-espanol" style="display:none">
-          <h3 style="color:#60a5fa;margin:0 0 12px 0;font-size:17px">
-            📘 COMPRENSIÓN LECTORA — MITO DE PEGASO
-          </h3>
-
-          <div class="pregunta">
-            <p><strong>1. ¿De dónde nació Pegaso?</strong></p>
-            <p>A. Nació pegoso &nbsp;&nbsp; B. Helicon &nbsp;&nbsp; C. Perseo &nbsp;&nbsp; D. Belerofonte, príncipe de Corinto</p>
-            <p class="respuesta">✅ RESPUESTA CORRECTA: D — De la sangre de la Gorgona Medusa</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>2. ¿Se dieron cuenta de que Pegaso era un ser mágico?</strong></p>
-            <p>A. Surgió una fuente de oro &nbsp;&nbsp; B. Aceptó unos brindis de honor</p>
-            <p>C. Fue cuidado por las musas &nbsp;&nbsp; D. Era tranquilo pero muy fuerte</p>
-            <p class="respuesta">✅ RESPUESTA CORRECTA: A — Donde Pegaso puso su pata brotó una fuente de oro mágica</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>3. ¿Qué era Pegaso?</strong></p>
-            <p>A. Un caballo &nbsp;&nbsp; B. Un dios &nbsp;&nbsp; C. Un hijo de Zeus &nbsp;&nbsp; D. Un hijo de Atenea</p>
-            <p class="respuesta">✅ RESPUESTA CORRECTA: A — Era un caballo alado mágico</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>4. ¿Qué pasó con el pícaro de la mora pegosa?</strong></p>
-            <p>A. Se lo quedó Belerofonte &nbsp;&nbsp; B. Se lo dieron a las musas</p>
-            <p>C. Se quedó con Zeus &nbsp;&nbsp; D. Se fue a vivir al monte Helicon</p>
-            <p class="respuesta">✅ RESPUESTA CORRECTA: C — Al final se quedó con Zeus en el Olimpo</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>5. ¿Por qué los hombres querían poseer a Pegaso?</strong></p>
-            <p class="respuesta">✅ RESPUESTA: Porque era un ser mágico, único y muy poderoso</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>6. ¿Por qué Zeus quería tener a Pegaso?</strong></p>
-            <p class="respuesta">✅ RESPUESTA CORRECTA: Para que llevara sus rayos y truenos por el cielo</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>7. ¿Qué hizo que Pegaso tirara a Belerofonte y cayera al suelo?</strong></p>
-            <p>A. Un rayo de Zeus &nbsp;&nbsp; B. Una mosca que envió Zeus &nbsp;&nbsp; C. Una serpiente &nbsp;&nbsp; D. El viento fuerte</p>
-                        <p class="respuesta">✅ RESPUESTA CORRECTA: B — Zeus mandó una mosca que picó a Pegaso</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>8. El texto anterior es:</strong></p>
-            <p>A. Una noticia &nbsp;&nbsp; B. Un mito &nbsp;&nbsp; C. Un cuento de hadas &nbsp;&nbsp; D. Una leyenda</p>
-            <p class="respuesta">✅ RESPUESTA CORRECTA: B — Es un mito griego</p>
-          </div>
-
-          <hr>
-
-          <h3 style="color:#60a5fa;margin:0 0 12px 0;font-size:17px">
-            📘 COMPRENSIÓN LECTORA — EL ORIGEN DEL MUNDO
-          </h3>
-
-          <div class="pregunta">
-            <p><strong>¿Cómo era la tierra al principio?</strong></p>
-            <p class="respuesta">✅ La tierra estaba completamente de noche, todo era oscuridad.</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>¿Quiénes vivían en la tierra al principio?</strong></p>
-            <p class="respuesta">✅ Vivían solo 2 personas, no había nadie más.</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>¿Cómo nació la raza humana?</strong></p>
-            <p class="respuesta">✅ Nació cuando uno de ellos creó varios muñecos de barro y esos se convirtieron en los cuerpos de los hombres y mujeres.</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>¿Cómo nació el sol?</strong></p>
-            <p class="respuesta">✅ Nació cuando un coquito de romirigui subió muy alto a las alturas y allí se convirtió en el sol, que da luz de día.</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>¿Cómo nació la luna?</strong></p>
-            <p class="respuesta">✅ Nació cuando en la noche otro coquito siguió el camino de su sobrino y se convirtió en la luna, que da luz de noche.</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>¿Qué nombre le dieron al sol y a la luna?</strong></p>
-            <p class="respuesta">✅ Al sol le pusieron de nombre <strong>Zuo</strong> y a la luna le pusieron <strong>Chio</strong>.</p>
-          </div>
-        </div>
+        
 
         <!-- ========== TAREA 2: TECNOLOGÍA 800⭐ ========== -->
         <div id="tarea-tecnologia" style="display:none">
@@ -710,7 +621,7 @@ asa ala asa ala asa ala asa ala asa ala asa ala asa ala asa ala<br>
           </div>
         </div>
 
-<!-- 🔥 FIN PARTE 3 DE 9 — SIGUIENTE: SIGUE DENTRO DE TAREAS (GEOMETRÍA + BIOLOGÍA) + PANEL ADMIN 🔥 -->
+<!-- 🔥 FIN PARTE 3 DE 9 — SIGUIENTE: SIGUE DENTRO DE TAREAS (GEOMETRÍA + EDUCACIÓN FÍSICA) + PANEL ADMIN 🔥 -->
         <!-- ========== TAREA 3: GEOMETRÍA 2500⭐ ========== -->
         <div id="tarea-geometria" style="display:none">
           <h3 style="color:#f472b6;margin:0 0 12px 0;font-size:17px">
@@ -770,127 +681,36 @@ asa ala asa ala asa ala asa ala asa ala asa ala asa ala asa ala<br>
           </div>
         </div>
 
-        <!-- ========== TAREA 4: BIOLOGÍA 3000⭐ ========== -->
-        <div id="tarea-biologia" style="display:none">
-          <h3 style="color:#a78bfa;margin:0 0 12px 0;font-size:17px">
-            🧬 RESPIRACIÓN EN ANIMALES — MAPA CONCEPTUAL COMPLETO
+        <!-- ========== TAREA: EDUCACIÓN FÍSICA 3000⭐ ========== -->
+        <div id="tarea-educacion-fisica" style="display:none">
+          <h3 style="color:#34d399;margin:0 0 12px 0;font-size:17px">
+            🤸 EDUCACIÓN FÍSICA — LA GIMNASIA
           </h3>
 
           <div class="pregunta">
-            <p><strong>📌 DEFINICIÓN PRINCIPAL</strong></p>
+            <p><strong>📌 1. ¿QUÉ ES LA GIMNASIA?</strong></p>
             <p class="respuesta">
-              ✅ La respiración es el proceso <strong>por donde los animales reciben oxígeno</strong>
-              y <strong>expulsan el dióxido de carbono</strong>.
-            </p>
+              La gimnasia es una actividad física y deportiva que consiste en realizar ejercicios y movimientos que ayudan a desarrollar la fuerza, flexibilidad, equilibrio, coordinación y agilidad del cuerpo. También ayuda a mantener una buena salud y mejorar la condición física.
+                          </p>
           </div>
 
           <div class="pregunta">
-            <p><strong>💡 NOTA IMPORTANTE:</strong></p>
-            <p class="respuesta">
-              Hay algunos animales que <strong>NO respiran por medio de la nariz</strong>,
-              sino por medio de <strong>su piel</strong> y otros como los peces respiran por
-              medio de <strong>sus branquias</strong>.
-            </p>
-          </div>
-
-          <hr>
-
-          <h4 style="color:#fbbf24;margin:14px 0 10px 0">🫁 CADA TIPO DE ANIMAL Y SU FORMA DE RESPIRAR:</h4>
-
-          <div class="pregunta">
-            <p><strong>👤 SER HUMANO</strong></p>
-            <p class="respuesta">
-              ✅ Su medio de respiración es <strong>por la nariz y los pulmones</strong>.<br>
-              → Por tener este medio de respiración, <strong>no podemos permanecer mucho tiempo bajo el agua</strong>.
-            </p>
-          </div>
-
-          <div class="pregunta">
-            <p><strong>🐟 PECES</strong></p>
-            <p class="respuesta">
-              ✅ Su medio de respiración es <strong>por medio de las branquias</strong>.<br>
-              → Porque ellas le ayudan a poder estar <strong>en el agua sin ahogarse</strong>.
-            </p>
-          </div>
-
-          <div class="pregunta">
-            <p><strong>🦟 INSECTOS</strong></p>
-            <p class="respuesta">
-              ✅ Su medio de respirar <strong>NO es como el ser humano</strong>.<br>
-              → Porque los insectos respiran <strong>por medio de su pecho</strong>.
-            </p>
+            <p><strong>🤸 2. ¿CUÁLES SON LAS CLASES DE GIMNASIA? DESCRIBE CADA UNA.</strong></p>
+            <p><strong>1. Gimnasia artística:</strong></p>
+            <p class="respuesta">Consiste en realizar movimientos y acrobacias en aparatos como barras, anillas, suelo y viga de equilibrio.</p>
+            <p><strong>2. Gimnasia rítmica:</strong></p>
+            <p class="respuesta">Combina movimientos corporales con música y elementos como cintas, aros, pelotas y cuerdas.</p>
+            <p><strong>3. Gimnasia acrobática:</strong></p>
+            <p class="respuesta">Se realizan figuras y movimientos en equipo, utilizando el equilibrio, la fuerza y la coordinación.</p>
+            <p><strong>4. Gimnasia aeróbica:</strong></p>
+            <p class="respuesta">Consiste en realizar ejercicios continuos acompañados de música para mejorar la resistencia física.</p>
+            <p><strong>5. Gimnasia de trampolín:</strong></p>
+            <p class="respuesta">Consiste en realizar saltos y movimientos en el aire utilizando una cama elástica.</p>
+            <p><strong>6. Gimnasia general:</strong></p>
+            <p class="respuesta">Incluye ejercicios y movimientos para mejorar la salud, la coordinación y la condición física de personas de diferentes edades.</p>
           </div>
         </div>
 
-        <!-- ========== TAREA 5: INGLÉS 3000⭐ ========== -->
-        <div id="tarea-ingles" style="display:none">
-          <h3 style="color:#38bdf8;margin:0 0 12px 0;font-size:17px">
-            📘 TAREA DE INGLÉS — EL TIEMPO Y EL CLIMA
-          </h3>
-
-          <h4 style="color:#fbbf24;margin:14px 0 8px 0">✅ PAREO DE IMÁGENES CON SU DESCRIPCIÓN</h4>
-          <div class="pregunta">
-            <p><strong>1. ☔ Raining</strong></p>
-            <p>Descripción: wet weather full of precipitation</p>
-            <p class="respuesta">Significado: Lluvioso / Lloviendo</p>
-            <p class="respuesta">✅ Pareo: "wet weather full of precipitation" — clima húmedo lleno de precipitación</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>2. ☀️ Sunny</strong></p>
-            <p>Descripción: abounding in sunshine</p>
-            <p class="respuesta">Significado: Soleado</p>
-            <p class="respuesta">✅ Pareo: "abounding in sunshine" — abundante en sol / lleno de luz solar</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>3. 🔥 Hot</strong></p>
-            <p>Descripción: being at a high temperature</p>
-            <p class="respuesta">Significado: Caluroso / Caliente</p>
-            <p class="respuesta">✅ Pareo: "being at a high temperature" — estar a una temperatura alta</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>4. ❄️ Cold</strong></p>
-            <p>Descripción: having a low temperature, chilling and no warmth</p>
-            <p class="respuesta">Significado: Frío</p>
-            <p class="respuesta">✅ Pareo: "having a low temperature, chilling and no warmth" — tener temperatura baja, que enfría y sin calor</p>
-            </div>
-          <div class="pregunta">
-            <p><strong>5. ☁️ Cloudy</strong></p>
-            <p>Descripción: Covered with clouds</p>
-            <p class="respuesta">Significado: Nublado</p>
-            <p class="respuesta">✅ Pareo: "Covered with clouds" — cubierto de nubes</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>6. 💨 Windy</strong></p>
-            <p>Descripción: Characterized by or abounding in wind</p>
-            <p class="respuesta">Significado: Ventoso</p>
-            <p class="respuesta">✅ Pareo: "Characterized by or abounding in wind" — caracterizado por viento / con mucho viento</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>7. ⛈️ Stormy</strong></p>
-            <p>Descripción: affected by storms, tempestuous</p>
-            <p class="respuesta">Significado: Tormentoso</p>
-            <p class="respuesta">✅ Pareo: "affected by storms, tempestuous" — afectado por tormentas</p>
-          </div>
-          <div class="pregunta">
-            <p><strong>8. ⛄ Snowy</strong></p>
-            <p>Descripción: Covered with snow and small white ice crystals</p>
-            <p class="respuesta">Significado: Nevado / Con nieve</p>
-            <p class="respuesta">✅ Pareo: "Covered with snow and small white ice crystals" — cubierto de nieve y pequeños cristales de hielo blanco</p>
-          </div>
-
-          <hr>
-          <h4 style="color:#fbbf24;margin:14px 0 8px 0">📌 RESUMEN RÁPIDO PARA PEGAR EN EL CUADERNO</h4>
-          <div class="pregunta">
-            <p>1. <strong>Raining</strong> — Lloviendo</p>
-            <p>2. <strong>Sunny</strong> — Soleado</p>
-            <p>3. <strong>Hot</strong> — Caluroso</p>
-            <p>4. <strong>Cold</strong> — Frío</p>
-            <p>5. <strong>Cloudy</strong> — Nublado</p>
-            <p>6. <strong>Windy</strong> — Ventoso</p>
-            <p>7. <strong>Stormy</strong> — Tormentoso</p>
-            <p>8. <strong>Snowy</strong> — Nevado</p>
-          </div>
-        </div>
 
       </div> <!-- FIN #tarea-contenido -->
 
@@ -913,7 +733,7 @@ asa ala asa ala asa ala asa ala asa ala asa ala asa ala asa ala<br>
       <h4 style="margin:18px 0 10px 0;color:#fbbf24">🔐 CONTRASEÑAS DE TODOS LOS PERFILES</h4>
       <div id="admin-pass"></div>
 
-      <h4 style="margin:22px 0 10px 0;color:#fbbf24">💎 CÓDIGOS DE CANJE DE ⭐ (15 OPCIONES — 1 SOLO USO CADA UNO)</h4>
+      <h4 style="margin:22px 0 10px 0;color:#fbbf24">💎 CÓDIGOS DE CANJE DE ⭐ (18 OPCIONES — 100 CÓDIGOS POR OPCIÓN)</h4>
       <p style="color:var(--gris);font-size:12px;margin-bottom:10px">
         Cuando alguien usa uno, queda tachado y bloqueado para siempre
       </p>
@@ -936,21 +756,22 @@ asa ala asa ala asa ala asa ala asa ala asa ala asa ala asa ala<br>
 
 // 👤 PERFILES DE ESTUDIANTES + CONTRASEÑAS + SALDO INICIAL
 const ESTUDIANTES = {
-  Jorge:   { pass: "22€admkn92deto", saldo: 54000, admin: true  }, // 👑 VIP SIEMPRE
-  Mathias: { pass: "WWEOmarhi2",    saldo: 0,     admin: false },
-  Achury:  { pass: "11#2maek30",    saldo: 0,     admin: false },
-  Sara:    { pass: "100(#woo",      saldo: 0,     admin: false },
-  Hellen:  { pass: "sangusoo299",   saldo: 0,     admin: false }
+  Jorge:   { pass: "MPX-J7niQ26DeAqS0z", saldo: 54000, admin: true  }, // 👑 VIP SIEMPRE
+  Mathias: { pass: "MPX-toEa4RW33YgTJW",    saldo: 0,     admin: false },
+  Achury:  { pass: "MPX-zizwfvFJLykWMD",    saldo: 0,     admin: false },
+  Sara:    { pass: "MPX-IAtlOXB4ztI8O4",      saldo: 0,     admin: false },
+  Hellen:  { pass: "MPX-PdT4CeUjC1a113",   saldo: 0,     admin: false }
 };
 
-// 💎 15 MONTOS DE CANJE DE ⭐ (DE 100 HASTA 100.000)
+// 💎 18 MONTOS DE CANJE DE ⭐ (DE 100 HASTA 1.000.000)
 const MONTOS_CANJE = [
   100, 200, 500, 1000, 2000, 5000, 10000, 15000,
-  20000, 30000, 40000, 50000, 60000, 80000, 100000
+  20000, 30000, 40000, 50000, 60000, 80000, 100000,
+  200000, 500000, 1000000
 ];
 
-// 🔑 300 códigos por cada una de las 15 opciones (4.500 códigos en total).
-// Nota: en una web estática estos códigos son visibles en el código fuente.
+// 🔑 100 códigos por cada una de las 18 opciones (1.800 códigos en total).
+// Nota: son códigos fijos escritos manualmente; no hay generador automático de KEY.
 const CODIGOS_ESTRELLAS = {
   100: [
     "VIP-100-7XQ29L", "VIP-100-U688M6", "VIP-100-CD9A5Y", "VIP-100-JBCPJI", "VIP-100-GCB3UV",
@@ -972,47 +793,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-100-9IEZCW", "VIP-100-ODZLYX", "VIP-100-8C89BG", "VIP-100-FPN1HB", "VIP-100-9I64N0",
     "VIP-100-D3ULOU", "VIP-100-J21OPB", "VIP-100-95EWG9", "VIP-100-YLF0KI", "VIP-100-7XKT8C",
     "VIP-100-5KEAA1", "VIP-100-ROFEER", "VIP-100-GHJLRD", "VIP-100-CL6U35", "VIP-100-USTM7H",
-    "VIP-100-IJ2131", "VIP-100-2D643E", "VIP-100-VJ41RB", "VIP-100-40GNKS", "VIP-100-U1LZ0T",
-    "VIP-100-V77B08", "VIP-100-LYIVRB", "VIP-100-A6SUFT", "VIP-100-VGAUIW", "VIP-100-LRG63P",
-    "VIP-100-RX7WUJ", "VIP-100-W05KUJ", "VIP-100-37MBKU", "VIP-100-66ZQEB", "VIP-100-Q5LXBP",
-    "VIP-100-652FUO", "VIP-100-K22T9C", "VIP-100-KOF9UG", "VIP-100-1BUYWA", "VIP-100-319Q53",
-    "VIP-100-0YCPLK", "VIP-100-UEO6X0", "VIP-100-4KK0A0", "VIP-100-U2CSGZ", "VIP-100-7WFLSD",
-    "VIP-100-TJQF6H", "VIP-100-46QOUU", "VIP-100-O0XQCR", "VIP-100-NF2C5J", "VIP-100-5AI4FL",
-    "VIP-100-161N25", "VIP-100-3XJZVE", "VIP-100-8ZFI22", "VIP-100-37W4WN", "VIP-100-U05TQC",
-    "VIP-100-JOIG9C", "VIP-100-2W0PLR", "VIP-100-IONAAB", "VIP-100-OCFSBY", "VIP-100-7AS0S2",
-    "VIP-100-3A3D08", "VIP-100-87FECS", "VIP-100-TK4D64", "VIP-100-8J3KLI", "VIP-100-TQ2M3Y",
-    "VIP-100-4KIJZ1", "VIP-100-26SLY1", "VIP-100-56R05W", "VIP-100-503Y97", "VIP-100-ABSX6M",
-    "VIP-100-CFFNOB", "VIP-100-PDNFGO", "VIP-100-H5EY3N", "VIP-100-IWB9C0", "VIP-100-XSIAWY",
-    "VIP-100-V3LK5S", "VIP-100-SJ71XY", "VIP-100-DJE5JE", "VIP-100-984OJL", "VIP-100-9CUXE9",
-    "VIP-100-ZVM326", "VIP-100-9EDBX3", "VIP-100-AWJDCC", "VIP-100-QEODUX", "VIP-100-AL9AC2",
-    "VIP-100-3Y4AM9", "VIP-100-SA6T1R", "VIP-100-3QGYZM", "VIP-100-T5R4UN", "VIP-100-KER7R2",
-    "VIP-100-CUI4XU", "VIP-100-QJNHE6", "VIP-100-CLE2Y2", "VIP-100-4Y6TP4", "VIP-100-NJUBPO",
-    "VIP-100-D6C2P3", "VIP-100-WNU4B6", "VIP-100-7C7K36", "VIP-100-KW4QND", "VIP-100-4KYR7B",
-    "VIP-100-NE9Q8U", "VIP-100-10GGP0", "VIP-100-JRPJOW", "VIP-100-WF8ZNQ", "VIP-100-ZDJIJN",
-    "VIP-100-55A611", "VIP-100-T1ZVS1", "VIP-100-KIJ4G7", "VIP-100-I7O351", "VIP-100-B11912",
-    "VIP-100-DKF5WD", "VIP-100-NS2QF9", "VIP-100-EEPL90", "VIP-100-HDMDS8", "VIP-100-Z2YSM3",
-    "VIP-100-DGJU10", "VIP-100-W8FMNQ", "VIP-100-VC8SBX", "VIP-100-6CW462", "VIP-100-49Y5H4",
-    "VIP-100-1CVDXQ", "VIP-100-IABUH1", "VIP-100-XVY5CV", "VIP-100-FYFURN", "VIP-100-Y9959F",
-    "VIP-100-BFR7BS", "VIP-100-WVFQ0F", "VIP-100-8KJWMH", "VIP-100-02J46O", "VIP-100-POWVPT",
-    "VIP-100-LGKPSB", "VIP-100-VZ1UHJ", "VIP-100-JHDH2B", "VIP-100-DFN24A", "VIP-100-EEYHH0",
-    "VIP-100-E1KVSZ", "VIP-100-69X5MT", "VIP-100-DBSFAG", "VIP-100-SPESSO", "VIP-100-9KZFDB",
-    "VIP-100-REWOY2", "VIP-100-98FE6M", "VIP-100-9H282Q", "VIP-100-RMC6DY", "VIP-100-933GM7",
-    "VIP-100-I3IB8K", "VIP-100-2RNK2E", "VIP-100-THW3WX", "VIP-100-7GOMHG", "VIP-100-KMHL7P",
-    "VIP-100-OQN5NZ", "VIP-100-6YLB82", "VIP-100-L4J43P", "VIP-100-3CE7YG", "VIP-100-JB5GD6",
-    "VIP-100-RH1CIF", "VIP-100-03K9NG", "VIP-100-E2PKGY", "VIP-100-E18WNZ", "VIP-100-F8YEHI",
-    "VIP-100-FICABJ", "VIP-100-3URTJF", "VIP-100-89NPNQ", "VIP-100-INUN9E", "VIP-100-AGJM6G",
-    "VIP-100-8Q4C26", "VIP-100-3SWL38", "VIP-100-ESCSU8", "VIP-100-PNZ9K8", "VIP-100-F3QE1C",
-    "VIP-100-1VAE7M", "VIP-100-WQMS97", "VIP-100-89EME7", "VIP-100-ZSVNGY", "VIP-100-V3H19U",
-    "VIP-100-SLZLP3", "VIP-100-3TBTHC", "VIP-100-SWJLSL", "VIP-100-5DCJOK", "VIP-100-9BJZD7",
-    "VIP-100-FXAHKX", "VIP-100-DWWW3J", "VIP-100-O32C9Z", "VIP-100-GW7N14", "VIP-100-TTRJK9",
-    "VIP-100-ZPL0CH", "VIP-100-MS1K6U", "VIP-100-XJTYD1", "VIP-100-HC6JEP", "VIP-100-Y9ENO1",
-    "VIP-100-MHDXBK", "VIP-100-CSPCLV", "VIP-100-XCCGL6", "VIP-100-VPDHV3", "VIP-100-ML5BW4",
-    "VIP-100-BBQ52F", "VIP-100-S4MM9Y", "VIP-100-4M2NDB", "VIP-100-8RXFRV", "VIP-100-KJ2S7H",
-    "VIP-100-RNZZGN", "VIP-100-W7JQBO", "VIP-100-S2NZ4U", "VIP-100-XJFT2G", "VIP-100-ZUWI3F",
-    "VIP-100-PJR1ND", "VIP-100-I0UKRI", "VIP-100-TX8XEP", "VIP-100-LFHE74", "VIP-100-LBAGMY",
-    "VIP-100-YT1Y7K", "VIP-100-P8QXSU", "VIP-100-0RMVYF", "VIP-100-2Z8D7N", "VIP-100-AJIY2Z",
-    "VIP-100-9VUPZ2", "VIP-100-LFV7JD", "VIP-100-GR72Z7", "VIP-100-YZLWSM", "VIP-100-WPHGWW",
-    "VIP-100-6OC7XO", "VIP-100-CSAKLQ", "VIP-100-NXTFS3", "VIP-100-JFS1OB", "VIP-100-GKWTET",
+    "VIP-100-IJ2131", "VIP-100-2D643E", "VIP-100-VJ41RB", "VIP-100-40GNKS", "VIP-100-U1LZ0T"
   ],
   200: [
     "VIP-200-4BW86Z", "VIP-200-2SWAS0", "VIP-200-SS4QEG", "VIP-200-QEJ8S3", "VIP-200-ESQO9Y",
@@ -1030,51 +811,11 @@ const CODIGOS_ESTRELLAS = {
     "VIP-200-QRLKXC", "VIP-200-ZOIUK9", "VIP-200-FDNLN5", "VIP-200-2BIOHM", "VIP-200-OPYZ2P",
     "VIP-200-3ITPF2", "VIP-200-NTZN4B", "VIP-200-XJMKI6", "VIP-200-ZPDRSR", "VIP-200-KLTIFA",
     "VIP-200-9U2660", "VIP-200-OA5WTO", "VIP-200-N96V3Y", "VIP-200-TXJTWC", "VIP-200-J09T9S",
-      "VIP-200-5KTOPH", "VIP-200-35X9V2", "VIP-200-LNFFV4", "VIP-200-6FTCJD", "VIP-200-QJH0LY",
+    "VIP-200-5KTOPH", "VIP-200-35X9V2", "VIP-200-LNFFV4", "VIP-200-6FTCJD", "VIP-200-QJH0LY",
     "VIP-200-IYHUQM", "VIP-200-IRKT7L", "VIP-200-0OMCHM", "VIP-200-IURG39", "VIP-200-FKGBSB",
     "VIP-200-GTGARS", "VIP-200-7Z99SK", "VIP-200-APVM5M", "VIP-200-K6N2XG", "VIP-200-YQIP3H",
     "VIP-200-90C7IO", "VIP-200-2WYZXK", "VIP-200-P3ZLHA", "VIP-200-QXWRAU", "VIP-200-MW1VT1",
-    "VIP-200-FAGLS9", "VIP-200-SV1ET0", "VIP-200-MIZJTY", "VIP-200-5RGKG9", "VIP-200-R590J6",
-    "VIP-200-FNTFVI", "VIP-200-NHPFX9", "VIP-200-09VM5P", "VIP-200-3SQRT9", "VIP-200-ZG0K6Y",
-    "VIP-200-ZR3XFR", "VIP-200-YFPLHU", "VIP-200-DOIERU", "VIP-200-IGCD8B", "VIP-200-JD089B",
-    "VIP-200-WA0FO7", "VIP-200-W3ZC0B", "VIP-200-B81YUL", "VIP-200-CJL3XK", "VIP-200-CHQX97",
-    "VIP-200-26E5NJ", "VIP-200-PU3ZC0", "VIP-200-SS9SNF", "VIP-200-VQWXJM", "VIP-200-IX2IWG",
-    "VIP-200-XIPBG6", "VIP-200-AR485W", "VIP-200-B1OIRZ", "VIP-200-AQRHG5", "VIP-200-EVJM1X",
-    "VIP-200-UV8733", "VIP-200-FQQD2K", "VIP-200-9PGI3E", "VIP-200-VGOHU0", "VIP-200-JSFT2R",
-    "VIP-200-9QYR8L", "VIP-200-CJ4EBQ", "VIP-200-EIL9NB", "VIP-200-PTTOEM", "VIP-200-1FUQPF",
-    "VIP-200-H97JRX", "VIP-200-VDMTG7", "VIP-200-VUEM08", "VIP-200-XIVJAS", "VIP-200-P0KUBT",
-    "VIP-200-LM2QYK", "VIP-200-6NVSBQ", "VIP-200-LF14TY", "VIP-200-6USF55", "VIP-200-0BSNOJ",
-    "VIP-200-NE0SDQ", "VIP-200-UGQDF7", "VIP-200-AC07NV", "VIP-200-ZPKEVH", "VIP-200-O1H8A5",
-    "VIP-200-M9EDMU", "VIP-200-XU4GAE", "VIP-200-O6FA28", "VIP-200-ZH310A", "VIP-200-HV9SXW",
-    "VIP-200-B5FE32", "VIP-200-VP4FR0", "VIP-200-B04ABJ", "VIP-200-9IO0KA", "VIP-200-2122XD",
-    "VIP-200-ABPRUV", "VIP-200-2ULH8E", "VIP-200-SRZXYP", "VIP-200-UYOCIB", "VIP-200-0FS0MH",
-    "VIP-200-TNOFR1", "VIP-200-L0XJ4W", "VIP-200-585J6Y", "VIP-200-X4OY2S", "VIP-200-DHHRWR",
-    "VIP-200-N3UL7N", "VIP-200-6WFYL8", "VIP-200-U9X38I", "VIP-200-48564M", "VIP-200-TR1W5R",
-    "VIP-200-9KR5CB", "VIP-200-17D1JQ", "VIP-200-32CWN3", "VIP-200-2EQ36W", "VIP-200-Q9L4BY",
-    "VIP-200-UHNM0F", "VIP-200-S9TCCI", "VIP-200-R0CWN6", "VIP-200-YMXGVK", "VIP-200-QFNPS8",
-    "VIP-200-M4XO6K", "VIP-200-NK7YFF", "VIP-200-BKA5MT", "VIP-200-Q9S6Z2", "VIP-200-Z2MA7I",
-    "VIP-200-37U5J2", "VIP-200-MYAOCJ", "VIP-200-ZDKMV9", "VIP-200-2KDAC1", "VIP-200-M8J110",
-    "VIP-200-1K26A3", "VIP-200-XPE8L0", "VIP-200-GC6PWD", "VIP-200-QJ9V3U", "VIP-200-8K0F81",
-    "VIP-200-0USGF1", "VIP-200-Q2WXCH", "VIP-200-YXXDSM", "VIP-200-RD7K52", "VIP-200-3RH9RN",
-    "VIP-200-GCP5RP", "VIP-200-Q6L9E9", "VIP-200-THXFK9", "VIP-200-B8OEVQ", "VIP-200-MQJA58",
-    "VIP-200-SL9J5V", "VIP-200-MU39NQ", "VIP-200-GMQCAK", "VIP-200-DRHTC2", "VIP-200-GDK0IA",
-    "VIP-200-VO1OG2", "VIP-200-ZUW5RU", "VIP-200-16OF4R", "VIP-200-54A8BI", "VIP-200-5GMVEX",
-    "VIP-200-EKZ350", "VIP-200-QCOSYG", "VIP-200-IXCSU6", "VIP-200-537QAJ", "VIP-200-MFXOO6",
-    "VIP-200-S7V9AZ", "VIP-200-PO0KZ2", "VIP-200-RRNN87", "VIP-200-7J6DNA", "VIP-200-IUVZN5",
-    "VIP-200-SJNSEC", "VIP-200-2K846N", "VIP-200-I3D60U", "VIP-200-LANIBK", "VIP-200-2X5MHM",
-    "VIP-200-UQMWCD", "VIP-200-64L6AD", "VIP-200-PZ42Y5", "VIP-200-G225E5", "VIP-200-HEP5CV",
-    "VIP-200-6QZWG3", "VIP-200-7CZTC1", "VIP-200-TCUKVW", "VIP-200-K1RLVM", "VIP-200-JDS3T6",
-    "VIP-200-I3HZCR", "VIP-200-KXYB29", "VIP-200-OV1MQ1", "VIP-200-SC23RW", "VIP-200-T76D1U",
-    "VIP-200-N4A6SB", "VIP-200-ILCRRI", "VIP-200-ZOO1KY", "VIP-200-O5GGH3", "VIP-200-QDFW5M",
-    "VIP-200-LB4YHW", "VIP-200-H5EBUG", "VIP-200-4OTAB0", "VIP-200-B3GECA", "VIP-200-MLV594",
-    "VIP-200-JTKP0V", "VIP-200-E13AKS", "VIP-200-ELG3Z3", "VIP-200-HRTHB5", "VIP-200-VQYAM0",
-    "VIP-200-KW7TYB", "VIP-200-H4LPE7", "VIP-200-7UXMVJ", "VIP-200-C646UU", "VIP-200-TGVIJ9",
-    "VIP-200-4B4QR4", "VIP-200-VQOFY5", "VIP-200-ZFC4QM", "VIP-200-0ERP9B", "VIP-200-4WZJ1E",
-    "VIP-200-5KX1XX", "VIP-200-R4JU7Q", "VIP-200-5BPO3D", "VIP-200-SVO56D", "VIP-200-9YTL35",
-    "VIP-200-WFPN01", "VIP-200-MRXX2M", "VIP-200-5B69KK", "VIP-200-72OG9A", "VIP-200-NOJB46",
-    "VIP-200-94MCZH", "VIP-200-D85Q3M", "VIP-200-GG9TZ4", "VIP-200-Y043C7", "VIP-200-Q2NM8Z",
-    "VIP-200-3UH83D", "VIP-200-F7RUON", "VIP-200-J8MH7V", "VIP-200-ZDUL2N", "VIP-200-9W4IOG",
-    "VIP-200-5YGP8A", "VIP-200-FU6SK5", "VIP-200-893N6S", "VIP-200-F0A42F", "VIP-200-3P92LE",
+    "VIP-200-FAGLS9", "VIP-200-SV1ET0", "VIP-200-MIZJTY", "VIP-200-5RGKG9", "VIP-200-R590J6"
   ],
   500: [
     "VIP-500-9KM35P", "VIP-500-6ME3DY", "VIP-500-LT576N", "VIP-500-ATFA22", "VIP-500-C69C4N",
@@ -1092,51 +833,11 @@ const CODIGOS_ESTRELLAS = {
     "VIP-500-U9KGG1", "VIP-500-QI8N24", "VIP-500-MKBBC1", "VIP-500-03C6YF", "VIP-500-QK1FZ6",
     "VIP-500-S7DQN4", "VIP-500-E2R17B", "VIP-500-CT1U7Y", "VIP-500-51MSWF", "VIP-500-K1CFAU",
     "VIP-500-TGLWC5", "VIP-500-WKKR0C", "VIP-500-LKU95K", "VIP-500-IZARW9", "VIP-500-SQOE2R",
-    "VIP-500-A2CO31", "VIP-500-AZHG9E", "VIP-500-IBEJXO", "VIP-500-1PJ189", "VIP-500-5Z3PRF",
+      "VIP-500-A2CO31", "VIP-500-AZHG9E", "VIP-500-IBEJXO", "VIP-500-1PJ189", "VIP-500-5Z3PRF",
     "VIP-500-FFODEK", "VIP-500-OTOCWP", "VIP-500-Q1WRGO", "VIP-500-8DXRBA", "VIP-500-FII0FT",
     "VIP-500-5IHBR2", "VIP-500-SR4GXD", "VIP-500-GLFOIX", "VIP-500-XGR8UP", "VIP-500-39B0Q6",
     "VIP-500-U134KI", "VIP-500-B8Y018", "VIP-500-2SVXMU", "VIP-500-TFNT90", "VIP-500-MYXOM5",
-    "VIP-500-OD0ZIM", "VIP-500-L91D19", "VIP-500-Z3GLQD", "VIP-500-VVRG8H", "VIP-500-790ZYJ",
-    "VIP-500-V5H96G", "VIP-500-C7DMH2", "VIP-500-3GJ1RM", "VIP-500-6VH35T", "VIP-500-EMR90O",
-    "VIP-500-55JNVT", "VIP-500-5AHUYR", "VIP-500-IX1G2O", "VIP-500-SRNIGW", "VIP-500-097BUH",
-    "VIP-500-ES5CK7", "VIP-500-Z3AUNW", "VIP-500-8K9X7V", "VIP-500-AW11NO", "VIP-500-8JGEA8",
-    "VIP-500-050BOK", "VIP-500-732OBT", "VIP-500-XWVQDV", "VIP-500-QFL11V", "VIP-500-RA9DUA",
-    "VIP-500-DT89OU", "VIP-500-TKL0MI", "VIP-500-L5NZR4", "VIP-500-P97PMN", "VIP-500-ZKKKRY",
-    "VIP-500-X8WEK8", "VIP-500-I1NTBH", "VIP-500-AXUYWB", "VIP-500-GCO9VR", "VIP-500-LBDLGN",
-    "VIP-500-NBJ9D6", "VIP-500-07FZ2D", "VIP-500-KJUZV3", "VIP-500-R4WXK9", "VIP-500-UWFHFN",
-    "VIP-500-LBDGLL", "VIP-500-C5IBS8", "VIP-500-0NO6BF", "VIP-500-TJSSDM", "VIP-500-J303VU",
-    "VIP-500-QYE06I", "VIP-500-8DS6TL", "VIP-500-CTWMN0", "VIP-500-VP6UIA", "VIP-500-Z7A24B",
-    "VIP-500-JB61JW", "VIP-500-NZTDQ4", "VIP-500-TQGIW9", "VIP-500-L0XCXU", "VIP-500-ZGY5HE",
-    "VIP-500-ARIO8C", "VIP-500-VKDRUB", "VIP-500-KMCMN2", "VIP-500-1GWACW", "VIP-500-N7QJKK",
-    "VIP-500-G5TDEL", "VIP-500-QGTBRY", "VIP-500-0LH494", "VIP-500-J6N85V", "VIP-500-H89QHX",
-    "VIP-500-FSDSFN", "VIP-500-YJMMLX", "VIP-500-CK5HKF", "VIP-500-56LY97", "VIP-500-901D7Z",
-    "VIP-500-QLS1VI", "VIP-500-1QDZ5L", "VIP-500-P5SMOK", "VIP-500-CBE4EB", "VIP-500-U031AR",
-    "VIP-500-XFK68Q", "VIP-500-JH5PO8", "VIP-500-P0W3OZ", "VIP-500-DMJLXM", "VIP-500-SPOQOT",
-    "VIP-500-R8H49H", "VIP-500-HZAMP0", "VIP-500-4IBAJ3", "VIP-500-RU61F5", "VIP-500-T7YWWB",
-    "VIP-500-M6W4X1", "VIP-500-2ZP4KN", "VIP-500-P8XTME", "VIP-500-4T9HJG", "VIP-500-QXCMXM",
-    "VIP-500-SXA5MU", "VIP-500-TF2Y2T", "VIP-500-JOGNV9", "VIP-500-0F3776", "VIP-500-LDLQ7K",
-    "VIP-500-PUDAUD", "VIP-500-B67WEO", "VIP-500-0OS3YK", "VIP-500-70GOY3", "VIP-500-R2QETT",
-    "VIP-500-1I5JP0", "VIP-500-00U50K", "VIP-500-36EEFE", "VIP-500-WAUPZZ", "VIP-500-J6FKX7",
-    "VIP-500-NVUOVH", "VIP-500-BLOOOP", "VIP-500-4GVHYA", "VIP-500-Y27TDT", "VIP-500-GQ3IVE",
-    "VIP-500-M3XS8Y", "VIP-500-G9IO9X", "VIP-500-0UETTO", "VIP-500-03NK4L", "VIP-500-U0BR3J",
-    "VIP-500-NO9VQ9", "VIP-500-NP7B8X", "VIP-500-6QCEJR", "VIP-500-1EVEM4", "VIP-500-MPE036",
-    "VIP-500-HPHDUJ", "VIP-500-80UA8R", "VIP-500-D1BPDM", "VIP-500-DC78U6", "VIP-500-LRMMAW",
-    "VIP-500-302ADR", "VIP-500-TD2AAH", "VIP-500-WEG5CD", "VIP-500-SAT26S", "VIP-500-CRPY93",
-    "VIP-500-C4DE5R", "VIP-500-1WSNRX", "VIP-500-9ADNU9", "VIP-500-6863EN", "VIP-500-9CEC8W",
-    "VIP-500-MER7VP", "VIP-500-LAHCJV", "VIP-500-78I4WO", "VIP-500-DQOESX", "VIP-500-RBQ25T",
-    "VIP-500-0E3S21", "VIP-500-7RAGEI", "VIP-500-V8MSKH", "VIP-500-08TN32", "VIP-500-ORHKKA",
-    "VIP-500-6OSBUE", "VIP-500-2W6BU4", "VIP-500-TPHMVD", "VIP-500-O02BO5", "VIP-500-19983Y",
-    "VIP-500-EFPR6T", "VIP-500-L11TZO", "VIP-500-TGU43O", "VIP-500-PWR2JB", "VIP-500-HNDXYD",
-    "VIP-500-MNAH8G", "VIP-500-CO9NJB", "VIP-500-1JUEKR", "VIP-500-NIVO9J", "VIP-500-E7NGRM",
-    "VIP-500-MR91F8", "VIP-500-P5O25I", "VIP-500-ZJLYSG", "VIP-500-LD3MO2", "VIP-500-OU22H4",
-    "VIP-500-76ROQD", "VIP-500-MQUVHO", "VIP-500-GHJ922", "VIP-500-TD8R1E", "VIP-500-Q2FQ3F",
-    "VIP-500-K8FJTF", "VIP-500-MTTXNG", "VIP-500-DQX40H", "VIP-500-4QZ1HR", "VIP-500-DPDKLV",
-    "VIP-500-IWP6J1", "VIP-500-R6U1GY", "VIP-500-MRQ3G9", "VIP-500-D427BH", "VIP-500-ZSYD8N",
-    "VIP-500-BHLC1G", "VIP-500-J7J9W4", "VIP-500-L2A1JA", "VIP-500-IAFNI0", "VIP-500-40URZX",
-    "VIP-500-C5F93X", "VIP-500-1IQMAI", "VIP-500-F9Q331", "VIP-500-QLKN2U", "VIP-500-0SQGZ8",
-    "VIP-500-TH7ZSL", "VIP-500-OBJVP7", "VIP-500-QAZQBC", "VIP-500-GJZH6Y", "VIP-500-W13C5Y",
-    "VIP-500-LV467Z", "VIP-500-F670DF", "VIP-500-Y6ZAIJ", "VIP-500-GTRDCO", "VIP-500-Z04SNX",
-    "VIP-500-0GABG7", "VIP-500-KTCGAN", "VIP-500-FZGTZX", "VIP-500-FJYKKW", "VIP-500-90Z967",
+    "VIP-500-OD0ZIM", "VIP-500-L91D19", "VIP-500-Z3GLQD", "VIP-500-VVRG8H", "VIP-500-790ZYJ"
   ],
   1000: [
     "VIP-1K-N2T74R", "VIP-1K-7Z8Z07", "VIP-1K-OU3KW0", "VIP-1K-LU3ZO9", "VIP-1K-OD1IGY",
@@ -1158,47 +859,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-1K-IY8NH8", "VIP-1K-EDUI55", "VIP-1K-LTQHTH", "VIP-1K-75NQA9", "VIP-1K-WUY28B",
     "VIP-1K-5V5CDB", "VIP-1K-2VMYNU", "VIP-1K-X1TZI6", "VIP-1K-3XHOPY", "VIP-1K-VJMEB5",
     "VIP-1K-M3L0GF", "VIP-1K-IYRA58", "VIP-1K-1MAPU2", "VIP-1K-U1F7KY", "VIP-1K-JJEYXB",
-    "VIP-1K-IFEG8C", "VIP-1K-A0YW8V", "VIP-1K-VP8G2A", "VIP-1K-YQTGEY", "VIP-1K-I71RZC",
-      "VIP-1K-X462W6", "VIP-1K-87N8VM", "VIP-1K-9BBPIV", "VIP-1K-CVI4KK", "VIP-1K-ANE9U6",
-    "VIP-1K-FUPTYT", "VIP-1K-MOZTBZ", "VIP-1K-WRZX3L", "VIP-1K-3V5CK4", "VIP-1K-FR1Q3S",
-    "VIP-1K-B3XTXY", "VIP-1K-6OM9MI", "VIP-1K-IPZQ2R", "VIP-1K-HGL07O", "VIP-1K-CF3R3Q",
-    "VIP-1K-DB1MCY", "VIP-1K-2M3931", "VIP-1K-QWJ9SU", "VIP-1K-IU9OJ4", "VIP-1K-XIFZWT",
-    "VIP-1K-6J7HGK", "VIP-1K-MXQ6UQ", "VIP-1K-6UE1AP", "VIP-1K-SU7OED", "VIP-1K-J008AM",
-    "VIP-1K-OBZL57", "VIP-1K-T842TQ", "VIP-1K-NADYML", "VIP-1K-D34MLH", "VIP-1K-GKO15C",
-    "VIP-1K-DTZLHN", "VIP-1K-R3JT8G", "VIP-1K-UOZYF1", "VIP-1K-AZ5EI1", "VIP-1K-KS3JI4",
-    "VIP-1K-JLOETL", "VIP-1K-JU3K98", "VIP-1K-VOTH0N", "VIP-1K-XUIQKZ", "VIP-1K-2J88D3",
-    "VIP-1K-OH13GM", "VIP-1K-2PHM3D", "VIP-1K-MZKSB0", "VIP-1K-0OTSCH", "VIP-1K-SJ4RD6",
-    "VIP-1K-QKO1UE", "VIP-1K-SU7J9L", "VIP-1K-R9DTRD", "VIP-1K-JQ908G", "VIP-1K-5SGXYM",
-    "VIP-1K-WRK8OZ", "VIP-1K-3SL9XR", "VIP-1K-Q5NUX0", "VIP-1K-YQ4FRY", "VIP-1K-SBL1OJ",
-    "VIP-1K-J1Q6PH", "VIP-1K-2YJ30C", "VIP-1K-9VXTVL", "VIP-1K-LNE24Z", "VIP-1K-MD3A6K",
-    "VIP-1K-RTBXJ2", "VIP-1K-SD3KDY", "VIP-1K-ZZRWPI", "VIP-1K-253U16", "VIP-1K-S6HKYR",
-    "VIP-1K-2HJPOO", "VIP-1K-1PPVTO", "VIP-1K-W34U8A", "VIP-1K-UBIR5V", "VIP-1K-8ER55K",
-    "VIP-1K-OOZ19U", "VIP-1K-ARE02X", "VIP-1K-2U0MO2", "VIP-1K-DE7ZQ0", "VIP-1K-B39PL4",
-    "VIP-1K-DE9FJJ", "VIP-1K-UJ2YPE", "VIP-1K-OCX339", "VIP-1K-IQMPFA", "VIP-1K-2ETOMH",
-    "VIP-1K-2K88L4", "VIP-1K-TQVEB4", "VIP-1K-MOBH3P", "VIP-1K-9GRA7J", "VIP-1K-FXO48V",
-    "VIP-1K-Y6BZJG", "VIP-1K-GUVREV", "VIP-1K-JSVOTH", "VIP-1K-P2M81R", "VIP-1K-44BHER",
-    "VIP-1K-NUGETU", "VIP-1K-OTGYUN", "VIP-1K-0DSROD", "VIP-1K-IAZZJ7", "VIP-1K-M64BQM",
-    "VIP-1K-W71RHX", "VIP-1K-R58B0F", "VIP-1K-MGT30T", "VIP-1K-TTEWAX", "VIP-1K-UBP0DB",
-    "VIP-1K-42XWRZ", "VIP-1K-U0A775", "VIP-1K-S3JJVO", "VIP-1K-NEEYOQ", "VIP-1K-W1EBMK",
-    "VIP-1K-CLAAWR", "VIP-1K-I80KGE", "VIP-1K-8OC7L9", "VIP-1K-NXHOD6", "VIP-1K-PNUM4M",
-    "VIP-1K-VTN1RX", "VIP-1K-Y6R9BG", "VIP-1K-ACBR59", "VIP-1K-P7M2SH", "VIP-1K-XFN3EY",
-    "VIP-1K-NUXO42", "VIP-1K-SILRAI", "VIP-1K-EE8JS8", "VIP-1K-8WDUUC", "VIP-1K-WAT2PM",
-    "VIP-1K-PTPG1N", "VIP-1K-FPKDVV", "VIP-1K-MGSW4Y", "VIP-1K-K422SV", "VIP-1K-0YRB0M",
-    "VIP-1K-78K3A7", "VIP-1K-Y9BWEH", "VIP-1K-5AGCUR", "VIP-1K-J7H61E", "VIP-1K-77XQ3O",
-    "VIP-1K-40YX4G", "VIP-1K-1F2GEY", "VIP-1K-4ORVWI", "VIP-1K-IKCSZX", "VIP-1K-SIPWDX",
-    "VIP-1K-R8XRXK", "VIP-1K-DT00VO", "VIP-1K-EUS9R6", "VIP-1K-GQVULK", "VIP-1K-W1G9BK",
-    "VIP-1K-V6PQZY", "VIP-1K-NHYAUK", "VIP-1K-5TAB7K", "VIP-1K-CX9C1F", "VIP-1K-NGRQDC",
-    "VIP-1K-OS6JQ2", "VIP-1K-DBVM0A", "VIP-1K-SMH06I", "VIP-1K-11SEMG", "VIP-1K-0R976J",
-    "VIP-1K-BO3AQ3", "VIP-1K-9F06BZ", "VIP-1K-NLTUDN", "VIP-1K-030VSH", "VIP-1K-6XOMSW",
-    "VIP-1K-495OUT", "VIP-1K-MO2QQT", "VIP-1K-K3LVW2", "VIP-1K-3O64U2", "VIP-1K-AG76G8",
-    "VIP-1K-VEVPU0", "VIP-1K-A9ZWVL", "VIP-1K-AEH3EU", "VIP-1K-NUM95B", "VIP-1K-ESAPUE",
-    "VIP-1K-DJFXXB", "VIP-1K-8SC5QK", "VIP-1K-WV5S54", "VIP-1K-VBJTMB", "VIP-1K-IUQND1",
-    "VIP-1K-GPGVS5", "VIP-1K-UWK37Y", "VIP-1K-P8NR8X", "VIP-1K-7F3FFX", "VIP-1K-QGBM2O",
-    "VIP-1K-EFROGY", "VIP-1K-F09E4L", "VIP-1K-9MDBUY", "VIP-1K-9UEK1Z", "VIP-1K-JGIYVJ",
-    "VIP-1K-IVXKTV", "VIP-1K-9M1PZP", "VIP-1K-VI9AEV", "VIP-1K-L6AKAZ", "VIP-1K-XU8OKF",
-    "VIP-1K-81A51C", "VIP-1K-C60YO3", "VIP-1K-B21R05", "VIP-1K-S6X1PW", "VIP-1K-09MC9W",
-    "VIP-1K-43ADAI", "VIP-1K-W7900J", "VIP-1K-OCSRNK", "VIP-1K-UVNHKV", "VIP-1K-89ELR3",
-    "VIP-1K-0XNJ3J", "VIP-1K-VLGP4X", "VIP-1K-BFTXDN", "VIP-1K-MPP0BC", "VIP-1K-CXY1U4",
+    "VIP-1K-IFEG8C", "VIP-1K-A0YW8V", "VIP-1K-VP8G2A", "VIP-1K-YQTGEY", "VIP-1K-I71RZC"
   ],
   2000: [
     "VIP-2K-6HV89C", "VIP-2K-4HPEN1", "VIP-2K-YQHJAD", "VIP-2K-MZMOMM", "VIP-2K-HYMQKA",
@@ -1220,47 +881,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-2K-72MYQD", "VIP-2K-WXKNJI", "VIP-2K-HB9019", "VIP-2K-CJ13UM", "VIP-2K-P792EY",
     "VIP-2K-UIK2V6", "VIP-2K-OUR7E8", "VIP-2K-8MR67C", "VIP-2K-2U1ZZC", "VIP-2K-D00BW4",
     "VIP-2K-MB6RQA", "VIP-2K-A4H61O", "VIP-2K-AGGFP9", "VIP-2K-J4MTBQ", "VIP-2K-4UG852",
-    "VIP-2K-DDKO0R", "VIP-2K-AQ59WX", "VIP-2K-M50G4V", "VIP-2K-KJVX4U", "VIP-2K-KVXO0D",
-    "VIP-2K-U8WTIX", "VIP-2K-UFHBDG", "VIP-2K-SYJGCE", "VIP-2K-W17WD7", "VIP-2K-WCO9ZH",
-    "VIP-2K-R1X632", "VIP-2K-6XBLQM", "VIP-2K-BQZQ0T", "VIP-2K-A4UJJX", "VIP-2K-GZ8OOT",
-    "VIP-2K-D5CT03", "VIP-2K-S2YP01", "VIP-2K-WR86JZ", "VIP-2K-SOZE4L", "VIP-2K-VARSOW",
-    "VIP-2K-G6N03A", "VIP-2K-4WN1VV", "VIP-2K-HH2J0T", "VIP-2K-3R54DC", "VIP-2K-M8E1RI",
-    "VIP-2K-LKA8F1", "VIP-2K-Q90AB1", "VIP-2K-WJXSKS", "VIP-2K-16QVW2", "VIP-2K-NKR8I3",
-    "VIP-2K-DSXANQ", "VIP-2K-U3L0NO", "VIP-2K-DY55MH", "VIP-2K-OQGJZ7", "VIP-2K-PAN59P",
-    "VIP-2K-TX5Z5E", "VIP-2K-ZZ9J22", "VIP-2K-HWEQMA", "VIP-2K-TGFCX3", "VIP-2K-KVYBJW",
-    "VIP-2K-S43J9H", "VIP-2K-JB8LDY", "VIP-2K-47NU8L", "VIP-2K-IEA8W5", "VIP-2K-0ZL263",
-    "VIP-2K-0DI9RU", "VIP-2K-S3MLDY", "VIP-2K-EO5S4X", "VIP-2K-PFZCW2", "VIP-2K-LSCAQZ",
-    "VIP-2K-N5YRKV", "VIP-2K-PHMVTB", "VIP-2K-TCKTH2", "VIP-2K-XXAH0N", "VIP-2K-9COC7X",
-    "VIP-2K-KLFW28", "VIP-2K-W7EOGH", "VIP-2K-9TSOZ1", "VIP-2K-PGK1Q4", "VIP-2K-OKVKOT",
-    "VIP-2K-HRVY2H", "VIP-2K-2CEI5D", "VIP-2K-AXT1A5", "VIP-2K-XRE3NR", "VIP-2K-DAGVHK",
-    "VIP-2K-GVE3FC", "VIP-2K-6JOJBX", "VIP-2K-9RZX7S", "VIP-2K-24UNDO", "VIP-2K-HOAI3M",
-    "VIP-2K-Q6V0GM", "VIP-2K-3ZTUPJ", "VIP-2K-6EHWTP", "VIP-2K-T5BQIL", "VIP-2K-I9ZOX5",
-    "VIP-2K-C303ZX", "VIP-2K-53LSR7", "VIP-2K-8PQYIB", "VIP-2K-9H22XX", "VIP-2K-ITBRFD",
-    "VIP-2K-OUG98U", "VIP-2K-U7E6Y6", "VIP-2K-5ROJL7", "VIP-2K-BZ9SGZ", "VIP-2K-57IFK8",
-    "VIP-2K-WML2AN", "VIP-2K-U41S3F", "VIP-2K-N5TYJ6", "VIP-2K-S05GNI", "VIP-2K-UVJM0X",
-    "VIP-2K-636V13", "VIP-2K-2U437V", "VIP-2K-OQO761", "VIP-2K-FI9047", "VIP-2K-1NC2A9",
-    "VIP-2K-3UA8OW", "VIP-2K-5WXR43", "VIP-2K-CNZAH9", "VIP-2K-IBG9XS", "VIP-2K-XUW579",
-    "VIP-2K-RDCOYA", "VIP-2K-3F1KEQ", "VIP-2K-1R1OJZ", "VIP-2K-A24FDE", "VIP-2K-G0T1QV",
-    "VIP-2K-ZFTD8L", "VIP-2K-FUPKRM", "VIP-2K-ORDV0F", "VIP-2K-B6LKA0", "VIP-2K-TEU4VJ",
-    "VIP-2K-3LLI20", "VIP-2K-8UTTIU", "VIP-2K-K5UBSP", "VIP-2K-ZSG5LB", "VIP-2K-S9M721",
-    "VIP-2K-4J9XBV", "VIP-2K-OOXNKE", "VIP-2K-5OOOHY", "VIP-2K-S9RT6O", "VIP-2K-J7XK5W",
-    "VIP-2K-5RRJI0", "VIP-2K-KWG2KC", "VIP-2K-U0XI2V", "VIP-2K-A91JY0", "VIP-2K-HR71N4",
-    "VIP-2K-0N39GI", "VIP-2K-WYS5SS", "VIP-2K-H2C3OF", "VIP-2K-D954HP", "VIP-2K-7O8PDM",
-    "VIP-2K-YJXQWY", "VIP-2K-9W8KE8", "VIP-2K-KT9DL1", "VIP-2K-6PGARA", "VIP-2K-WDFILO",
-    "VIP-2K-VYWPJX", "VIP-2K-HAPYU0", "VIP-2K-IOWJN5", "VIP-2K-SYSP2W", "VIP-2K-OL2FUV",
-    "VIP-2K-KR3MZ5", "VIP-2K-CIUIPI", "VIP-2K-QZ96JK", "VIP-2K-VERJYK", "VIP-2K-SUFSGH",
-    "VIP-2K-8RTB4M", "VIP-2K-06UO6O", "VIP-2K-KHPNWG", "VIP-2K-4EQSCM", "VIP-2K-VMD566",
-    "VIP-2K-E83MD4", "VIP-2K-8G6O2A", "VIP-2K-X4R7TK", "VIP-2K-30Z94D", "VIP-2K-YWIM7S",
-    "VIP-2K-Y9RT7H", "VIP-2K-PLM30B", "VIP-2K-6BHAO2", "VIP-2K-ZRI8ZC", "VIP-2K-XJPE4F",
-    "VIP-2K-0CR2SL", "VIP-2K-2IM01D", "VIP-2K-QO9ZFD", "VIP-2K-Y8GNCO", "VIP-2K-YFMCN3",
-    "VIP-2K-5927SJ", "VIP-2K-E4R7UM", "VIP-2K-3QL4BZ", "VIP-2K-M3YI7W", "VIP-2K-Y7QXU3",
-    "VIP-2K-WLRB1I", "VIP-2K-6WN4KI", "VIP-2K-W3BVMK", "VIP-2K-31682C", "VIP-2K-SEU07P",
-    "VIP-2K-VBRCZO", "VIP-2K-IVA19K", "VIP-2K-RLNS5Q", "VIP-2K-ILC9UU", "VIP-2K-199LKZ",
-    "VIP-2K-9WO9HJ", "VIP-2K-0ZGIGI", "VIP-2K-0D9JDP", "VIP-2K-ADOEC5", "VIP-2K-4QU21Z",
-    "VIP-2K-EOME8A", "VIP-2K-9DEDSA", "VIP-2K-3SU489", "VIP-2K-AECVQQ", "VIP-2K-NOH4M4",
-    "VIP-2K-VTYGNH", "VIP-2K-KBTR7E", "VIP-2K-RTFA7H", "VIP-2K-ZZK0J3", "VIP-2K-IIXZV0",
-    "VIP-2K-MP2OYH", "VIP-2K-5NPF78", "VIP-2K-MDSBH9", "VIP-2K-BTQCKI", "VIP-2K-3MJ74K",
-    "VIP-2K-TJWP40", "VIP-2K-8BVXO0", "VIP-2K-J0PR9Z", "VIP-2K-EZUHVJ", "VIP-2K-S1Z5GI",
+    "VIP-2K-DDKO0R", "VIP-2K-AQ59WX", "VIP-2K-M50G4V", "VIP-2K-KJVX4U", "VIP-2K-KVXO0D"
   ],
   5000: [
     "VIP-5K-3XP51M", "VIP-5K-L0I4W5", "VIP-5K-GBUFVC", "VIP-5K-JARH7A", "VIP-5K-ZBD6S5",
@@ -1282,47 +903,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-5K-MFPHKS", "VIP-5K-0V1YEQ", "VIP-5K-HDZZYK", "VIP-5K-VCLHN5", "VIP-5K-68E1HH",
     "VIP-5K-1RXYUF", "VIP-5K-PJVB0V", "VIP-5K-4Y13XG", "VIP-5K-XLVCLU", "VIP-5K-XRN8BH",
     "VIP-5K-3LY6OX", "VIP-5K-EK9M05", "VIP-5K-PBZGGT", "VIP-5K-JEL87G", "VIP-5K-BVS1VA",
-    "VIP-5K-B86798", "VIP-5K-7W1ZCH", "VIP-5K-64CMNE", "VIP-5K-Y41MTV", "VIP-5K-TSVDF2",
-    "VIP-5K-V0NQHN", "VIP-5K-10MX81", "VIP-5K-XT4ICY", "VIP-5K-TCXBNT", "VIP-5K-99BV8M",
-    "VIP-5K-7WBFQA", "VIP-5K-ZRTOI0", "VIP-5K-UHLWG8", "VIP-5K-P9D11W", "VIP-5K-WYT45K",
-    "VIP-5K-CS9W18", "VIP-5K-DXGM33", "VIP-5K-EY6COQ", "VIP-5K-HTFIT1", "VIP-5K-37QF4Q",
-    "VIP-5K-PDTU9V", "VIP-5K-J5DCLU", "VIP-5K-02O7LW", "VIP-5K-XOWKOC", "VIP-5K-BUEH8P",
-    "VIP-5K-AWFZBQ", "VIP-5K-NE8PIC", "VIP-5K-T7QSEE", "VIP-5K-L7EDM5", "VIP-5K-LRDHAK",
-    "VIP-5K-GDLEON", "VIP-5K-RTVDI3", "VIP-5K-7PXJBJ", "VIP-5K-DLO6CI", "VIP-5K-W3NFX2",
-    "VIP-5K-G9DTUA", "VIP-5K-CUN8J3", "VIP-5K-I9F0BD", "VIP-5K-54MGNW", "VIP-5K-N9FQS0",
-    "VIP-5K-ZJJQMI", "VIP-5K-TMDXRF", "VIP-5K-4AOH19", "VIP-5K-KKFN52", "VIP-5K-HE81GO",
-    "VIP-5K-O33LUH", "VIP-5K-7VTVOZ", "VIP-5K-P2RRT9", "VIP-5K-TLIU6J", "VIP-5K-EK5IG4",
-    "VIP-5K-WRDE8I", "VIP-5K-NP6V7N", "VIP-5K-7HN4V1", "VIP-5K-CUFYSM", "VIP-5K-Z4M5UW",
-    "VIP-5K-RRRPZB", "VIP-5K-KQ5QLX", "VIP-5K-VAUDUI", "VIP-5K-75058D", "VIP-5K-8YH85F",
-    "VIP-5K-I61CLV", "VIP-5K-NHHQJQ", "VIP-5K-6TK5F6", "VIP-5K-IKBHWV", "VIP-5K-G5T7XD",
-      "VIP-5K-V552W2", "VIP-5K-I86FSJ", "VIP-5K-8TT0XV", "VIP-5K-9XIS4Y", "VIP-5K-A8K4WB",
-    "VIP-5K-0ZK36A", "VIP-5K-WEZGVF", "VIP-5K-QE94Q6", "VIP-5K-3V5LPM", "VIP-5K-YZYLF9",
-    "VIP-5K-45P0DU", "VIP-5K-E3GVKD", "VIP-5K-BP9YCJ", "VIP-5K-805OQS", "VIP-5K-MIX02R",
-    "VIP-5K-PVDXNU", "VIP-5K-OTV4Z9", "VIP-5K-WQHNP8", "VIP-5K-244SQH", "VIP-5K-OFH7G5",
-    "VIP-5K-Z9Y4D7", "VIP-5K-R2DPIF", "VIP-5K-ZDQOKT", "VIP-5K-BNBDLU", "VIP-5K-FCD9X9",
-    "VIP-5K-DZXBQW", "VIP-5K-OBRRK7", "VIP-5K-9CYUGY", "VIP-5K-VEJU3W", "VIP-5K-BWFN9L",
-    "VIP-5K-Y6XZWV", "VIP-5K-DGE2YN", "VIP-5K-IOUD0D", "VIP-5K-IHYIQY", "VIP-5K-TQ5VYN",
-    "VIP-5K-YKA7JQ", "VIP-5K-5E5AEL", "VIP-5K-X9AR11", "VIP-5K-NEGEBZ", "VIP-5K-8EB2R0",
-    "VIP-5K-R2EYJI", "VIP-5K-D0I0TU", "VIP-5K-C486DD", "VIP-5K-D30AO7", "VIP-5K-BPQTKV",
-    "VIP-5K-5D7J2N", "VIP-5K-4YPHMI", "VIP-5K-CM12K0", "VIP-5K-K7IS4N", "VIP-5K-DNKT8E",
-    "VIP-5K-O0NR60", "VIP-5K-IPAI24", "VIP-5K-FMUWWQ", "VIP-5K-D1E3H5", "VIP-5K-HCQQ2R",
-    "VIP-5K-7UPWHR", "VIP-5K-I5CQUA", "VIP-5K-JU4J4C", "VIP-5K-KVWZYZ", "VIP-5K-Q1H1D3",
-    "VIP-5K-JV6S9T", "VIP-5K-4TJ770", "VIP-5K-DGOMWR", "VIP-5K-UJ48ZQ", "VIP-5K-AYLU8R",
-    "VIP-5K-UOJL0D", "VIP-5K-YNV5FZ", "VIP-5K-RXGALM", "VIP-5K-4MP2UW", "VIP-5K-8JFIZC",
-    "VIP-5K-121WVV", "VIP-5K-FDJV6Z", "VIP-5K-D0IFMP", "VIP-5K-HOPM6V", "VIP-5K-7TNFEQ",
-    "VIP-5K-Q3037L", "VIP-5K-DZR2GI", "VIP-5K-CY27H9", "VIP-5K-3RF7BR", "VIP-5K-YFLLYQ",
-    "VIP-5K-WE1K5V", "VIP-5K-J1J6RZ", "VIP-5K-T9YK5E", "VIP-5K-YAI7OI", "VIP-5K-B6F8AX",
-    "VIP-5K-C3PCEU", "VIP-5K-DITEWL", "VIP-5K-H98W9K", "VIP-5K-NA0UXN", "VIP-5K-RGBWPY",
-    "VIP-5K-JDPGX4", "VIP-5K-HMT723", "VIP-5K-XRL7G1", "VIP-5K-8UWXBW", "VIP-5K-89BVMB",
-    "VIP-5K-AP3BED", "VIP-5K-CVG9N8", "VIP-5K-KCRUJ8", "VIP-5K-0XMGSZ", "VIP-5K-K49DO0",
-    "VIP-5K-L38QXK", "VIP-5K-F12CN9", "VIP-5K-GTB32Y", "VIP-5K-1980X2", "VIP-5K-IOVZLD",
-    "VIP-5K-9UANS3", "VIP-5K-7HIU8V", "VIP-5K-DHCWIO", "VIP-5K-9DTGQG", "VIP-5K-M41D6R",
-    "VIP-5K-JAF3SC", "VIP-5K-3FBKIM", "VIP-5K-CI151B", "VIP-5K-TCXC4W", "VIP-5K-H8FE1B",
-    "VIP-5K-FHFMH9", "VIP-5K-OWMGBV", "VIP-5K-7J9BJA", "VIP-5K-KOPG12", "VIP-5K-T8EVD2",
-    "VIP-5K-KLI0C1", "VIP-5K-R1G55Q", "VIP-5K-CJXH9V", "VIP-5K-7SADDK", "VIP-5K-SL8L0X",
-    "VIP-5K-1BM72L", "VIP-5K-19M7Y2", "VIP-5K-PGDB3A", "VIP-5K-E3TBKT", "VIP-5K-UHXFYD",
-    "VIP-5K-OZU2AH", "VIP-5K-SW05M9", "VIP-5K-CXT2J5", "VIP-5K-FO46I9", "VIP-5K-0V5Q1Q",
-    "VIP-5K-8QMWXG", "VIP-5K-5MTXB9", "VIP-5K-0CQNUU", "VIP-5K-E31PAD", "VIP-5K-N5PMH4",
+    "VIP-5K-B86798", "VIP-5K-7W1ZCH", "VIP-5K-64CMNE", "VIP-5K-Y41MTV", "VIP-5K-TSVDF2"
   ],
   10000: [
     "VIP-10K-8LQ47D", "VIP-10K-4CUQ0Y", "VIP-10K-WF9CX0", "VIP-10K-1BKIR2", "VIP-10K-KWEUSY",
@@ -1344,47 +925,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-10K-US27JU", "VIP-10K-P32WKA", "VIP-10K-HOZUPS", "VIP-10K-KI2INN", "VIP-10K-W5ZPSK",
     "VIP-10K-PD5Y06", "VIP-10K-VO0E29", "VIP-10K-M0EORS", "VIP-10K-JDO440", "VIP-10K-VZCD5Q",
     "VIP-10K-XCO8YK", "VIP-10K-OSZZR0", "VIP-10K-AI8LSG", "VIP-10K-4BCE7U", "VIP-10K-OOL97R",
-    "VIP-10K-C38U6Y", "VIP-10K-ORHOQ6", "VIP-10K-V4GTMV", "VIP-10K-GWYV8H", "VIP-10K-RAZ4CD",
-    "VIP-10K-FDJVPH", "VIP-10K-JOK3U9", "VIP-10K-BUKSMC", "VIP-10K-FB9FNH", "VIP-10K-CMJN51",
-    "VIP-10K-DLMLTA", "VIP-10K-IECTVO", "VIP-10K-ZFNFWZ", "VIP-10K-KILA3T", "VIP-10K-IPNXM9",
-    "VIP-10K-OK6U2E", "VIP-10K-0JF0RM", "VIP-10K-9QNOGD", "VIP-10K-UL77BF", "VIP-10K-1CAYWW",
-    "VIP-10K-E1GCKR", "VIP-10K-K7Z9Q4", "VIP-10K-XDDP8B", "VIP-10K-TPQPMZ", "VIP-10K-J67RIE",
-    "VIP-10K-T3HJUK", "VIP-10K-EGSSKO", "VIP-10K-342QAU", "VIP-10K-D4WFCJ", "VIP-10K-DIQBPD",
-    "VIP-10K-K0I29O", "VIP-10K-C426OZ", "VIP-10K-8IP05O", "VIP-10K-KD5YFL", "VIP-10K-AUGGRM",
-    "VIP-10K-PVEQ5J", "VIP-10K-G8UNAJ", "VIP-10K-9XV8OK", "VIP-10K-NXWAAQ", "VIP-10K-DFVTN6",
-    "VIP-10K-E7H7N4", "VIP-10K-TZWKRV", "VIP-10K-KKYVMU", "VIP-10K-BQSPFH", "VIP-10K-6U168G",
-    "VIP-10K-UQWCDE", "VIP-10K-5LE6DB", "VIP-10K-DNDNBZ", "VIP-10K-EF5XPS", "VIP-10K-NHPG91",
-    "VIP-10K-3R7G4G", "VIP-10K-710MEE", "VIP-10K-YKDMWY", "VIP-10K-1KLPGH", "VIP-10K-F7CTDI",
-    "VIP-10K-WSWUA8", "VIP-10K-YLSXJE", "VIP-10K-9DNBWH", "VIP-10K-HYPCN1", "VIP-10K-2EZOP7",
-    "VIP-10K-HFV193", "VIP-10K-2SDXC8", "VIP-10K-CZYXM8", "VIP-10K-2QW0WF", "VIP-10K-4UG2K8",
-    "VIP-10K-BNMND7", "VIP-10K-9FJVTS", "VIP-10K-R9C0NP", "VIP-10K-XGHEIU", "VIP-10K-9RAQLK",
-    "VIP-10K-91KMZA", "VIP-10K-V2E1ZP", "VIP-10K-5ONMQR", "VIP-10K-YIH4O9", "VIP-10K-SLWB1O",
-    "VIP-10K-5X45L9", "VIP-10K-L1PBZG", "VIP-10K-RM1MCA", "VIP-10K-VVPJNG", "VIP-10K-752D1K",
-    "VIP-10K-VVT8VL", "VIP-10K-ITCC7A", "VIP-10K-Q203Q2", "VIP-10K-VZ6O1V", "VIP-10K-Z45P8B",
-    "VIP-10K-VIWW9O", "VIP-10K-6HPSPG", "VIP-10K-QHDW8F", "VIP-10K-RB3IS7", "VIP-10K-N4YFH9",
-    "VIP-10K-GYVAV7", "VIP-10K-J2YVO2", "VIP-10K-I3PVIS", "VIP-10K-2B7DLT", "VIP-10K-DKW8S5",
-    "VIP-10K-DEJ8TK", "VIP-10K-9LXIF2", "VIP-10K-1UZTIE", "VIP-10K-LOWPY3", "VIP-10K-VZ5KSF",
-    "VIP-10K-61WHR7", "VIP-10K-M3LD2J", "VIP-10K-W2W0DH", "VIP-10K-JZPD4Z", "VIP-10K-N6KUHR",
-    "VIP-10K-FWC90D", "VIP-10K-8UWQOA", "VIP-10K-QDOJD6", "VIP-10K-9OX597", "VIP-10K-FFH0GN",
-    "VIP-10K-3CZD1I", "VIP-10K-K5BLBY", "VIP-10K-A0QL2H", "VIP-10K-G13J3X", "VIP-10K-BG4PJJ",
-    "VIP-10K-O2IUMC", "VIP-10K-HRHN5L", "VIP-10K-V4BB0J", "VIP-10K-WLKQXR", "VIP-10K-C24X32",
-    "VIP-10K-Q7HV5B", "VIP-10K-C5P54P", "VIP-10K-IT6X8O", "VIP-10K-65E2KY", "VIP-10K-IXSQWR",
-    "VIP-10K-TIOCN7", "VIP-10K-09CZCE", "VIP-10K-YEWEYZ", "VIP-10K-JN2ZX2", "VIP-10K-LHTECW",
-    "VIP-10K-BIWF2M", "VIP-10K-KZI6UM", "VIP-10K-7NF3QY", "VIP-10K-TK120N", "VIP-10K-DZXG9C",
-    "VIP-10K-7TLAQZ", "VIP-10K-D5NG5R", "VIP-10K-HF2XA0", "VIP-10K-GHPU06", "VIP-10K-15QG71",
-    "VIP-10K-NZ9UJ7", "VIP-10K-N56NKY", "VIP-10K-F4DCLM", "VIP-10K-2CQN5U", "VIP-10K-MJF8RD",
-    "VIP-10K-QGW6VI", "VIP-10K-Y0ZBKU", "VIP-10K-K0GVHM", "VIP-10K-BBHV98", "VIP-10K-N7LU3Y",
-    "VIP-10K-VBQBMT", "VIP-10K-UKKTZM", "VIP-10K-O3W8IB", "VIP-10K-0YZNEU", "VIP-10K-B5CAN3",
-    "VIP-10K-Q47BMX", "VIP-10K-TRTSR8", "VIP-10K-7YHDRF", "VIP-10K-FMLZID", "VIP-10K-18DCNL",
-    "VIP-10K-7CS5LU", "VIP-10K-20JN6L", "VIP-10K-SKN14Q", "VIP-10K-Q2XCRN", "VIP-10K-N5B17A",
-    "VIP-10K-CW35UL", "VIP-10K-TC5262", "VIP-10K-YD7BTI", "VIP-10K-OGVW50", "VIP-10K-0R5RMW",
-    "VIP-10K-W6ANN0", "VIP-10K-N7PHPT", "VIP-10K-NTJNEE", "VIP-10K-UVI5IS", "VIP-10K-FEUP8N",
-    "VIP-10K-4TXSMZ", "VIP-10K-COA7MM", "VIP-10K-7KTYUX", "VIP-10K-TWBE1Q", "VIP-10K-VIE6EA",
-    "VIP-10K-SWST29", "VIP-10K-1MROU0", "VIP-10K-P114NQ", "VIP-10K-OK8KRR", "VIP-10K-0BAIZW",
-    "VIP-10K-6OYFXF", "VIP-10K-YCYPOG", "VIP-10K-CH7LC7", "VIP-10K-YNOZSO", "VIP-10K-UP20MG",
-    "VIP-10K-057MB5", "VIP-10K-ZFQJAZ", "VIP-10K-BINIVR", "VIP-10K-KLIDQX", "VIP-10K-LLL4RC",
-    "VIP-10K-8ZU3CA", "VIP-10K-VG40HW", "VIP-10K-38U4NU", "VIP-10K-TAC5YC", "VIP-10K-M9NDEK",
-    "VIP-10K-28QZVG", "VIP-10K-1858M5", "VIP-10K-Q6KYOM", "VIP-10K-29IN3J", "VIP-10K-10I59P",
+    "VIP-10K-C38U6Y", "VIP-10K-ORHOQ6", "VIP-10K-V4GTMV", "VIP-10K-GWYV8H", "VIP-10K-RAZ4CD"
   ],
   15000: [
     "VIP-15K-2ZF93W", "VIP-15K-LPCC26", "VIP-15K-X6QQAP", "VIP-15K-3271LF", "VIP-15K-UEO6WY",
@@ -1402,51 +943,11 @@ const CODIGOS_ESTRELLAS = {
     "VIP-15K-B6N5ZV", "VIP-15K-07N9DQ", "VIP-15K-YL6TK2", "VIP-15K-TNIR9Q", "VIP-15K-1R3S7P",
     "VIP-15K-6P2Q6L", "VIP-15K-NXGUOR", "VIP-15K-YPCT5W", "VIP-15K-A1JFXP", "VIP-15K-UZE2QW",
     "VIP-15K-WSSKMI", "VIP-15K-R5HZ4Z", "VIP-15K-JFV8DC", "VIP-15K-MEGFCY", "VIP-15K-KGC8QR",
-    "VIP-15K-OMGW6T", "VIP-15K-DMBK0V", "VIP-15K-KINBLK", "VIP-15K-2GKBRO", "VIP-15K-CIBEVX",
+      "VIP-15K-OMGW6T", "VIP-15K-DMBK0V", "VIP-15K-KINBLK", "VIP-15K-2GKBRO", "VIP-15K-CIBEVX",
     "VIP-15K-91UCP1", "VIP-15K-EZRATJ", "VIP-15K-TBKCDW", "VIP-15K-FUFG6S", "VIP-15K-NYGS8L",
     "VIP-15K-BMR0W9", "VIP-15K-WNVZK1", "VIP-15K-EED72L", "VIP-15K-MXY4Q9", "VIP-15K-1M0NK1",
     "VIP-15K-BA937G", "VIP-15K-3DN1E9", "VIP-15K-H2ZQV1", "VIP-15K-4RUPBS", "VIP-15K-DWVSSF",
-    "VIP-15K-LX719Z", "VIP-15K-9DN7VT", "VIP-15K-OZ569E", "VIP-15K-IHH3Y7", "VIP-15K-BVB1L2",
-    "VIP-15K-VU3WPN", "VIP-15K-VA4W6H", "VIP-15K-QJPPLR", "VIP-15K-1TJJI0", "VIP-15K-DRVJ3V",
-    "VIP-15K-M9G5DK", "VIP-15K-8J2FYT", "VIP-15K-EL8A9S", "VIP-15K-JVF3SL", "VIP-15K-LBA59T",
-    "VIP-15K-0KK2X9", "VIP-15K-PEIZND", "VIP-15K-I002YP", "VIP-15K-FEK0WJ", "VIP-15K-KZQ8BG",
-    "VIP-15K-6LQYV3", "VIP-15K-EBCVMO", "VIP-15K-3K39BR", "VIP-15K-7S1D2D", "VIP-15K-IQ87QP",
-    "VIP-15K-V1CSDV", "VIP-15K-BKVRCH", "VIP-15K-CVUJOS", "VIP-15K-MWZHWD", "VIP-15K-6IXT52",
-    "VIP-15K-9AY5N4", "VIP-15K-RBEBV0", "VIP-15K-469TMB", "VIP-15K-N61D4A", "VIP-15K-WCFVEO",
-    "VIP-15K-ZW2FW0", "VIP-15K-119E8X", "VIP-15K-ONZQ7J", "VIP-15K-297UJI", "VIP-15K-XPFQMF",
-    "VIP-15K-CJ56NG", "VIP-15K-DLWA7P", "VIP-15K-CLFIMP", "VIP-15K-5AULV1", "VIP-15K-99AOKQ",
-    "VIP-15K-NZNEOS", "VIP-15K-KWJS45", "VIP-15K-176U7K", "VIP-15K-AKYB1Q", "VIP-15K-QZGEFB",
-    "VIP-15K-YG6CKH", "VIP-15K-OKD4FK", "VIP-15K-BDC6OY", "VIP-15K-EOTFV1", "VIP-15K-BL4FY7",
-    "VIP-15K-GAM0U1", "VIP-15K-USOC8W", "VIP-15K-ECG2TS", "VIP-15K-VXLAWW", "VIP-15K-HRDII0",
-    "VIP-15K-DYV2IM", "VIP-15K-MCTVMZ", "VIP-15K-8YEAOC", "VIP-15K-RMWT4T", "VIP-15K-851Q97",
-    "VIP-15K-I3STKP", "VIP-15K-J39F8S", "VIP-15K-J5IT00", "VIP-15K-8YTV0H", "VIP-15K-S7QV7M",
-    "VIP-15K-05K4HP", "VIP-15K-KWT6XD", "VIP-15K-L30Q0N", "VIP-15K-6AM7U5", "VIP-15K-EPBN0X",
-    "VIP-15K-E7DF59", "VIP-15K-QH87DV", "VIP-15K-MHQ99F", "VIP-15K-931PSX", "VIP-15K-N1IMOY",
-    "VIP-15K-KX17KQ", "VIP-15K-JQTGOK", "VIP-15K-E4CKHL", "VIP-15K-33GHDG", "VIP-15K-1ZNXWZ",
-    "VIP-15K-1GULXH", "VIP-15K-FBFCMI", "VIP-15K-WG28OY", "VIP-15K-HGCNWX", "VIP-15K-VFM85T",
-      "VIP-15K-K474OB", "VIP-15K-DAOPLH", "VIP-15K-ZETX9M", "VIP-15K-66G51L", "VIP-15K-BXZJ0Q",
-    "VIP-15K-I2U8FQ", "VIP-15K-3QHRL7", "VIP-15K-7ZOC23", "VIP-15K-QV7976", "VIP-15K-KBBU8I",
-    "VIP-15K-ZVPTG3", "VIP-15K-JD47DN", "VIP-15K-Y5FJQB", "VIP-15K-J9SS2A", "VIP-15K-3JG62F",
-    "VIP-15K-S6I0XY", "VIP-15K-698LWX", "VIP-15K-PNDZLH", "VIP-15K-E29OQU", "VIP-15K-DGCE6O",
-    "VIP-15K-G3X9QI", "VIP-15K-S0GO3E", "VIP-15K-0L1JVD", "VIP-15K-92KCEP", "VIP-15K-REDVSD",
-    "VIP-15K-10WO3W", "VIP-15K-N2M241", "VIP-15K-T0MBWZ", "VIP-15K-EG0N5C", "VIP-15K-75PYQF",
-    "VIP-15K-O7QALU", "VIP-15K-LN0WT4", "VIP-15K-R2UC1J", "VIP-15K-V89HW5", "VIP-15K-93A6I8",
-    "VIP-15K-2KLU5Y", "VIP-15K-ZO8MJX", "VIP-15K-SGWXSB", "VIP-15K-NUC5XB", "VIP-15K-5PKGF6",
-    "VIP-15K-ZOUO3I", "VIP-15K-9NEA1X", "VIP-15K-XO9NKX", "VIP-15K-AYZ9YQ", "VIP-15K-6F1F0X",
-    "VIP-15K-6GJ5JR", "VIP-15K-HXFC3T", "VIP-15K-XKJRZJ", "VIP-15K-NZQ2JK", "VIP-15K-NCUY42",
-    "VIP-15K-L7RZ4K", "VIP-15K-XB6JPT", "VIP-15K-OYEHR0", "VIP-15K-ZY5HQ2", "VIP-15K-VTGI5U",
-    "VIP-15K-463OKD", "VIP-15K-Q4RHQT", "VIP-15K-IKBQ49", "VIP-15K-1C7WCW", "VIP-15K-DHPAOU",
-    "VIP-15K-V4HERE", "VIP-15K-K4Y5UN", "VIP-15K-UUW9SL", "VIP-15K-D24SG4", "VIP-15K-PVBF7L",
-    "VIP-15K-EVYRP2", "VIP-15K-QJQ62P", "VIP-15K-FC77FC", "VIP-15K-KOAZLJ", "VIP-15K-OEUYLB",
-    "VIP-15K-QMZ3JR", "VIP-15K-1X7LIG", "VIP-15K-B2WSVR", "VIP-15K-L9GA7A", "VIP-15K-5FZE2W",
-    "VIP-15K-XTIPAX", "VIP-15K-1MZPEH", "VIP-15K-LXCB99", "VIP-15K-2BRG1C", "VIP-15K-FU9HOG",
-    "VIP-15K-83O4LK", "VIP-15K-Q0K3SY", "VIP-15K-BGO7B2", "VIP-15K-XD82BZ", "VIP-15K-16QDS4",
-    "VIP-15K-RX0DRT", "VIP-15K-W0C4CS", "VIP-15K-XQNB3T", "VIP-15K-44B3K4", "VIP-15K-R5HV2Y",
-    "VIP-15K-XEZW8N", "VIP-15K-7ME996", "VIP-15K-OJ3G8R", "VIP-15K-PVLGII", "VIP-15K-DRZMUZ",
-    "VIP-15K-T7X11B", "VIP-15K-ONTXED", "VIP-15K-F0L60B", "VIP-15K-T5RHZ6", "VIP-15K-2J8OK7",
-    "VIP-15K-GQZSDX", "VIP-15K-2YUE5F", "VIP-15K-4UYFS6", "VIP-15K-IXLZID", "VIP-15K-MJGHYG",
-    "VIP-15K-9CUNNF", "VIP-15K-4BC26P", "VIP-15K-UMC57X", "VIP-15K-E0I0II", "VIP-15K-4KT82J",
-    "VIP-15K-7K2DPF", "VIP-15K-LPK4U6", "VIP-15K-D5FW4J", "VIP-15K-PFAMHP", "VIP-15K-SW52PB",
+    "VIP-15K-LX719Z", "VIP-15K-9DN7VT", "VIP-15K-OZ569E", "VIP-15K-IHH3Y7", "VIP-15K-BVB1L2"
   ],
   20000: [
     "VIP-20K-5NS68J", "VIP-20K-81QVFA", "VIP-20K-DMZ2EV", "VIP-20K-EEKVJM", "VIP-20K-WT1GI7",
@@ -1468,47 +969,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-20K-DC6Z8X", "VIP-20K-21H8PG", "VIP-20K-K33ZGR", "VIP-20K-NJ4RUL", "VIP-20K-8XXAOU",
     "VIP-20K-U8KHZO", "VIP-20K-G9EGG3", "VIP-20K-U52ZER", "VIP-20K-P9J7NB", "VIP-20K-OSANNO",
     "VIP-20K-QLNB9L", "VIP-20K-G4434H", "VIP-20K-UKO7YW", "VIP-20K-5A984Z", "VIP-20K-6VF5M7",
-    "VIP-20K-MZSSV6", "VIP-20K-CQ32DB", "VIP-20K-X6Y42R", "VIP-20K-FJKYL2", "VIP-20K-0U5CY8",
-    "VIP-20K-0R4C0N", "VIP-20K-1NS2ET", "VIP-20K-EVHXHH", "VIP-20K-T8A72B", "VIP-20K-E3CA0P",
-    "VIP-20K-69WQ2T", "VIP-20K-GSU18E", "VIP-20K-UZ5S6J", "VIP-20K-S7ZCN6", "VIP-20K-6X6S1W",
-    "VIP-20K-IGME4N", "VIP-20K-AUUXD9", "VIP-20K-E15JG4", "VIP-20K-VL0QWL", "VIP-20K-6NX3UA",
-    "VIP-20K-SZHLOP", "VIP-20K-6UABRI", "VIP-20K-7ADOXI", "VIP-20K-TAWVFY", "VIP-20K-FNOF7H",
-    "VIP-20K-VBMJNI", "VIP-20K-G650PG", "VIP-20K-M1TTJN", "VIP-20K-JVQY3R", "VIP-20K-8HKO3D",
-    "VIP-20K-6QCRTS", "VIP-20K-S103KO", "VIP-20K-YF2AWL", "VIP-20K-DFSTX3", "VIP-20K-JTEHX6",
-    "VIP-20K-H23XCL", "VIP-20K-Y4C5ZJ", "VIP-20K-AGULEW", "VIP-20K-CG07DD", "VIP-20K-CC7FPB",
-    "VIP-20K-XZMU6D", "VIP-20K-Y44BR1", "VIP-20K-FSMS74", "VIP-20K-UJBS0L", "VIP-20K-9RM8TB",
-    "VIP-20K-R7SX2J", "VIP-20K-MNKGLN", "VIP-20K-XNJIRN", "VIP-20K-1QWWNO", "VIP-20K-MB522D",
-    "VIP-20K-DCPPF1", "VIP-20K-E9XOGO", "VIP-20K-459G7K", "VIP-20K-7M23BQ", "VIP-20K-KBF6QV",
-    "VIP-20K-ZL6B2Y", "VIP-20K-K6BY7N", "VIP-20K-EA2941", "VIP-20K-FJV2QH", "VIP-20K-6KYHAP",
-    "VIP-20K-B0XQOP", "VIP-20K-BHSAHM", "VIP-20K-MS1FOQ", "VIP-20K-UPY0W2", "VIP-20K-IBUBOK",
-    "VIP-20K-B1TL33", "VIP-20K-QZV0ZE", "VIP-20K-C4FZ1J", "VIP-20K-71YSZJ", "VIP-20K-RCZXCV",
-    "VIP-20K-67K4WK", "VIP-20K-F2XBGA", "VIP-20K-0CUXX9", "VIP-20K-FQKHA1", "VIP-20K-6ERODF",
-    "VIP-20K-B07RKN", "VIP-20K-78ONOX", "VIP-20K-8KGF82", "VIP-20K-PKQM5Z", "VIP-20K-6O03I0",
-    "VIP-20K-W1E72V", "VIP-20K-THTQFQ", "VIP-20K-619K93", "VIP-20K-2VLRXA", "VIP-20K-P4T9P0",
-    "VIP-20K-JJUP7S", "VIP-20K-SJUYEQ", "VIP-20K-NAV7XU", "VIP-20K-D63Q5Z", "VIP-20K-A2BN6F",
-    "VIP-20K-X2T4ZN", "VIP-20K-SK28HN", "VIP-20K-JDAX47", "VIP-20K-LGAF47", "VIP-20K-7JKYRJ",
-    "VIP-20K-2EJXHB", "VIP-20K-65S0OS", "VIP-20K-M7VJ6K", "VIP-20K-AKX4EJ", "VIP-20K-UG2F7V",
-    "VIP-20K-7RLPYZ", "VIP-20K-RD1FX7", "VIP-20K-VISSWR", "VIP-20K-G34GUK", "VIP-20K-JF7HKX",
-    "VIP-20K-VF0JG1", "VIP-20K-EG96QH", "VIP-20K-T5RGT0", "VIP-20K-MON50W", "VIP-20K-670K7P",
-    "VIP-20K-L20RPT", "VIP-20K-9YPW79", "VIP-20K-DP9I00", "VIP-20K-8XFP0I", "VIP-20K-4UKCVG",
-    "VIP-20K-7RKRUR", "VIP-20K-DLYE4Z", "VIP-20K-9QZF5J", "VIP-20K-TNRA86", "VIP-20K-UWQM29",
-    "VIP-20K-5Y7CZS", "VIP-20K-Z7I710", "VIP-20K-G3E7HY", "VIP-20K-47ZDS5", "VIP-20K-D1ZB7L",
-    "VIP-20K-AUPEE1", "VIP-20K-CK7IE3", "VIP-20K-1GKHHB", "VIP-20K-344CKU", "VIP-20K-DUSOU8",
-    "VIP-20K-SDXQX3", "VIP-20K-PQ5BYP", "VIP-20K-DN1OJT", "VIP-20K-QBJVYD", "VIP-20K-VGV4V2",
-    "VIP-20K-51PW8C", "VIP-20K-0Y6XQ2", "VIP-20K-9K544J", "VIP-20K-U8CYY4", "VIP-20K-9GJTDX",
-    "VIP-20K-F4FFGT", "VIP-20K-T1H8J3", "VIP-20K-9YUEMX", "VIP-20K-B0BO9F", "VIP-20K-J8RC89",
-    "VIP-20K-FMO44D", "VIP-20K-KEI0AC", "VIP-20K-8AMMVJ", "VIP-20K-1A4WNR", "VIP-20K-GWU1XY",
-    "VIP-20K-4CWR5H", "VIP-20K-KJGNXE", "VIP-20K-8FX74U", "VIP-20K-IV3979", "VIP-20K-AB8AJ8",
-    "VIP-20K-R50BQ7", "VIP-20K-GD4YO2", "VIP-20K-0QL3Z4", "VIP-20K-DAAYC5", "VIP-20K-8W6MDY",
-    "VIP-20K-N1SJ4M", "VIP-20K-C64PVZ", "VIP-20K-TQKR6L", "VIP-20K-7TYOVA", "VIP-20K-50CNJX",
-    "VIP-20K-CCL4U7", "VIP-20K-4QL0RY", "VIP-20K-BK6SIG", "VIP-20K-8JZ6SL", "VIP-20K-CRF04X",
-    "VIP-20K-ANCNN1", "VIP-20K-DVJRHS", "VIP-20K-1AXCNO", "VIP-20K-0HGLLM", "VIP-20K-E4U7WG",
-    "VIP-20K-PI5WKS", "VIP-20K-3QYNMN", "VIP-20K-7WO6NH", "VIP-20K-K3MYFB", "VIP-20K-TNLJ9M",
-    "VIP-20K-3UBB6F", "VIP-20K-AU6ZEE", "VIP-20K-G8UWBF", "VIP-20K-RCYFQ9", "VIP-20K-NG8IV4",
-    "VIP-20K-66SMJX", "VIP-20K-HRB1JV", "VIP-20K-U245VN", "VIP-20K-7IC429", "VIP-20K-XTJRAZ",
-    "VIP-20K-OVJ7H9", "VIP-20K-MX7PYU", "VIP-20K-E7ZBIF", "VIP-20K-AC0ZHX", "VIP-20K-U5Y5D7",
-    "VIP-20K-L1DUPX", "VIP-20K-WEAYHX", "VIP-20K-KFACVL", "VIP-20K-2GNOZX", "VIP-20K-QMYPI8",
-    "VIP-20K-VJZR40", "VIP-20K-X4H4AT", "VIP-20K-69LSXF", "VIP-20K-KQ0Z5A", "VIP-20K-3TCRX9",
+    "VIP-20K-MZSSV6", "VIP-20K-CQ32DB", "VIP-20K-X6Y42R", "VIP-20K-FJKYL2", "VIP-20K-0U5CY8"
   ],
   30000: [
     "VIP-30K-7GR42V", "VIP-30K-A2QZHU", "VIP-30K-1Y8MRN", "VIP-30K-ADS8S3", "VIP-30K-L5O6WL",
@@ -1530,47 +991,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-30K-M3OCD0", "VIP-30K-B74M5M", "VIP-30K-O8RE7Y", "VIP-30K-IJONQ8", "VIP-30K-6JCUCK",
     "VIP-30K-RD3H59", "VIP-30K-0QVLV5", "VIP-30K-WJP9NC", "VIP-30K-2UL7SP", "VIP-30K-FMGIQ4",
     "VIP-30K-JZF4HR", "VIP-30K-56FJEM", "VIP-30K-SVANC6", "VIP-30K-C98Q1I", "VIP-30K-SJGHF6",
-    "VIP-30K-XOEKQX", "VIP-30K-5Z9OQ5", "VIP-30K-GWM7LZ", "VIP-30K-LZEK8N", "VIP-30K-VBYLOM",
-    "VIP-30K-EN7BS7", "VIP-30K-J2EIIZ", "VIP-30K-JD605Y", "VIP-30K-CMEVI2", "VIP-30K-35RRQD",
-    "VIP-30K-SQM4Q9", "VIP-30K-0WEOOL", "VIP-30K-CYFASQ", "VIP-30K-P3YXVM", "VIP-30K-TMS2QE",
-    "VIP-30K-CXEXP2", "VIP-30K-A4IEC7", "VIP-30K-EXBJRC", "VIP-30K-CBPY85", "VIP-30K-I325BO",
-    "VIP-30K-KINF2P", "VIP-30K-OTK8JT", "VIP-30K-KPE7T9", "VIP-30K-ZMXMKI", "VIP-30K-WY905Q",
-    "VIP-30K-YCUBM3", "VIP-30K-3Y8SRX", "VIP-30K-1YT09K", "VIP-30K-76L87X", "VIP-30K-U53V3K",
-    "VIP-30K-G9JSDY", "VIP-30K-2H189E", "VIP-30K-X3B8JT", "VIP-30K-F5DPBW", "VIP-30K-Y4EFPT",
-    "VIP-30K-EYVX13", "VIP-30K-S6EJ6R", "VIP-30K-UHHNNL", "VIP-30K-L29S8B", "VIP-30K-SS8U0D",
-    "VIP-30K-89J2Q0", "VIP-30K-AFGD2S", "VIP-30K-9ZG4AP", "VIP-30K-1GKOO7", "VIP-30K-Z6SDVI",
-    "VIP-30K-K33R9N", "VIP-30K-ISBCZL", "VIP-30K-VAK2XY", "VIP-30K-DQWB4W", "VIP-30K-9GN7HJ",
-    "VIP-30K-G7LD7I", "VIP-30K-7K3UZ7", "VIP-30K-XXAR61", "VIP-30K-6IG7UT", "VIP-30K-ZXKWUN",
-    "VIP-30K-1GW5JT", "VIP-30K-LD9ORV", "VIP-30K-W3D54G", "VIP-30K-YE5795", "VIP-30K-AC3WTL",
-    "VIP-30K-FP62IQ", "VIP-30K-J0LRUL", "VIP-30K-CUFFXR", "VIP-30K-KVRZ0U", "VIP-30K-1TVP7L",
-    "VIP-30K-MKZ7AV", "VIP-30K-178VUO", "VIP-30K-WXX735", "VIP-30K-8LIFIJ", "VIP-30K-7D9WC5",
-    "VIP-30K-7E9EXJ", "VIP-30K-6AX92D", "VIP-30K-UFE51H", "VIP-30K-HY7W2A", "VIP-30K-NVR1C2",
-    "VIP-30K-6Y1BPB", "VIP-30K-5QBCWU", "VIP-30K-CALB99", "VIP-30K-ZZ3R83", "VIP-30K-MMY7CE",
-    "VIP-30K-5P7P7C", "VIP-30K-EEHJ3U", "VIP-30K-FDSRW1", "VIP-30K-9U9RML", "VIP-30K-B3GZX6",
-    "VIP-30K-ACJALN", "VIP-30K-HPG91W", "VIP-30K-1YW25E", "VIP-30K-XNSQBG", "VIP-30K-26T5AR",
-    "VIP-30K-BBCLWE", "VIP-30K-ASIGGT", "VIP-30K-3YL3C3", "VIP-30K-3T0NY5", "VIP-30K-5B2F9O",
-    "VIP-30K-Q2PESC", "VIP-30K-LBN5M6", "VIP-30K-WJAIDM", "VIP-30K-YJNFL3", "VIP-30K-2N0H54",
-    "VIP-30K-CS71GY", "VIP-30K-5VKVOQ", "VIP-30K-86RZ8I", "VIP-30K-CF9WGE", "VIP-30K-ROXE7W",
-    "VIP-30K-6KC6UN", "VIP-30K-AYNMUN", "VIP-30K-DBRR23", "VIP-30K-UKBTB6", "VIP-30K-9F9397",
-      "VIP-30K-IJ7YQO", "VIP-30K-80WMII", "VIP-30K-6B7PU2", "VIP-30K-ESPDW1", "VIP-30K-QZVY97",
-    "VIP-30K-2SA8SE", "VIP-30K-ASJOAU", "VIP-30K-Z30I4G", "VIP-30K-2MLHZQ", "VIP-30K-DFW4FL",
-    "VIP-30K-RUBD24", "VIP-30K-DZNKZ4", "VIP-30K-DNU2E6", "VIP-30K-D87YW0", "VIP-30K-0GH8QA",
-    "VIP-30K-3EABLM", "VIP-30K-CJBSUN", "VIP-30K-L1V2M9", "VIP-30K-B6DMHV", "VIP-30K-GJ5RKU",
-    "VIP-30K-KK8WZW", "VIP-30K-EM04A5", "VIP-30K-CGN2K0", "VIP-30K-3HX2MH", "VIP-30K-5VXG1Z",
-    "VIP-30K-VHQOBC", "VIP-30K-CHSZGF", "VIP-30K-YQFWBE", "VIP-30K-LU30HQ", "VIP-30K-D8JVJJ",
-    "VIP-30K-SRTLMA", "VIP-30K-IO9BN5", "VIP-30K-EVQC11", "VIP-30K-LYU99M", "VIP-30K-YJYAXU",
-    "VIP-30K-12TAFB", "VIP-30K-S918L2", "VIP-30K-4R67TV", "VIP-30K-4XJS7X", "VIP-30K-FZN9O7",
-    "VIP-30K-N2UXCX", "VIP-30K-K3RCAB", "VIP-30K-LG44GO", "VIP-30K-9FEEMU", "VIP-30K-24F1W5",
-    "VIP-30K-PKWCSX", "VIP-30K-3IHSA8", "VIP-30K-V46YWW", "VIP-30K-S3D0GE", "VIP-30K-XYU0N3",
-    "VIP-30K-3HXFIE", "VIP-30K-5N636E", "VIP-30K-FGUBCU", "VIP-30K-F4MTS5", "VIP-30K-38KR0L",
-    "VIP-30K-VDQFTW", "VIP-30K-FPYI2X", "VIP-30K-JQ08E6", "VIP-30K-P73UI6", "VIP-30K-JH7U4Y",
-    "VIP-30K-MYCSCB", "VIP-30K-E1ZP1Z", "VIP-30K-AMPSN1", "VIP-30K-WBYNUP", "VIP-30K-QXWDYE",
-    "VIP-30K-OGXV7M", "VIP-30K-LFR6KW", "VIP-30K-TBUCP9", "VIP-30K-8WWRL5", "VIP-30K-02P4MK",
-    "VIP-30K-UIK4FA", "VIP-30K-42AFTO", "VIP-30K-TNP9P0", "VIP-30K-7NCETX", "VIP-30K-K5I5TJ",
-    "VIP-30K-00TGWM", "VIP-30K-8H88J6", "VIP-30K-XYRR2H", "VIP-30K-2VEDVH", "VIP-30K-PIC3PV",
-    "VIP-30K-JEFO53", "VIP-30K-RAAS5O", "VIP-30K-QTXHZO", "VIP-30K-J8FGSV", "VIP-30K-U7EWMF",
-    "VIP-30K-OQPGW6", "VIP-30K-XNBKDQ", "VIP-30K-8MS85W", "VIP-30K-HYAN12", "VIP-30K-KGQ6XE",
-    "VIP-30K-MWVVWM", "VIP-30K-JUBHNF", "VIP-30K-CAXSI0", "VIP-30K-4FNV57", "VIP-30K-XQWE2A",
+    "VIP-30K-XOEKQX", "VIP-30K-5Z9OQ5", "VIP-30K-GWM7LZ", "VIP-30K-LZEK8N", "VIP-30K-VBYLOM"
   ],
   40000: [
     "VIP-40K-1BH95X", "VIP-40K-UHY8OM", "VIP-40K-Q55VMN", "VIP-40K-47AHLF", "VIP-40K-OWO4CL",
@@ -1592,47 +1013,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-40K-G6E0EE", "VIP-40K-NYX5EY", "VIP-40K-ZLYD4W", "VIP-40K-YZ61T7", "VIP-40K-K7DYK9",
     "VIP-40K-R42LJ4", "VIP-40K-54X8NY", "VIP-40K-SYAR67", "VIP-40K-U9PPS3", "VIP-40K-6QMARP",
     "VIP-40K-NG6F3Q", "VIP-40K-29ZNE7", "VIP-40K-EEAI6G", "VIP-40K-N44485", "VIP-40K-ZOC4GE",
-    "VIP-40K-ZXDWBC", "VIP-40K-99UJOH", "VIP-40K-TUA2P1", "VIP-40K-3ZRB9Q", "VIP-40K-B8N8G8",
-    "VIP-40K-JYTTQ0", "VIP-40K-QMJGKC", "VIP-40K-BL6ACT", "VIP-40K-HW73YW", "VIP-40K-9EHLSH",
-    "VIP-40K-38UW80", "VIP-40K-LPMS54", "VIP-40K-FL8VBD", "VIP-40K-PYCNY5", "VIP-40K-4NSV58",
-    "VIP-40K-TY1P6S", "VIP-40K-D5NBR5", "VIP-40K-PV5ZUF", "VIP-40K-VI2GTC", "VIP-40K-MXLDT0",
-    "VIP-40K-BOWWXH", "VIP-40K-CBC2TY", "VIP-40K-5JSO2T", "VIP-40K-6474AN", "VIP-40K-1JXB7J",
-    "VIP-40K-SY0I3A", "VIP-40K-2HVEWR", "VIP-40K-QNY2JL", "VIP-40K-3PZ2WB", "VIP-40K-UH5DE3",
-    "VIP-40K-2156ER", "VIP-40K-PCTU3H", "VIP-40K-I85MBC", "VIP-40K-PEEJKY", "VIP-40K-U550LR",
-    "VIP-40K-KUM0SS", "VIP-40K-UQC10H", "VIP-40K-MH6N29", "VIP-40K-5XWKJM", "VIP-40K-AUE1Z8",
-    "VIP-40K-5KPTZC", "VIP-40K-R3KQK8", "VIP-40K-L6O8MW", "VIP-40K-F8QZ3Q", "VIP-40K-X37KAS",
-    "VIP-40K-1MQ548", "VIP-40K-4HDF52", "VIP-40K-ILCT8I", "VIP-40K-EJWJF5", "VIP-40K-UDN0AJ",
-    "VIP-40K-YNEEMN", "VIP-40K-I867WL", "VIP-40K-T98WBX", "VIP-40K-VA1SEV", "VIP-40K-ZXKOF4",
-    "VIP-40K-P831IP", "VIP-40K-TZXINP", "VIP-40K-4HFU78", "VIP-40K-YAQ6KL", "VIP-40K-TCE5SL",
-    "VIP-40K-Q0J90Y", "VIP-40K-GEIANL", "VIP-40K-BAU93D", "VIP-40K-Z8IMYN", "VIP-40K-OVGPPO",
-    "VIP-40K-23AML5", "VIP-40K-6H6ZVD", "VIP-40K-BAU38D", "VIP-40K-X0PMHM", "VIP-40K-SF3YKR",
-    "VIP-40K-YLQB4R", "VIP-40K-1JBUIJ", "VIP-40K-6WV5GV", "VIP-40K-GVKK00", "VIP-40K-1XSJWJ",
-    "VIP-40K-33GURJ", "VIP-40K-1NJG2U", "VIP-40K-7ZU0S4", "VIP-40K-1E3IJ8", "VIP-40K-GP7CJ9",
-    "VIP-40K-PAJ7J8", "VIP-40K-CMFDLB", "VIP-40K-FJE4S4", "VIP-40K-8CDL88", "VIP-40K-G6HGUB",
-    "VIP-40K-DUM1CX", "VIP-40K-W5AQAD", "VIP-40K-GOA9MI", "VIP-40K-S34SG1", "VIP-40K-XXDNXS",
-    "VIP-40K-J04ACH", "VIP-40K-TN7H62", "VIP-40K-3AI5AY", "VIP-40K-81430E", "VIP-40K-L6PW8E",
-    "VIP-40K-EZHP3O", "VIP-40K-4DGL3R", "VIP-40K-ES0SFV", "VIP-40K-LGQIVJ", "VIP-40K-SAV7D1",
-    "VIP-40K-D8LF29", "VIP-40K-UAQ9OW", "VIP-40K-P92U71", "VIP-40K-G7KL5S", "VIP-40K-WD50OP",
-    "VIP-40K-M7PRTH", "VIP-40K-3MIZYZ", "VIP-40K-SRDTRT", "VIP-40K-NNF0JG", "VIP-40K-6X3FBC",
-    "VIP-40K-UW8QWQ", "VIP-40K-YDMCNY", "VIP-40K-SQCLKS", "VIP-40K-JQPA1R", "VIP-40K-MBX9E3",
-    "VIP-40K-X57RLH", "VIP-40K-D6ZOM0", "VIP-40K-BIA1WO", "VIP-40K-05TPS1", "VIP-40K-C1E4P2",
-    "VIP-40K-06TNXK", "VIP-40K-VLCH6J", "VIP-40K-RHG0OL", "VIP-40K-FRMBX5", "VIP-40K-SMWZT1",
-    "VIP-40K-WSFXKN", "VIP-40K-838AK6", "VIP-40K-ERZQ0I", "VIP-40K-97QYXC", "VIP-40K-9SG02Q",
-    "VIP-40K-5YX5EN", "VIP-40K-A012GK", "VIP-40K-0683K0", "VIP-40K-B41UNU", "VIP-40K-XPT9C3",
-    "VIP-40K-VLX4DZ", "VIP-40K-B1DJQO", "VIP-40K-F1IKZ1", "VIP-40K-NA39OF", "VIP-40K-NV0FWE",
-    "VIP-40K-VU5HMT", "VIP-40K-GPCMTS", "VIP-40K-0LCWB6", "VIP-40K-Y01G1E", "VIP-40K-DNC2TC",
-    "VIP-40K-J9ZDR2", "VIP-40K-2CG3ST", "VIP-40K-G83VAS", "VIP-40K-TDRSKH", "VIP-40K-XUTGXM",
-    "VIP-40K-I7YG6N", "VIP-40K-K7TY0Y", "VIP-40K-Z8M3QW", "VIP-40K-0U9PXA", "VIP-40K-QJYR1D",
-    "VIP-40K-UJGUD8", "VIP-40K-PGPUC5", "VIP-40K-DBR6WB", "VIP-40K-SPZSG7", "VIP-40K-YTEGO5",
-    "VIP-40K-DV6ISV", "VIP-40K-4NQPI0", "VIP-40K-POXTWR", "VIP-40K-96T3JU", "VIP-40K-UDL4B2",
-    "VIP-40K-BIJL0D", "VIP-40K-CFWO4P", "VIP-40K-Y3W6H0", "VIP-40K-OQYNOE", "VIP-40K-GNCIO6",
-    "VIP-40K-OZSDPJ", "VIP-40K-NP9OJ7", "VIP-40K-K994WQ", "VIP-40K-WRI728", "VIP-40K-HX6B4N",
-    "VIP-40K-LH3P4R", "VIP-40K-4B8ZJM", "VIP-40K-0D7RRA", "VIP-40K-O1SNJV", "VIP-40K-LEN2KB",
-    "VIP-40K-R41094", "VIP-40K-QUY2GU", "VIP-40K-G29SSS", "VIP-40K-W1CBU8", "VIP-40K-K41XBV",
-    "VIP-40K-NU7XO9", "VIP-40K-737RTF", "VIP-40K-DHWST2", "VIP-40K-JPHYV0", "VIP-40K-AE9IWH",
-    "VIP-40K-L89P0U", "VIP-40K-XTJTR4", "VIP-40K-O6Z77I", "VIP-40K-FC9TE0", "VIP-40K-NCKCEY",
-    "VIP-40K-RXZDZ9", "VIP-40K-KR2B6W", "VIP-40K-DY1SI5", "VIP-40K-KYOYNC", "VIP-40K-S22916",
-    "VIP-40K-GDJM9Q", "VIP-40K-2KUZZQ", "VIP-40K-BLKYJ0", "VIP-40K-JJVKG2", "VIP-40K-BK93N0",
+    "VIP-40K-ZXDWBC", "VIP-40K-99UJOH", "VIP-40K-TUA2P1", "VIP-40K-3ZRB9Q", "VIP-40K-B8N8G8"
   ],
   50000: [
     "VIP-50K-6YT38Q", "VIP-50K-HWQC8X", "VIP-50K-ACWLL5", "VIP-50K-EVGU2Z", "VIP-50K-89W9LM",
@@ -1654,47 +1035,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-50K-94LNNN", "VIP-50K-W00H3Q", "VIP-50K-DT9PI6", "VIP-50K-GOTBKW", "VIP-50K-1AN353",
     "VIP-50K-WLPUA7", "VIP-50K-5M6LQG", "VIP-50K-57HJKB", "VIP-50K-Q582NE", "VIP-50K-FSNHRR",
     "VIP-50K-KT4NFO", "VIP-50K-EKQ88Y", "VIP-50K-EI6HUO", "VIP-50K-3CRF0S", "VIP-50K-8B6KN3",
-    "VIP-50K-8REGUU", "VIP-50K-IDTLZ3", "VIP-50K-M4ML0Y", "VIP-50K-24YBL0", "VIP-50K-1IRBUZ",
-    "VIP-50K-6N4KY9", "VIP-50K-31Y7HL", "VIP-50K-FKUP1U", "VIP-50K-PTQYZG", "VIP-50K-49UFGA",
-    "VIP-50K-0C8TMV", "VIP-50K-LS69L0", "VIP-50K-M67TR1", "VIP-50K-J8ZDPT", "VIP-50K-03ILHR",
-    "VIP-50K-IOUR9O", "VIP-50K-W0PCJI", "VIP-50K-MNJW6T", "VIP-50K-RSQUZH", "VIP-50K-4MSAVH",
-    "VIP-50K-YG6AV6", "VIP-50K-FLDTXC", "VIP-50K-M74VS9", "VIP-50K-25M1VV", "VIP-50K-OOVO05",
-    "VIP-50K-US8SI0", "VIP-50K-P7YIO9", "VIP-50K-78ZANS", "VIP-50K-HEU55T", "VIP-50K-C2BPKB",
-    "VIP-50K-91L7F2", "VIP-50K-NKJSSB", "VIP-50K-Z5MN5F", "VIP-50K-PR9FV2", "VIP-50K-C4IBU1",
-    "VIP-50K-OXLL8Y", "VIP-50K-0UMEVN", "VIP-50K-G41NXZ", "VIP-50K-1NN8PM", "VIP-50K-PNXUWD",
-    "VIP-50K-0NQ5WC", "VIP-50K-3I1ZVW", "VIP-50K-1P953F", "VIP-50K-SNOG4B", "VIP-50K-VD0511",
-    "VIP-50K-K90A1D", "VIP-50K-MKN2I4", "VIP-50K-76D9V1", "VIP-50K-VPCJYV", "VIP-50K-EZS35X",
-    "VIP-50K-M1GD5M", "VIP-50K-YXN9P3", "VIP-50K-EGOKCH", "VIP-50K-I79MDR", "VIP-50K-T6EHB6",
-    "VIP-50K-1B2WAK", "VIP-50K-TEZYLM", "VIP-50K-I3JJMU", "VIP-50K-FHC22D", "VIP-50K-YB7ZS7",
-    "VIP-50K-MKKEUG", "VIP-50K-RHKHNQ", "VIP-50K-22S26M", "VIP-50K-EPFRLW", "VIP-50K-2G24F0",
-    "VIP-50K-5Z226T", "VIP-50K-MWXRD4", "VIP-50K-XPORTR", "VIP-50K-FJR81U", "VIP-50K-IE6V68",
-    "VIP-50K-WUH9M8", "VIP-50K-EISFLU", "VIP-50K-4FZPIF", "VIP-50K-4YMRHH", "VIP-50K-OXJSMA",
-    "VIP-50K-4GVPE8", "VIP-50K-ZGSJE1", "VIP-50K-GQCF8O", "VIP-50K-WTNEQ8", "VIP-50K-552639",
-    "VIP-50K-3ZFNH2", "VIP-50K-XZXTVA", "VIP-50K-78M6Q2", "VIP-50K-5ZN2VS", "VIP-50K-AOUXRM",
-    "VIP-50K-1SAEAK", "VIP-50K-IY6YRU", "VIP-50K-HKUIDT", "VIP-50K-AOSST4", "VIP-50K-PX5BVW",
-    "VIP-50K-3GRUZN", "VIP-50K-8DY7ZX", "VIP-50K-PM060C", "VIP-50K-51SWVV", "VIP-50K-K785GV",
-    "VIP-50K-KA6JW1", "VIP-50K-U9AUFN", "VIP-50K-NJ2XZO", "VIP-50K-JFFVYX", "VIP-50K-Q4F1FQ",
-    "VIP-50K-5VJTLD", "VIP-50K-7U7SSG", "VIP-50K-XV429C", "VIP-50K-CRHFLJ", "VIP-50K-B1QUC7",
-    "VIP-50K-0NYKYA", "VIP-50K-78ECOJ", "VIP-50K-MFE1UB", "VIP-50K-992BPX", "VIP-50K-07Q5V2",
-    "VIP-50K-932X2R", "VIP-50K-12JFB4", "VIP-50K-VIO6V6", "VIP-50K-BK6Q1P", "VIP-50K-59XXW0",
-    "VIP-50K-G1OCRV", "VIP-50K-IDE2JV", "VIP-50K-CX74IE", "VIP-50K-PJVJA5", "VIP-50K-IFJQ5W",
-    "VIP-50K-TSO0NL", "VIP-50K-6BSABC", "VIP-50K-VDT91X", "VIP-50K-CY3R4O", "VIP-50K-FR9C3E",
-    "VIP-50K-20EP0Q", "VIP-50K-FYI6H4", "VIP-50K-1D0HM8", "VIP-50K-B1RT2C", "VIP-50K-YS0J6X",
-    "VIP-50K-3224RB", "VIP-50K-2ZI8KJ", "VIP-50K-73Q10X", "VIP-50K-CAFSZH", "VIP-50K-8R7RCE",
-      "VIP-50K-E8IARK", "VIP-50K-KLYSUY", "VIP-50K-HNIUJJ", "VIP-50K-YAVT43", "VIP-50K-V26CTA",
-    "VIP-50K-CP98HD", "VIP-50K-YM2PYB", "VIP-50K-60CIBV", "VIP-50K-362MZC", "VIP-50K-F1JJ5K",
-    "VIP-50K-5KVD8X", "VIP-50K-EQXVU4", "VIP-50K-RQ5CU2", "VIP-50K-TPOZUG", "VIP-50K-5YI4P8",
-    "VIP-50K-ZBSW8B", "VIP-50K-9MVGPR", "VIP-50K-6VDKKH", "VIP-50K-EC34SF", "VIP-50K-QZG7GJ",
-    "VIP-50K-CCQZCU", "VIP-50K-IVYELK", "VIP-50K-OWQ31Q", "VIP-50K-Q28Y25", "VIP-50K-F5AYU3",
-    "VIP-50K-85WHC6", "VIP-50K-1MXIOO", "VIP-50K-2U2DAN", "VIP-50K-8TGVDI", "VIP-50K-WODHG1",
-    "VIP-50K-PT0FUC", "VIP-50K-4SP2R0", "VIP-50K-0FGVJJ", "VIP-50K-9QYEWG", "VIP-50K-YKM5TV",
-    "VIP-50K-Q0UKEB", "VIP-50K-KU1E7B", "VIP-50K-ZT43JW", "VIP-50K-I0X3RD", "VIP-50K-CA3I19",
-    "VIP-50K-CN2FP5", "VIP-50K-F76IPK", "VIP-50K-IWW5Q7", "VIP-50K-1PNWJ6", "VIP-50K-774V0V",
-    "VIP-50K-NP3R6A", "VIP-50K-WH75M9", "VIP-50K-R6BHPP", "VIP-50K-XNWE4U", "VIP-50K-5W2YWY",
-    "VIP-50K-GUEEMQ", "VIP-50K-ZHT7RB", "VIP-50K-RK43BI", "VIP-50K-LBMS2F", "VIP-50K-JYFA0V",
-    "VIP-50K-00LK5K", "VIP-50K-FC0ILG", "VIP-50K-4Q7QPK", "VIP-50K-D1JQ5S", "VIP-50K-PCMNQE",
-    "VIP-50K-X5YMFP", "VIP-50K-VBQQLV", "VIP-50K-39JT7C", "VIP-50K-RWVU86", "VIP-50K-PHCITC",
-    "VIP-50K-V23IRU", "VIP-50K-ZOESY0", "VIP-50K-SH23FA", "VIP-50K-H3SBEV", "VIP-50K-AU2CBU",
+    "VIP-50K-8REGUU", "VIP-50K-IDTLZ3", "VIP-50K-M4ML0Y", "VIP-50K-24YBL0", "VIP-50K-1IRBUZ"
   ],
   60000: [
     "VIP-60K-9DK27F", "VIP-60K-FQEB2W", "VIP-60K-MW8BI3", "VIP-60K-716DPF", "VIP-60K-37RCZ7",
@@ -1709,54 +1050,14 @@ const CODIGOS_ESTRELLAS = {
     "VIP-60K-HQUFCC", "VIP-60K-3B0XP4", "VIP-60K-W3WTKL", "VIP-60K-X6OC9H", "VIP-60K-F3AXQN",
     "VIP-60K-PA0AY2", "VIP-60K-0AB3PN", "VIP-60K-I44HZE", "VIP-60K-U8LZ6Z", "VIP-60K-MJ6T6X",
     "VIP-60K-7PYVUZ", "VIP-60K-MVOZ3R", "VIP-60K-W5O4VB", "VIP-60K-GUFP0B", "VIP-60K-P5VAMR",
-    "VIP-60K-D89IGV", "VIP-60K-TEBR1G", "VIP-60K-UXU4PJ", "VIP-60K-FBVRQV", "VIP-60K-DQNDFS",
+      "VIP-60K-D89IGV", "VIP-60K-TEBR1G", "VIP-60K-UXU4PJ", "VIP-60K-FBVRQV", "VIP-60K-DQNDFS",
     "VIP-60K-YBVMLM", "VIP-60K-ERNIH5", "VIP-60K-BA905Y", "VIP-60K-ABEBR7", "VIP-60K-36EJ14",
     "VIP-60K-3OCPDP", "VIP-60K-HXDIAZ", "VIP-60K-C7CQF9", "VIP-60K-ICU145", "VIP-60K-4L66EO",
     "VIP-60K-64VZ0N", "VIP-60K-6VSHW9", "VIP-60K-DRHJR7", "VIP-60K-3M3JHJ", "VIP-60K-6YYN6Z",
     "VIP-60K-0J5QCV", "VIP-60K-3J5G8U", "VIP-60K-MN5IUY", "VIP-60K-R0BDHO", "VIP-60K-TDS7GU",
     "VIP-60K-6EGIGH", "VIP-60K-U8ZNSD", "VIP-60K-8L2A2G", "VIP-60K-BXRMAZ", "VIP-60K-NUMI9H",
     "VIP-60K-14M327", "VIP-60K-ALDVOP", "VIP-60K-V78V1C", "VIP-60K-1WOJ0Y", "VIP-60K-OG5LE8",
-    "VIP-60K-36WC11", "VIP-60K-Z42LAO", "VIP-60K-S43ZRM", "VIP-60K-RSBL6G", "VIP-60K-STQJTW",
-    "VIP-60K-P6Y9VX", "VIP-60K-8YTD2I", "VIP-60K-PLTZ3V", "VIP-60K-9AY4VZ", "VIP-60K-T6KVFB",
-    "VIP-60K-4YAGKJ", "VIP-60K-CVPYG8", "VIP-60K-MO1HXQ", "VIP-60K-NZSUKV", "VIP-60K-JBLC55",
-    "VIP-60K-V0TLTN", "VIP-60K-DMMIBY", "VIP-60K-JJTQI4", "VIP-60K-SWTYNL", "VIP-60K-F0DSFV",
-    "VIP-60K-0UUYLX", "VIP-60K-U20BGN", "VIP-60K-FMRQBZ", "VIP-60K-M8FS0X", "VIP-60K-9O4HW8",
-    "VIP-60K-WGI4LJ", "VIP-60K-EGOC6J", "VIP-60K-ZOMEYO", "VIP-60K-XTPMA4", "VIP-60K-TKKSRE",
-    "VIP-60K-X6TEJF", "VIP-60K-R3PO3V", "VIP-60K-3ODY9U", "VIP-60K-NALP0P", "VIP-60K-83O5L1",
-    "VIP-60K-MLPIUQ", "VIP-60K-3P7T0J", "VIP-60K-XS1Y0D", "VIP-60K-8DX2EY", "VIP-60K-7AJEUS",
-    "VIP-60K-FLGBRZ", "VIP-60K-EE8CB1", "VIP-60K-Z7HYFT", "VIP-60K-V64QRF", "VIP-60K-RHRP76",
-    "VIP-60K-9ZBYSG", "VIP-60K-DJOAP0", "VIP-60K-QRADVL", "VIP-60K-5WNHCG", "VIP-60K-Z6AVDB",
-    "VIP-60K-QSCEXA", "VIP-60K-TL66AO", "VIP-60K-PBNLAQ", "VIP-60K-GV6ZHV", "VIP-60K-Z3F2P2",
-    "VIP-60K-O8DZP0", "VIP-60K-49WCJA", "VIP-60K-NB3NMR", "VIP-60K-MAR6R0", "VIP-60K-I1PN1G",
-    "VIP-60K-8GK9BX", "VIP-60K-X5ELSM", "VIP-60K-31C5CG", "VIP-60K-4KR2RH", "VIP-60K-BGQWA3",
-    "VIP-60K-PUR1E3", "VIP-60K-9KWNEP", "VIP-60K-GHO613", "VIP-60K-MJIJYI", "VIP-60K-O0Y6KK",
-    "VIP-60K-C3NRGA", "VIP-60K-ZRSXGE", "VIP-60K-SLJ2P6", "VIP-60K-Y0KGII", "VIP-60K-9J68U6",
-    "VIP-60K-4EYF0D", "VIP-60K-8X8R6M", "VIP-60K-P9MC6M", "VIP-60K-K9UDL6", "VIP-60K-KURLRC",
-    "VIP-60K-24CPGG", "VIP-60K-M34EW2", "VIP-60K-JNE666", "VIP-60K-7ZT7SM", "VIP-60K-L2MFLM",
-    "VIP-60K-V202PE", "VIP-60K-FOF8GN", "VIP-60K-ZGYEGQ", "VIP-60K-CPI9OM", "VIP-60K-AHDMFV",
-    "VIP-60K-ZH7B8F", "VIP-60K-X2JH2E", "VIP-60K-8FWDMM", "VIP-60K-J77E7O", "VIP-60K-HKMKN4",
-    "VIP-60K-875KZ6", "VIP-60K-A0XGYF", "VIP-60K-5TKC2Z", "VIP-60K-Q2EG8D", "VIP-60K-0I78IG",
-    "VIP-60K-56B3XS", "VIP-60K-EQJO6I", "VIP-60K-942OMB", "VIP-60K-KMKRJ6", "VIP-60K-RUEF69",
-    "VIP-60K-OGXR79", "VIP-60K-3OVAHD", "VIP-60K-XGRT1N", "VIP-60K-DN21SX", "VIP-60K-ZD1MXF",
-    "VIP-60K-B2X1PR", "VIP-60K-ELUOI4", "VIP-60K-GKWKE5", "VIP-60K-8U553U", "VIP-60K-UUTNOG",
-    "VIP-60K-YWYDEZ", "VIP-60K-5VKGD8", "VIP-60K-UB3HC1", "VIP-60K-A9L8OT", "VIP-60K-3HFPZ6",
-    "VIP-60K-VY5Q92", "VIP-60K-X01T8I", "VIP-60K-WZN3SD", "VIP-60K-OZSWHW", "VIP-60K-RBF4YT",
-    "VIP-60K-PZ8RJA", "VIP-60K-0ILN4A", "VIP-60K-DYO8G2", "VIP-60K-9M7GK3", "VIP-60K-5Z846B",
-    "VIP-60K-Z97D6H", "VIP-60K-XYM2T7", "VIP-60K-0AJOU0", "VIP-60K-ZUJM68", "VIP-60K-39B0TO",
-    "VIP-60K-2W2P2E", "VIP-60K-1QBQDX", "VIP-60K-F0Y95W", "VIP-60K-33OR8P", "VIP-60K-I3ANNE",
-    "VIP-60K-QLZXRJ", "VIP-60K-XYXPS9", "VIP-60K-PEF3YX", "VIP-60K-OJRCZK", "VIP-60K-9S6PHZ",
-    "VIP-60K-9APXF5", "VIP-60K-XUBGFZ", "VIP-60K-V2I0M7", "VIP-60K-D1HOAS", "VIP-60K-N61WWG",
-    "VIP-60K-XCHBMB", "VIP-60K-LKI7SV", "VIP-60K-OVZ39G", "VIP-60K-G29C2H", "VIP-60K-V8IT1T",
-    "VIP-60K-R4GQ6U", "VIP-60K-WOL8NZ", "VIP-60K-S3KKO6", "VIP-60K-V2JN6Y", "VIP-60K-F5D7D0",
-    "VIP-60K-NRDEKK", "VIP-60K-MCU3FF", "VIP-60K-54CEEG", "VIP-60K-0OARUM", "VIP-60K-V1G5PW",
-    "VIP-60K-DOINQ9", "VIP-60K-XK3I3U", "VIP-60K-PBAOP8", "VIP-60K-57VTRI", "VIP-60K-A76OLP",
-    "VIP-60K-VZL2J5", "VIP-60K-FV7FL0", "VIP-60K-CSMMNN", "VIP-60K-8KTNWZ", "VIP-60K-2MOCE9",
-    "VIP-60K-2W6H08", "VIP-60K-WIBAGP", "VIP-60K-6HDAER", "VIP-60K-X5BUPI", "VIP-60K-GH2WXZ",
-    "VIP-60K-583GBJ", "VIP-60K-3MIOTV", "VIP-60K-TTE65G", "VIP-60K-XXWRO2", "VIP-60K-T87FTC",
-    "VIP-60K-58ZR8B", "VIP-60K-9JY08N", "VIP-60K-VCIR75", "VIP-60K-NGNWD0", "VIP-60K-3YYY81",
-    "VIP-60K-YAOOG2", "VIP-60K-DQS0QI", "VIP-60K-2Z3TFT", "VIP-60K-YQ7Z8A", "VIP-60K-Y8BMO3",
-    "VIP-60K-1LFLC4", "VIP-60K-WKFHN0", "VIP-60K-Y3K447", "VIP-60K-W7K08H", "VIP-60K-3LRNDA",
-    "VIP-60K-GAHFCB", "VIP-60K-N32VCX", "VIP-60K-YY89FE", "VIP-60K-YGO6WU", "VIP-60K-VE7EOV",
+    "VIP-60K-36WC11", "VIP-60K-Z42LAO", "VIP-60K-S43ZRM", "VIP-60K-RSBL6G", "VIP-60K-STQJTW"
   ],
   80000: [
     "VIP-80K-4CM51H", "VIP-80K-MIHOTR", "VIP-80K-RATQHO", "VIP-80K-AURHG4", "VIP-80K-4QC6CX",
@@ -1778,47 +1079,7 @@ const CODIGOS_ESTRELLAS = {
     "VIP-80K-78JIU4", "VIP-80K-85G1L8", "VIP-80K-MNEZV7", "VIP-80K-SF6JPI", "VIP-80K-0S1FLT",
     "VIP-80K-9IP5U8", "VIP-80K-U2T4TJ", "VIP-80K-17158T", "VIP-80K-J59KI1", "VIP-80K-4OUOJO",
     "VIP-80K-KSDJ4E", "VIP-80K-6AJFUX", "VIP-80K-VJM14K", "VIP-80K-1NU8U2", "VIP-80K-ZR5LLY",
-    "VIP-80K-HURWW3", "VIP-80K-SVVFO9", "VIP-80K-SY8Q1A", "VIP-80K-6LMAYR", "VIP-80K-LOSA32",
-    "VIP-80K-A9C50M", "VIP-80K-SHPW6T", "VIP-80K-T50LD2", "VIP-80K-J4J48K", "VIP-80K-F594QX",
-    "VIP-80K-8RJA4K", "VIP-80K-H7QSZ5", "VIP-80K-H8ZOT5", "VIP-80K-KK96S6", "VIP-80K-QJ7R2M",
-    "VIP-80K-A4JQ1T", "VIP-80K-I1YV80", "VIP-80K-R388KY", "VIP-80K-AIQN7O", "VIP-80K-L77DLJ",
-    "VIP-80K-TSJ0OV", "VIP-80K-2HA8DR", "VIP-80K-BNMXYT", "VIP-80K-8EID76", "VIP-80K-U3M3UE",
-    "VIP-80K-BN4L35", "VIP-80K-IUVSPB", "VIP-80K-3YMG2C", "VIP-80K-I0C9PR", "VIP-80K-PDAVS7",
-    "VIP-80K-D0E8H8", "VIP-80K-9QKPYH", "VIP-80K-YB5NAG", "VIP-80K-VQTXUP", "VIP-80K-DGL65F",
-    "VIP-80K-1BSIV9", "VIP-80K-DCGUHI", "VIP-80K-FV5VRC", "VIP-80K-BZTW36", "VIP-80K-PMC76V",
-    "VIP-80K-OXPFK0", "VIP-80K-EOV8KH", "VIP-80K-M004BO", "VIP-80K-VC2OJE", "VIP-80K-MFSSET",
-    "VIP-80K-G483DN", "VIP-80K-GF7F67", "VIP-80K-XFARZ5", "VIP-80K-1V4NHO", "VIP-80K-7P4FO1",
-    "VIP-80K-BBSS42", "VIP-80K-LKN5Q3", "VIP-80K-G07FSC", "VIP-80K-S1MPHM", "VIP-80K-J3ZKRM",
-    "VIP-80K-LICDQ4", "VIP-80K-B66X2W", "VIP-80K-B13GO5", "VIP-80K-SCECBG", "VIP-80K-ZWKNJY",
-    "VIP-80K-WFG23Z", "VIP-80K-J4AI8I", "VIP-80K-3MU1E2", "VIP-80K-9MRMXC", "VIP-80K-WZ67CW",
-    "VIP-80K-JY0C7H", "VIP-80K-WJUTF2", "VIP-80K-D00IQZ", "VIP-80K-ICV30K", "VIP-80K-GGW38A",
-    "VIP-80K-O4NHPX", "VIP-80K-BWC8M5", "VIP-80K-95Q96X", "VIP-80K-ASO4OO", "VIP-80K-RLRCV3",
-    "VIP-80K-03TBZY", "VIP-80K-EP1M9B", "VIP-80K-AM8I4E", "VIP-80K-GUJOFP", "VIP-80K-265HJ9",
-    "VIP-80K-UQEBGQ", "VIP-80K-1P2LNV", "VIP-80K-S6CEJ8", "VIP-80K-TDNWS4", "VIP-80K-OB1YET",
-    "VIP-80K-Z7V9SP", "VIP-80K-269YLC", "VIP-80K-RND3DM", "VIP-80K-3GFNMD", "VIP-80K-37ESW6",
-    "VIP-80K-OYFJ6A", "VIP-80K-S3C60I", "VIP-80K-06YUAY", "VIP-80K-HCUPZQ", "VIP-80K-YUGZGK",
-    "VIP-80K-O4VS2U", "VIP-80K-NC3JSK", "VIP-80K-MWXZLD", "VIP-80K-FHGX59", "VIP-80K-0LFXR3",
-    "VIP-80K-LPHZTG", "VIP-80K-E5W3CD", "VIP-80K-BEQC7F", "VIP-80K-K6HM0K", "VIP-80K-EL7QSK",
-    "VIP-80K-6XQTWX", "VIP-80K-12MBR5", "VIP-80K-NXBLNN", "VIP-80K-X3OWOH", "VIP-80K-5DAQ53",
-    "VIP-80K-0JDR7R", "VIP-80K-HKTG9K", "VIP-80K-IRMOAH", "VIP-80K-IY6QDD", "VIP-80K-AXFV6M",
-    "VIP-80K-IHUKIC", "VIP-80K-FZBDHP", "VIP-80K-1FRFI9", "VIP-80K-HGLRDJ", "VIP-80K-Z35NW6",
-    "VIP-80K-Z8YH2W", "VIP-80K-IT4LIF", "VIP-80K-SBI6P7", "VIP-80K-F929WW", "VIP-80K-IRFOLG",
-    "VIP-80K-CS7VZW", "VIP-80K-15474J", "VIP-80K-ZXP9U2", "VIP-80K-DYZ3PI", "VIP-80K-7D0JP9",
-    "VIP-80K-TDBZZU", "VIP-80K-FB0UWV", "VIP-80K-LOPV95", "VIP-80K-C2EWE9", "VIP-80K-K0U84Z",
-    "VIP-80K-6KGL4H", "VIP-80K-ZDE6AI", "VIP-80K-OO44MO", "VIP-80K-S09JZH", "VIP-80K-8ZFQ6Q",
-    "VIP-80K-XNBI5A", "VIP-80K-ALML72", "VIP-80K-JVC2C2", "VIP-80K-QQBEA9", "VIP-80K-306PZY",
-    "VIP-80K-UQ9VS0", "VIP-80K-WGQ7UZ", "VIP-80K-WEKUTP", "VIP-80K-IRJ8V6", "VIP-80K-OV29K9",
-    "VIP-80K-AHUMKY", "VIP-80K-REWMJK", "VIP-80K-ZQZ94E", "VIP-80K-IM63BM", "VIP-80K-50FP7M",
-      "VIP-80K-7KCSMX", "VIP-80K-Q4Y22R", "VIP-80K-9TRHAD", "VIP-80K-T348VC", "VIP-80K-NJB76S",
-    "VIP-80K-1NBOOD", "VIP-80K-MWL52K", "VIP-80K-X7QATP", "VIP-80K-ER2L33", "VIP-80K-6R4LFT",
-    "VIP-80K-WSTDHY", "VIP-80K-BPD7YL", "VIP-80K-4RPURU", "VIP-80K-1P7BV4", "VIP-80K-3QBHWD",
-    "VIP-80K-2M6L2Q", "VIP-80K-T5LEYO", "VIP-80K-HWZO2Z", "VIP-80K-85BAUL", "VIP-80K-UGNYH2",
-    "VIP-80K-MB06QD", "VIP-80K-E0ST43", "VIP-80K-QSJVHV", "VIP-80K-ERQKBM", "VIP-80K-MC6BBV",
-    "VIP-80K-12H8Z0", "VIP-80K-S6MJGO", "VIP-80K-NOLQBI", "VIP-80K-2E1AD7", "VIP-80K-KU7LL9",
-    "VIP-80K-6JYIKY", "VIP-80K-UNA75E", "VIP-80K-N0685T", "VIP-80K-S5QQSC", "VIP-80K-3M88UD",
-    "VIP-80K-DEIXM0", "VIP-80K-BI9660", "VIP-80K-A1C27B", "VIP-80K-76CN1X", "VIP-80K-97210M",
-    "VIP-80K-IW0BWV", "VIP-80K-TX5IFM", "VIP-80K-BS3OD4", "VIP-80K-NLEZV0", "VIP-80K-DWBEAJ",
-    "VIP-80K-4IYG2J", "VIP-80K-LBSV36", "VIP-80K-Q52RJJ", "VIP-80K-8RY7MM", "VIP-80K-LJPBUC",
+    "VIP-80K-HURWW3", "VIP-80K-SVVFO9", "VIP-80K-SY8Q1A", "VIP-80K-6LMAYR", "VIP-80K-LOSA32"
   ],
   100000: [
     "VIP-100K-8WR63N", "VIP-100K-ST3DSX", "VIP-100K-DUDU97", "VIP-100K-3CLK39", "VIP-100K-NS4VQZ",
@@ -1840,48 +1101,74 @@ const CODIGOS_ESTRELLAS = {
     "VIP-100K-Z19G4U", "VIP-100K-KVS7R1", "VIP-100K-81FB1F", "VIP-100K-4KREKV", "VIP-100K-TPHA09",
     "VIP-100K-D3SNMT", "VIP-100K-DBFEU2", "VIP-100K-Q6BGE8", "VIP-100K-E4O0CE", "VIP-100K-BEDGS0",
     "VIP-100K-9BKEZO", "VIP-100K-HMIDP1", "VIP-100K-P2UIPZ", "VIP-100K-X8RG5M", "VIP-100K-JP20UX",
-    "VIP-100K-3ZC2NI", "VIP-100K-IQ33L7", "VIP-100K-UAQM8Y", "VIP-100K-008LX8", "VIP-100K-FOLYMG",
-    "VIP-100K-9XPEBH", "VIP-100K-JO2LW3", "VIP-100K-GO87OI", "VIP-100K-2KTP67", "VIP-100K-JW8125",
-    "VIP-100K-Y6M2SK", "VIP-100K-ITYTFD", "VIP-100K-R7KALX", "VIP-100K-YWDSOP", "VIP-100K-IWXYBQ",
-    "VIP-100K-6N7HWK", "VIP-100K-4413ZW", "VIP-100K-W60MRI", "VIP-100K-Y8KYT3", "VIP-100K-RMS745",
-    "VIP-100K-HFACIS", "VIP-100K-RLLRU1", "VIP-100K-R2NL75", "VIP-100K-IE3XM1", "VIP-100K-MQ5BEG",
-    "VIP-100K-CGWL44", "VIP-100K-UDVKMB", "VIP-100K-C7MO2K", "VIP-100K-X5IN8Y", "VIP-100K-4V0VU1",
-    "VIP-100K-0N518G", "VIP-100K-BD6SEW", "VIP-100K-W3QSHJ", "VIP-100K-NJ9TPI", "VIP-100K-KUPWG8",
-    "VIP-100K-HJ66D3", "VIP-100K-5HCW7P", "VIP-100K-6Q4U1V", "VIP-100K-9TJMUH", "VIP-100K-E47N45",
-    "VIP-100K-KB0946", "VIP-100K-OZOCX0", "VIP-100K-HU02YC", "VIP-100K-22E9P5", "VIP-100K-T1LHDT",
-    "VIP-100K-35AU19", "VIP-100K-FJLYAS", "VIP-100K-HCEHSY", "VIP-100K-S18X9D", "VIP-100K-7YML9K",
-    "VIP-100K-O271YL", "VIP-100K-FPNQ6H", "VIP-100K-7YUY1J", "VIP-100K-5DOXHE", "VIP-100K-IW5U29",
-    "VIP-100K-AA24V6", "VIP-100K-7VE233", "VIP-100K-QV8WKH", "VIP-100K-5BXP1F", "VIP-100K-O55BX3",
-    "VIP-100K-ZFBEI2", "VIP-100K-KJCI27", "VIP-100K-7DSP4J", "VIP-100K-SPWGJM", "VIP-100K-UBFRHV",
-    "VIP-100K-XITCZ0", "VIP-100K-LZUKWD", "VIP-100K-98I56Q", "VIP-100K-7MH6WK", "VIP-100K-S8T8PB",
-    "VIP-100K-1RI4WU", "VIP-100K-K97QN0", "VIP-100K-J574ML", "VIP-100K-W2G39X", "VIP-100K-NIMKNN",
-    "VIP-100K-4XMI59", "VIP-100K-OPV6CO", "VIP-100K-VRUFY0", "VIP-100K-QVFHB0", "VIP-100K-P3SLOE",
-    "VIP-100K-MITWU3", "VIP-100K-UHR4K8", "VIP-100K-YS287K", "VIP-100K-I3VF61", "VIP-100K-JF7JAB",
-    "VIP-100K-79F73B", "VIP-100K-SDNE1Y", "VIP-100K-WP7DEZ", "VIP-100K-X6O7V6", "VIP-100K-KCA940",
-    "VIP-100K-S4CGDS", "VIP-100K-WR9TQK", "VIP-100K-SAZ4FV", "VIP-100K-VYGUF6", "VIP-100K-J2YF8J",
-    "VIP-100K-V80VO7", "VIP-100K-4LZ3WK", "VIP-100K-BPWDA3", "VIP-100K-DVEJU2", "VIP-100K-LNN6GP",
-    "VIP-100K-9OXZ5A", "VIP-100K-ML0U85", "VIP-100K-43T1OR", "VIP-100K-K3KU5C", "VIP-100K-K3EUHY",
-    "VIP-100K-JMXPI4", "VIP-100K-36EE0T", "VIP-100K-N9WEUO", "VIP-100K-ABSR6Y", "VIP-100K-OSVSFN",
-    "VIP-100K-533N5W", "VIP-100K-XD0LQD", "VIP-100K-XPQTYG", "VIP-100K-GU5ACF", "VIP-100K-MIX8PG",
-    "VIP-100K-5ZIO0R", "VIP-100K-KUHMJH", "VIP-100K-V4DIH2", "VIP-100K-BL8NX5", "VIP-100K-950PEU",
-    "VIP-100K-OJMR4B", "VIP-100K-R1T8QZ", "VIP-100K-J09I6K", "VIP-100K-TEBH1U", "VIP-100K-DMSOAA",
-    "VIP-100K-978MT0", "VIP-100K-STVXH3", "VIP-100K-AMXLSY", "VIP-100K-FY0OTH", "VIP-100K-C5AXOK",
-    "VIP-100K-QCXTB8", "VIP-100K-U90VNT", "VIP-100K-CIAGJJ", "VIP-100K-FPY18R", "VIP-100K-PC4Q5A",
-    "VIP-100K-RVR35B", "VIP-100K-K49IT0", "VIP-100K-V7WRNW", "VIP-100K-DOQ4JZ", "VIP-100K-6DIF7W",
-    "VIP-100K-UYHXEP", "VIP-100K-7CJKKM", "VIP-100K-GXJC8A", "VIP-100K-S7SAAH", "VIP-100K-BIM7C7",
-    "VIP-100K-95CC3M", "VIP-100K-KRGVVJ", "VIP-100K-OLZQ0L", "VIP-100K-PGD9DL", "VIP-100K-DKE0D0",
-    "VIP-100K-0RMRJX", "VIP-100K-XTKFEB", "VIP-100K-517RCH", "VIP-100K-OH8MBA", "VIP-100K-CZAWKW",
-    "VIP-100K-4SAPSY", "VIP-100K-1LWK3W", "VIP-100K-77XTLA", "VIP-100K-V3QZS4", "VIP-100K-O1C6HT",
-    "VIP-100K-TWU7M8", "VIP-100K-GLC20C", "VIP-100K-YVUB8M", "VIP-100K-9S1Y8M", "VIP-100K-0Q7MIP",
-    "VIP-100K-CLJQH5", "VIP-100K-KQJPO0", "VIP-100K-9P4AV3", "VIP-100K-1CVAHB", "VIP-100K-NTNXMZ",
-    "VIP-100K-KYUOZ8", "VIP-100K-NGCMA2", "VIP-100K-S55FFI", "VIP-100K-9BXX1L", "VIP-100K-OXS2AL",
-    "VIP-100K-MLVWA8", "VIP-100K-XNON2C", "VIP-100K-BILNTY", "VIP-100K-XLZ7W5", "VIP-100K-S8BZAJ",
-    "VIP-100K-8S5PLN", "VIP-100K-YD94N4", "VIP-100K-4KAH1U", "VIP-100K-JKZASF", "VIP-100K-Y1U3P8",
-    "VIP-100K-3WVKT9", "VIP-100K-NBQMZB", "VIP-100K-WNG2CM", "VIP-100K-B4SF3A", "VIP-100K-79YPC1",
-    "VIP-100K-3KW0D3", "VIP-100K-INZX8C", "VIP-100K-XUGO6U", "VIP-100K-K6XC98", "VIP-100K-GGF4TS",
-    "VIP-100K-TP4G1B", "VIP-100K-8NHUFR", "VIP-100K-B9FVUC", "VIP-100K-63OHTW", "VIP-100K-8T6QBD",
-    "VIP-100K-W377CF", "VIP-100K-BPYN6R", "VIP-100K-2T4BAC", "VIP-100K-XKFLK4", "VIP-100K-CIJLY7",
+    "VIP-100K-3ZC2NI", "VIP-100K-IQ33L7", "VIP-100K-UAQM8Y", "VIP-100K-008LX8", "VIP-100K-FOLYMG"
+  ],,
+  200000: [
+    "VIP-200K-Y3R5PNRT", "VIP-200K-BISX2CVY", "VIP-200K-WGLMVWIN", "VIP-200K-OHOY8D2Z", "VIP-200K-T72XKAHH",
+    "VIP-200K-8FX9ZU0D", "VIP-200K-7DH1VIES", "VIP-200K-EHY14R7F", "VIP-200K-1UD64MK5", "VIP-200K-K09BN1HS",
+    "VIP-200K-E2TAWMJ2", "VIP-200K-SYXV7KU4", "VIP-200K-ZN6ADHI4", "VIP-200K-FA9NWOCQ", "VIP-200K-QGLD7CD7",
+    "VIP-200K-3526BL0K", "VIP-200K-8IJC4UBR", "VIP-200K-K2WRXC88", "VIP-200K-4LRWJ4X3", "VIP-200K-OWEME6SC",
+    "VIP-200K-WPYHB8QK", "VIP-200K-8WKZZ1OZ", "VIP-200K-ZWVU6UX6", "VIP-200K-QY6L0G2Y", "VIP-200K-ES1OXD5B",
+    "VIP-200K-Q1R7B370", "VIP-200K-GY42FMJ1", "VIP-200K-3287JLK6", "VIP-200K-T7I3M1BU", "VIP-200K-RD0B2V22",
+    "VIP-200K-EGS4W54U", "VIP-200K-V8MP6S90", "VIP-200K-LR2G1OZ1", "VIP-200K-WM4XACCC", "VIP-200K-ED9BTRP8",
+    "VIP-200K-3ISX997O", "VIP-200K-TKUVO6EQ", "VIP-200K-SGJ5L3NQ", "VIP-200K-HPPNS2M1", "VIP-200K-1VVFGV0K",
+    "VIP-200K-MCUQKI8T", "VIP-200K-3N71LP9C", "VIP-200K-LKWJ9CNW", "VIP-200K-6E46SF6E", "VIP-200K-QGS309KW",
+    "VIP-200K-DAAXCLOX", "VIP-200K-R2WU4LX5", "VIP-200K-4E8RWCTT", "VIP-200K-N1LR8DWL", "VIP-200K-OOF09DL5",
+    "VIP-200K-GU8A2ZLA", "VIP-200K-QR8B113J", "VIP-200K-657BJ76M", "VIP-200K-26VBXY4O", "VIP-200K-ZLBDUXES",
+    "VIP-200K-52BHKMWR", "VIP-200K-A02EZKED", "VIP-200K-LWPBEXTK", "VIP-200K-8FS10NGL", "VIP-200K-E7XQK0TR",
+    "VIP-200K-TL53MUB5", "VIP-200K-ZEK90P4L", "VIP-200K-2ZSUX741", "VIP-200K-OGPSP88L", "VIP-200K-7ZEQS7BO",
+    "VIP-200K-F5JJW4V3", "VIP-200K-WBZM7K4K", "VIP-200K-G92QE62T", "VIP-200K-OA8I2D9T", "VIP-200K-5JN128NO",
+    "VIP-200K-XR842B17", "VIP-200K-IRIRXVAU", "VIP-200K-YN5VLNAV", "VIP-200K-EE09TXY9", "VIP-200K-X826FCRH",
+    "VIP-200K-0W3VFCUL", "VIP-200K-I7TQGR3O", "VIP-200K-MYX7N7DS", "VIP-200K-D8YRHY6J", "VIP-200K-Z05TAUQ1",
+    "VIP-200K-JIF4GAZU", "VIP-200K-ZMQF7SZ2", "VIP-200K-7NLZCJ3Z", "VIP-200K-WEBJEW9K", "VIP-200K-K80EDDAM",
+    "VIP-200K-XIYWAVFS", "VIP-200K-N80S7YSU", "VIP-200K-IJP88BIR", "VIP-200K-Q5NPY845", "VIP-200K-LPXOXHTW",
+    "VIP-200K-O0LW6GF1", "VIP-200K-BIZF9RZB", "VIP-200K-TYFWFGYB", "VIP-200K-OASCIZQP", "VIP-200K-B9AULAA6",
+    "VIP-200K-7MEEVSWK", "VIP-200K-PJAQJS0T", "VIP-200K-RRRYRGRG", "VIP-200K-UN6O2M71", "VIP-200K-65U2DOSQ"
   ],
+  500000: [
+    "VIP-500K-NG5MSS8M", "VIP-500K-S68WFXMR", "VIP-500K-JVHHODQM", "VIP-500K-41B89ZAT", "VIP-500K-ADFG9GTS",
+    "VIP-500K-A4W6K4VD", "VIP-500K-M78OZGZ0", "VIP-500K-260Z63B4", "VIP-500K-FACLX1AF", "VIP-500K-138D8V0D",
+    "VIP-500K-F4C9B7IA", "VIP-500K-OCL2AZL6", "VIP-500K-3C7UP3Q4", "VIP-500K-02MAO0OG", "VIP-500K-13KCI4WW",
+    "VIP-500K-LS7V0IPG", "VIP-500K-9E814VNO", "VIP-500K-U7D025YC", "VIP-500K-KWQWIJDM", "VIP-500K-Z3MWUPA4",
+    "VIP-500K-5510N0VI", "VIP-500K-5AF81JQW", "VIP-500K-TQU5F49F", "VIP-500K-DW6JIVWV", "VIP-500K-QWLI6141",
+    "VIP-500K-3G7D0PVN", "VIP-500K-1NO689W3", "VIP-500K-HC6V2CLL", "VIP-500K-AUFLHHJJ", "VIP-500K-XSHR7JAT",
+    "VIP-500K-5IGFV3GY", "VIP-500K-2RDN9B0U", "VIP-500K-3M9DWE57", "VIP-500K-5B6GVOT9", "VIP-500K-R5TTNW41",
+    "VIP-500K-UWOMJBAD", "VIP-500K-ZIP43DXL", "VIP-500K-8K5MXI5V", "VIP-500K-QQUXTAN8", "VIP-500K-QPSH4DAX",
+    "VIP-500K-CQ0CIGE7", "VIP-500K-37D6ZS1F", "VIP-500K-A5DXQV6Z", "VIP-500K-28DLBF6R", "VIP-500K-YUB0AV09",
+    "VIP-500K-VNIQFGT9", "VIP-500K-MXMSFNIM", "VIP-500K-3CAUMA5Y", "VIP-500K-4JTDTFES", "VIP-500K-DKF78OKF",
+    "VIP-500K-CWH04T8H", "VIP-500K-HTX0Q1WT", "VIP-500K-01H6BZDY", "VIP-500K-F7OS014S", "VIP-500K-53RE9CNF",
+    "VIP-500K-J2WFAQ76", "VIP-500K-PNO8STVJ", "VIP-500K-JJE19YIC", "VIP-500K-4JDWHVUI", "VIP-500K-DS59BYTZ",
+    "VIP-500K-M1JR33BU", "VIP-500K-N28NKNJ0", "VIP-500K-FQMBNFAT", "VIP-500K-6523K0TT", "VIP-500K-09PUIGQH",
+    "VIP-500K-PDJ2SVX9", "VIP-500K-KL1H2DF2", "VIP-500K-V6KIF95S", "VIP-500K-HP2AOCNU", "VIP-500K-PERNP6W3",
+    "VIP-500K-FENZOWZ2", "VIP-500K-I0ROYIEL", "VIP-500K-RE3H7SJZ", "VIP-500K-KDA52857", "VIP-500K-8QO1B38M",
+    "VIP-500K-9BHMGVCF", "VIP-500K-XH3ZC8NC", "VIP-500K-8WXO18L2", "VIP-500K-LL1SY4ZR", "VIP-500K-4NS2PEV2",
+    "VIP-500K-44KIALEV", "VIP-500K-QCY0IZL1", "VIP-500K-FE858ZSJ", "VIP-500K-6HL7WVKD", "VIP-500K-TCVKOZKU",
+    "VIP-500K-MH5TLCGL", "VIP-500K-W4IKK2R9", "VIP-500K-GC2FMQ0B", "VIP-500K-X41HO2CP", "VIP-500K-YVY1DQYF",
+    "VIP-500K-WGHEWH8Z", "VIP-500K-O0MMG8VO", "VIP-500K-Q05MXMIS", "VIP-500K-4XRMD01P", "VIP-500K-LZWXHT11",
+    "VIP-500K-48RGXW81", "VIP-500K-CSUR9IAK", "VIP-500K-63GA08Q5", "VIP-500K-2ZZ36PWY", "VIP-500K-EROBT0NI"
+  ],
+  1000000: [
+    "VIP-1M-LXIVA8DR", "VIP-1M-NQV8577B", "VIP-1M-IPGSIOYA", "VIP-1M-6Z3EHOPQ", "VIP-1M-GPGYXDD4",
+    "VIP-1M-S36OTKDU", "VIP-1M-ARVKLOHW", "VIP-1M-IKCX32BZ", "VIP-1M-PBE673KK", "VIP-1M-GH8B92HU",
+      "VIP-1M-9TRW7EI3", "VIP-1M-JVJ2I6PA", "VIP-1M-9X7WDMDH", "VIP-1M-8BYPIAEB", "VIP-1M-YJ07TH2M",
+    "VIP-1M-B042FSB3", "VIP-1M-B6638FU7", "VIP-1M-FK3F3PKB", "VIP-1M-2NZ0BZHT", "VIP-1M-PXOZTP3R",
+    "VIP-1M-CGDEGL6J", "VIP-1M-89A3RLX1", "VIP-1M-LDZF2QB0", "VIP-1M-9FQ4SGD5", "VIP-1M-ML37Y3BL",
+    "VIP-1M-ZCXVJDPB", "VIP-1M-6RNV4G83", "VIP-1M-20248101", "VIP-1M-IDTG89DH", "VIP-1M-YYRXKVYB",
+    "VIP-1M-UHL1KJG1", "VIP-1M-L8PA1RH7", "VIP-1M-I9LDJ2PT", "VIP-1M-V7S90T0A", "VIP-1M-CO8084GS",
+    "VIP-1M-Y4P7UN8J", "VIP-1M-7T3W32NS", "VIP-1M-BIX2A0TA", "VIP-1M-VPYK79X6", "VIP-1M-PN1ANZWX",
+    "VIP-1M-CP2R165X", "VIP-1M-M5C7RMHY", "VIP-1M-T35XO1CJ", "VIP-1M-DFR6K7NC", "VIP-1M-SDLI0BS1",
+    "VIP-1M-QE9A2KTT", "VIP-1M-NSUSMQAX", "VIP-1M-3LTW6UFF", "VIP-1M-YEWCZUK6", "VIP-1M-4SM5BDIE",
+    "VIP-1M-ELJU0QO7", "VIP-1M-Z3AMRZFG", "VIP-1M-EI2X60ZT", "VIP-1M-BJQI1ZJQ", "VIP-1M-SRGCRPKM",
+    "VIP-1M-1I4C9WUB", "VIP-1M-RB3BM2GI", "VIP-1M-TN56GNNV", "VIP-1M-070ZX3B5", "VIP-1M-QWW47EVW",
+    "VIP-1M-C1BMT77Y", "VIP-1M-3Z303PE3", "VIP-1M-LDDMGUGV", "VIP-1M-A9HWBQ3U", "VIP-1M-IDQMWAEE",
+    "VIP-1M-6K6DR8QO", "VIP-1M-GV0NRIDV", "VIP-1M-W7NLVIEG", "VIP-1M-54QMNQAG", "VIP-1M-VOQR14H9",
+    "VIP-1M-31N7KVWX", "VIP-1M-9BP0HBD9", "VIP-1M-C2081NCT", "VIP-1M-ZYZU8TF0", "VIP-1M-LVGVXTBG",
+    "VIP-1M-L42S2J2Z", "VIP-1M-MJFO6PB6", "VIP-1M-UII2P8K8", "VIP-1M-VGZ8CWQW", "VIP-1M-5LZWR5B5",
+    "VIP-1M-69V4QTSA", "VIP-1M-69EYLB6O", "VIP-1M-RDA4T257", "VIP-1M-LLYBLAKQ", "VIP-1M-TA3SE80F",
+    "VIP-1M-OBRPB4DM", "VIP-1M-HOQERQGU", "VIP-1M-01RY51WH", "VIP-1M-AWYHX910", "VIP-1M-1NYGF1LI",
+    "VIP-1M-XIE48PYC", "VIP-1M-IRHFPRE2", "VIP-1M-ION3QI1Z", "VIP-1M-AE9YYOHE", "VIP-1M-6NK0YBK8",
+    "VIP-1M-RJ57OBSC", "VIP-1M-LBLM7WJ7", "VIP-1M-CFNGGIRN", "VIP-1M-5LSSGFD5", "VIP-1M-CANBHMIY"
+  ]
 };
 
 // 🚫 AQUÍ SE GUARDAN LOS CÓDIGOS QUE YA SE GASTARON (NADIE LOS VUELVE A USAR)
@@ -2007,7 +1294,7 @@ function actualizarMenu(){
   const botonAdmin   = document.getElementById("btn-admin");
   if(datos.admin){
     etiquetaVip.style.display = "inline";
-      botonAdmin.style.display   = "block";
+    botonAdmin.style.display   = "block";
   } else {
     etiquetaVip.style.display = "none";
     botonAdmin.style.display   = "none";
@@ -2042,7 +1329,7 @@ function actualizarTienda(){
     fila.innerHTML = `
       <span class="monto">+${monto}⭐</span>
       <span style="color:${agotado ? '#64748b' : '#a78bfa'};font-weight:700;font-size:13px">
-        ${agotado ? "❌ AGOTADOS" : `Canjear código → (${disponibles}/300 disponibles)`}
+        ${agotado ? "❌ AGOTADOS" : `Canjear código → (${disponibles}/100 disponibles)`}
       </span>
     `;
     if(!agotado) fila.onclick = () => abrirCanje(monto);
@@ -2068,7 +1355,7 @@ function abrirCanje(monto){
   if(codigoCorrecto){
     CODIGOS_USADOS.push(codigoCorrecto);
     localStorage.setItem("codigos_usados_vip", JSON.stringify(CODIGOS_USADOS));
-
+  
     ESTUDIANTES[actual.nombre].saldo += monto;
     if(actual.nombre !== "Jorge") localStorage.setItem("saldo_" + actual.nombre, ESTUDIANTES[actual.nombre].saldo);
 
@@ -2100,18 +1387,16 @@ function comprar(materia, costo){
   document.getElementById("comprar-saldo").textContent = ESTUDIANTES[actual.nombre].saldo + "⭐";
 
   // 3 — OCULTAR TODAS LAS TAREAS PRIMERO
-  ["tarea-espanol","tarea-tecnologia","tarea-geometria","tarea-biologia","tarea-ingles"].forEach(id => {
+  ["tarea-tecnologia","tarea-geometria","tarea-educacion-fisica"].forEach(id => {
     document.getElementById(id).style.display = "none";
   });
 
   // 4 — MOSTRAR SOLO LA TAREA QUE COMPRÓ
   let idMostrar = "";
-  const materiaLimpia = materia.toLowerCase().replace(/ó/g,"o").replace(/í/g,"i");
-  if(materiaLimpia === "espanol" || materiaLimpia === "español") idMostrar = "tarea-espanol";
+  const materiaLimpia = materia.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   if(materiaLimpia === "tecnologia" || materiaLimpia === "tecnología") idMostrar = "tarea-tecnologia";
   if(materiaLimpia === "geometria" || materiaLimpia === "geometría") idMostrar = "tarea-geometria";
-  if(materiaLimpia === "biologia" || materiaLimpia === "biología") idMostrar = "tarea-biologia";
-  if(materiaLimpia === "ingles" || materiaLimpia === "inglés") idMostrar = "tarea-ingles";
+  if(materiaLimpia === "educacion fisica") idMostrar = "tarea-educacion-fisica";
 
   if(idMostrar) document.getElementById(idMostrar).style.display = "block";
 
@@ -2142,7 +1427,7 @@ function cargarAdmin(){
     cajaPass.appendChild(fila);
   });
 
-  // 💎 MOSTRAR LOS 4.500 CÓDIGOS AGRUPADOS POR RECOMPENSA
+  // 💎 MOSTRAR LOS 1.800 CÓDIGOS AGRUPADOS POR RECOMPENSA
   const cajaCod = document.getElementById("admin-codigos");
   cajaCod.innerHTML = "";
   MONTOS_CANJE.forEach(m => {
@@ -2151,7 +1436,7 @@ function cargarAdmin(){
     const disponibles = CODIGOS_ESTRELLAS[m].filter(c => !CODIGOS_USADOS.includes(c)).length;
     const resumen = document.createElement("summary");
     resumen.style.cssText = "cursor:pointer;color:#fbbf24;font-weight:700";
-    resumen.textContent = `+${m}⭐ — ${disponibles}/300 disponibles`;
+    resumen.textContent = `+${m}⭐ — ${disponibles}/100 disponibles`;
     grupo.appendChild(resumen);
 
     const lista = document.createElement("div");
